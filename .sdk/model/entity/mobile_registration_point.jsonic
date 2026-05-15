@@ -1,0 +1,104 @@
+# Entity: mobile_registration_point
+
+main: kit: entity: mobile_registration_point: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "district"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "latitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "location"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "location_en"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "location_zh"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "longitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name_en"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name_zh"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "region"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "remark"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "schedule"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "mobile_registration_point"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/open_data/iam_smart/mobile-registration-points"
+          parts: [
+            "open_data"
+            "iam_smart"
+            "mobile-registration-points"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

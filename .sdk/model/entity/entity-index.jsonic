@@ -1,0 +1,5 @@
+# Entity Models
+
+@"mobile_registration_point.jsonic"
+@"registration_service_counter.jsonic"
+@"self_registration_kiosk.jsonic"

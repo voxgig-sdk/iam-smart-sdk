@@ -1,0 +1,26 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: mobile_registration_point: {
+    path: "/open_data/iam_smart/mobile-registration-points": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: registration_service_counter: {
+    path: "/open_data/iam_smart/registration-service-counters": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: self_registration_kiosk: {
+    path: "/open_data/iam_smart/self-registration-kiosks": {
+      op: list: method: *GET
+    }
+  }
+
+}

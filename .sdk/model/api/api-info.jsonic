@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "enquiry@digitalpolicy.gov.hk"
+        name: "Digital Policy Office"
+        url: "https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations"
+      }
+      description: "The iAM Smart API provides information about registration locations for the iAM Smart service, which facilitates digital identity verification in Hong Kong. It delivers data regarding service counters, mobile registration points, and self-registration kiosks for users."
+      license: {
+        name: "Terms and Conditions"
+        url: "https://data.gov.hk/en/terms-and-conditions"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.digitalpolicy.gov.hk"
+        }
+      ]
+      title: "iAM Smart API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

@@ -1,0 +1,114 @@
+# Entity: self_registration_kiosk
+
+main: kit: entity: self_registration_kiosk: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "address"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "address_en"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "address_zh"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "availability"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "district"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "floor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "latitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "longitude"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name_en"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name_zh"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "operating_hour"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "region"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "remark"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "self_registration_kiosk"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/open_data/iam_smart/self-registration-kiosks"
+          parts: [
+            "open_data"
+            "iam_smart"
+            "self-registration-kiosks"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,22 @@
+# BasicSelfRegistrationKioskFlow
+
+main: kit: flow: BasicSelfRegistrationKioskFlow:
+{
+  entity: "self_registration_kiosk",
+  kind: "basic",
+  name: "BasicSelfRegistrationKioskFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "self_registration_kiosk_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSelfRegistrationKioskFlow"
+}

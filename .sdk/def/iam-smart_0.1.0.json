@@ -1,0 +1,403 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "iAM Smart API",
+    "description": "The iAM Smart API provides information about registration locations for the iAM Smart service, which facilitates digital identity verification in Hong Kong. It delivers data regarding service counters, mobile registration points, and self-registration kiosks for users.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Digital Policy Office",
+      "email": "enquiry@digitalpolicy.gov.hk",
+      "url": "https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations"
+    },
+    "license": {
+      "name": "Terms and Conditions",
+      "url": "https://data.gov.hk/en/terms-and-conditions"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.digitalpolicy.gov.hk",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/open_data/iam_smart/registration-service-counters": {
+      "get": {
+        "summary": "Get Registration Service Counters",
+        "description": "Returns information about iAM Smart registration service counters in Hong Kong",
+        "operationId": "getRegistrationServiceCounters",
+        "tags": [
+          "Registration Locations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response containing registration service counter locations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegistrationServiceCounter"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/open_data/iam_smart/mobile-registration-points": {
+      "get": {
+        "summary": "Get Mobile Registration Points",
+        "description": "Returns information about iAM Smart mobile registration points in Hong Kong",
+        "operationId": "getMobileRegistrationPoints",
+        "tags": [
+          "Registration Locations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response containing mobile registration point locations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MobileRegistrationPoint"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/open_data/iam_smart/self-registration-kiosks": {
+      "get": {
+        "summary": "Get Self-Registration Kiosks",
+        "description": "Returns information about iAM Smart self-registration kiosks in Hong Kong",
+        "operationId": "getSelfRegistrationKiosks",
+        "tags": [
+          "Registration Locations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response containing self-registration kiosk locations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SelfRegistrationKiosk"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegistrationServiceCounter": {
+        "type": "object",
+        "description": "Information about a registration service counter location",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the service counter"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the service counter location"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "English name of the service counter location"
+          },
+          "nameZh": {
+            "type": "string",
+            "description": "Chinese name of the service counter location"
+          },
+          "address": {
+            "type": "string",
+            "description": "Full address of the service counter"
+          },
+          "addressEn": {
+            "type": "string",
+            "description": "English address of the service counter"
+          },
+          "addressZh": {
+            "type": "string",
+            "description": "Chinese address of the service counter"
+          },
+          "district": {
+            "type": "string",
+            "description": "District where the service counter is located"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region (Hong Kong Island, Kowloon, New Territories)",
+            "enum": [
+              "Hong Kong Island",
+              "Kowloon",
+              "New Territories"
+            ]
+          },
+          "operatingHours": {
+            "type": "string",
+            "description": "Operating hours of the service counter"
+          },
+          "telephone": {
+            "type": "string",
+            "description": "Contact telephone number"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude coordinate"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude coordinate"
+          },
+          "services": {
+            "type": "array",
+            "description": "List of services available at this counter",
+            "items": {
+              "type": "string"
+            }
+          },
+          "remarks": {
+            "type": "string",
+            "description": "Additional remarks or notes"
+          }
+        }
+      },
+      "MobileRegistrationPoint": {
+        "type": "object",
+        "description": "Information about a mobile registration point location",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the mobile registration point"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the mobile registration point location"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "English name of the mobile registration point"
+          },
+          "nameZh": {
+            "type": "string",
+            "description": "Chinese name of the mobile registration point"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location description of the mobile point"
+          },
+          "locationEn": {
+            "type": "string",
+            "description": "English location description"
+          },
+          "locationZh": {
+            "type": "string",
+            "description": "Chinese location description"
+          },
+          "district": {
+            "type": "string",
+            "description": "District where the mobile point operates"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region (Hong Kong Island, Kowloon, New Territories)",
+            "enum": [
+              "Hong Kong Island",
+              "Kowloon",
+              "New Territories"
+            ]
+          },
+          "schedule": {
+            "type": "array",
+            "description": "Schedule of mobile registration point visits",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Date of service"
+                },
+                "startTime": {
+                  "type": "string",
+                  "description": "Start time of service"
+                },
+                "endTime": {
+                  "type": "string",
+                  "description": "End time of service"
+                }
+              }
+            }
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude coordinate"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude coordinate"
+          },
+          "remarks": {
+            "type": "string",
+            "description": "Additional remarks or notes"
+          }
+        }
+      },
+      "SelfRegistrationKiosk": {
+        "type": "object",
+        "description": "Information about a self-registration kiosk location",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the kiosk"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the kiosk location"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "English name of the kiosk location"
+          },
+          "nameZh": {
+            "type": "string",
+            "description": "Chinese name of the kiosk location"
+          },
+          "address": {
+            "type": "string",
+            "description": "Full address of the kiosk"
+          },
+          "addressEn": {
+            "type": "string",
+            "description": "English address of the kiosk"
+          },
+          "addressZh": {
+            "type": "string",
+            "description": "Chinese address of the kiosk"
+          },
+          "district": {
+            "type": "string",
+            "description": "District where the kiosk is located"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region (Hong Kong Island, Kowloon, New Territories)",
+            "enum": [
+              "Hong Kong Island",
+              "Kowloon",
+              "New Territories"
+            ]
+          },
+          "operatingHours": {
+            "type": "string",
+            "description": "Operating hours of the kiosk"
+          },
+          "availability": {
+            "type": "string",
+            "description": "Availability status of the kiosk",
+            "enum": [
+              "Available",
+              "Temporarily Unavailable",
+              "Under Maintenance"
+            ]
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude coordinate"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude coordinate"
+          },
+          "floor": {
+            "type": "string",
+            "description": "Floor level where kiosk is located"
+          },
+          "remarks": {
+            "type": "string",
+            "description": "Additional remarks or notes"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          },
+          "details": {
+            "type": "string",
+            "description": "Additional error details"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Registration Locations",
+      "description": "Endpoints for retrieving iAM Smart registration location information"
+    }
+  ],
+  "externalDocs": {
+    "description": "Data Dictionary and Full Documentation",
+    "url": "https://www.digitalpolicy.gov.hk/open_data/iam_smart/iAM-Smart-Registration-data-dictionary-en.pdf"
+  }
+}

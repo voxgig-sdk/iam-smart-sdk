@@ -1,0 +1,22 @@
+# BasicMobileRegistrationPointFlow
+
+main: kit: flow: BasicMobileRegistrationPointFlow:
+{
+  entity: "mobile_registration_point",
+  kind: "basic",
+  name: "BasicMobileRegistrationPointFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "mobile_registration_point_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMobileRegistrationPointFlow"
+}

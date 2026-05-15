@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "mobile_registration_point": {
+      "MOBILE_REGISTRATION_POINT00": {
+        "district": "s82",
+        "id": "MOBILE_REGISTRATION_POINT00",
+        "latitude": 132,
+        "location": "s85",
+        "location_en": "s86",
+        "location_zh": "s87",
+        "longitude": 136,
+        "name": "s89",
+        "name_en": "s8a",
+        "name_zh": "s8b",
+        "region": "s8c",
+        "remark": "s8d",
+        "schedule": []
+      },
+      "MOBILE_REGISTRATION_POINT01": {
+        "district": "s104",
+        "id": "MOBILE_REGISTRATION_POINT01",
+        "latitude": 262,
+        "location": "s107",
+        "location_en": "s108",
+        "location_zh": "s109",
+        "longitude": 266,
+        "name": "s10b",
+        "name_en": "s10c",
+        "name_zh": "s10d",
+        "region": "s10e",
+        "remark": "s10f",
+        "schedule": []
+      },
+      "MOBILE_REGISTRATION_POINT02": {
+        "district": "s186",
+        "id": "MOBILE_REGISTRATION_POINT02",
+        "latitude": 392,
+        "location": "s189",
+        "location_en": "s18a",
+        "location_zh": "s18b",
+        "longitude": 396,
+        "name": "s18d",
+        "name_en": "s18e",
+        "name_zh": "s18f",
+        "region": "s190",
+        "remark": "s191",
+        "schedule": []
+      }
+    }
+  },
+  "new": {
+    "mobile_registration_point": {
+      "mobile_registration_point_ref01": {
+        "district": "s208",
+        "latitude": 522,
+        "location": "s20b",
+        "location_en": "s20c",
+        "location_zh": "s20d",
+        "longitude": 526,
+        "name": "s20f",
+        "name_en": "s210",
+        "name_zh": "s211",
+        "region": "s212",
+        "remark": "s213",
+        "schedule": []
+      }
+    }
+  }
+}

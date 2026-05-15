@@ -1,0 +1,22 @@
+# BasicRegistrationServiceCounterFlow
+
+main: kit: flow: BasicRegistrationServiceCounterFlow:
+{
+  entity: "registration_service_counter",
+  kind: "basic",
+  name: "BasicRegistrationServiceCounterFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "registration_service_counter_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRegistrationServiceCounterFlow"
+}

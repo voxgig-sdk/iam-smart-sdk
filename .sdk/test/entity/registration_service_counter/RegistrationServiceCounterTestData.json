@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "registration_service_counter": {
+      "REGISTRATION_SERVICE_COUNTER00": {
+        "address": "s96",
+        "address_en": "s97",
+        "address_zh": "s98",
+        "district": "s99",
+        "id": "REGISTRATION_SERVICE_COUNTER00",
+        "latitude": 155,
+        "longitude": 156,
+        "name": "s9d",
+        "name_en": "s9e",
+        "name_zh": "s9f",
+        "operating_hour": "sa0",
+        "region": "sa1",
+        "remark": "sa2",
+        "service": [],
+        "telephone": "sa4"
+      },
+      "REGISTRATION_SERVICE_COUNTER01": {
+        "address": "s12c",
+        "address_en": "s12d",
+        "address_zh": "s12e",
+        "district": "s12f",
+        "id": "REGISTRATION_SERVICE_COUNTER01",
+        "latitude": 305,
+        "longitude": 306,
+        "name": "s133",
+        "name_en": "s134",
+        "name_zh": "s135",
+        "operating_hour": "s136",
+        "region": "s137",
+        "remark": "s138",
+        "service": [],
+        "telephone": "s13a"
+      },
+      "REGISTRATION_SERVICE_COUNTER02": {
+        "address": "s1c2",
+        "address_en": "s1c3",
+        "address_zh": "s1c4",
+        "district": "s1c5",
+        "id": "REGISTRATION_SERVICE_COUNTER02",
+        "latitude": 455,
+        "longitude": 456,
+        "name": "s1c9",
+        "name_en": "s1ca",
+        "name_zh": "s1cb",
+        "operating_hour": "s1cc",
+        "region": "s1cd",
+        "remark": "s1ce",
+        "service": [],
+        "telephone": "s1d0"
+      }
+    }
+  },
+  "new": {
+    "registration_service_counter": {
+      "registration_service_counter_ref01": {
+        "address": "s258",
+        "address_en": "s259",
+        "address_zh": "s25a",
+        "district": "s25b",
+        "latitude": 605,
+        "longitude": 606,
+        "name": "s25f",
+        "name_en": "s260",
+        "name_zh": "s261",
+        "operating_hour": "s262",
+        "region": "s263",
+        "remark": "s264",
+        "service": [],
+        "telephone": "s266"
+      }
+    }
+  }
+}
