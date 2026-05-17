@@ -1,10 +1,10 @@
 package voxgigiamsmartsdk
 
 import (
-	"github.com/voxgig-sdk/iam-smart-sdk/core"
-	"github.com/voxgig-sdk/iam-smart-sdk/entity"
-	"github.com/voxgig-sdk/iam-smart-sdk/feature"
-	_ "github.com/voxgig-sdk/iam-smart-sdk/utility"
+	"github.com/voxgig-sdk/iam-smart-sdk/go/core"
+	"github.com/voxgig-sdk/iam-smart-sdk/go/entity"
+	"github.com/voxgig-sdk/iam-smart-sdk/go/feature"
+	_ "github.com/voxgig-sdk/iam-smart-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

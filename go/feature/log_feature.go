@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/iam-smart-sdk/core"
+	"github.com/voxgig-sdk/iam-smart-sdk/go/core"
 )
 
 type LogFeature struct {

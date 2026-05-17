@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/iam-smart-sdk/core"
+	"github.com/voxgig-sdk/iam-smart-sdk/go/core"
 )
 
 type BaseFeature struct {
