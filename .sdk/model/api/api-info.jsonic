@@ -22,8 +22,30 @@ main: {
       ]
       title: "iAM Smart API"
       version: "1.0.0"
+      tagline: "Locate Hong Kong iAM Smart registration service counters, mobile teams, and self-registration kiosks"
+      homepage: "https://www.digitalpolicy.gov.hk"
+      docs_url: "https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations"
+      license_short: "Hong Kong Government open data — see data.gov.hk terms and conditions."
+      license_md: `- Published as open data by the Hong Kong Digital Policy Office (DPO) via data.gov.hk
+- Use is governed by the data.gov.hk Terms and Conditions
+- No explicit attribution requirement is stated on the dataset page; check the data.gov.hk terms before redistribution
+- Dataset is updated "as and when necessary"`
+      about_md: `This SDK wraps the open dataset of "iAM Smart" Registration Locations published by the [Digital Policy Office](https://www.digitalpolicy.gov.hk) of the Hong Kong SAR Government. iAM Smart is Hong Kong's digital identity service, and the dataset lists where the public can register or get help registering for it.
+
+What you get from the API:
+- Registration Service Counters — fixed in-person counters where staff can assist with iAM Smart sign-up
+- Mobile Registration Points — scheduled mobile team visits at community locations
+- Self-Registration Kiosks — unattended kiosks for self-service registration
+
+Data is served as static JSON files hosted under \`digitalpolicy.gov.hk/open_data/iam_smart/\`. The files moved to this domain on 25 Jul 2024; the dataset is also catalogued on [data.gov.hk](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations) where a field-level data dictionary PDF is linked.
+
+Operational notes: no authentication is required, no rate limits are documented, and CORS is not enabled on the JSON endpoints — fetch from a server-side context if you hit browser CORS errors.`
+      entity_desc: {
+        mobile_registration_point: "Scheduled mobile team registration sessions held at community venues across Hong Kong, served from `/open_data/iam_smart/iAM-Smart-RegistrationMobileTeamService.json`."
+        registration_service_counter: "Staffed in-person counters where the public can register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-RegistrationServiceCounter.json`."
+        self_registration_kiosk: "Unattended kiosks that allow members of the public to self-register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-SelfRegistrationKiosk.json`."
+      }
+      auth: false
     }
   }
-}
-
 }

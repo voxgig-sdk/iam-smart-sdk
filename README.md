@@ -1,9 +1,99 @@
 # IamSmart SDK
 
+Locate Hong Kong iAM Smart registration service counters, mobile teams, and self-registration kiosks
 
+> TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-Available for [Golang](go/) and [Go CLI](go-cli/) and [Go MCP server](go-mcp/) and [Lua](lua/) and [PHP](php/) and [Python](py/) and [Ruby](rb/) and [TypeScript](ts/).
+## About iAM Smart API
 
+This SDK wraps the open dataset of "iAM Smart" Registration Locations published by the [Digital Policy Office](https://www.digitalpolicy.gov.hk) of the Hong Kong SAR Government. iAM Smart is Hong Kong's digital identity service, and the dataset lists where the public can register or get help registering for it.
+
+What you get from the API:
+- Registration Service Counters — fixed in-person counters where staff can assist with iAM Smart sign-up
+- Mobile Registration Points — scheduled mobile team visits at community locations
+- Self-Registration Kiosks — unattended kiosks for self-service registration
+
+Data is served as static JSON files hosted under `digitalpolicy.gov.hk/open_data/iam_smart/`. The files moved to this domain on 25 Jul 2024; the dataset is also catalogued on [data.gov.hk](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations) where a field-level data dictionary PDF is linked.
+
+Operational notes: no authentication is required, no rate limits are documented, and CORS is not enabled on the JSON endpoints — fetch from a server-side context if you hit browser CORS errors.
+
+## Try it
+
+**TypeScript**
+```bash
+npm install iam-smart
+```
+
+**Python**
+```bash
+pip install iam-smart-sdk
+```
+
+**PHP**
+```bash
+composer require voxgig/iam-smart-sdk
+```
+
+**Golang**
+```bash
+go get github.com/voxgig-sdk/iam-smart-sdk/go
+```
+
+**Ruby**
+```bash
+gem install iam-smart-sdk
+```
+
+**Lua**
+```bash
+luarocks install iam-smart-sdk
+```
+
+## 30-second quickstart
+
+### TypeScript
+
+```ts
+import { IamSmartSDK } from 'iam-smart'
+
+const client = new IamSmartSDK({})
+
+// List all mobileregistrationpoints
+const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
+```
+
+See the [TypeScript README](ts/README.md) for the
+full guide, or scroll down for the same example in other languages.
+
+## What's in the box
+
+| Surface | Use it for | Path |
+| --- | --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
+| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+
+## Use it from an AI agent (MCP)
+
+The generated MCP server exposes every operation in this SDK as an
+[MCP](https://modelcontextprotocol.io) tool that Claude, Cursor or Cline
+can call directly. Build and register it:
+
+```bash
+cd go-mcp && go build -o iam-smart-mcp .
+```
+
+Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
+
+```json
+{
+  "mcpServers": {
+    "iam-smart": {
+      "command": "/abs/path/to/iam-smart-mcp"
+    }
+  }
+}
+```
 
 ## Entities
 
@@ -11,77 +101,24 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **MobileRegistrationPoint** |  | `/open_data/iam_smart/mobile-registration-points` |
-| **RegistrationServiceCounter** |  | `/open_data/iam_smart/registration-service-counters` |
-| **SelfRegistrationKiosk** |  | `/open_data/iam_smart/self-registration-kiosks` |
+| **MobileRegistrationPoint** | Scheduled mobile team registration sessions held at community venues across Hong Kong, served from `/open_data/iam_smart/iAM-Smart-RegistrationMobileTeamService.json`. | `/open_data/iam_smart/mobile-registration-points` |
+| **RegistrationServiceCounter** | Staffed in-person counters where the public can register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-RegistrationServiceCounter.json`. | `/open_data/iam_smart/registration-service-counters` |
+| **SelfRegistrationKiosk** | Unattended kiosks that allow members of the public to self-register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-SelfRegistrationKiosk.json`. | `/open_data/iam_smart/self-registration-kiosks` |
 
-Each entity supports the following operations where available: **load**, **list**, **create**,
-**update**, and **remove**.
+Each entity supports the following operations where available: **load**,
+**list**, **create**, **update**, and **remove**.
 
+## Quickstart in other languages
 
-## Architecture
+### Python
 
-### Entity-operation model
+```python
+from iamsmart_sdk import IamSmartSDK
 
-Every SDK call follows the same pipeline:
+client = IamSmartSDK({})
 
-1. **Point** — resolve the API endpoint from the operation definition.
-2. **Spec** — build the HTTP specification (URL, method, headers, body).
-3. **Request** — send the HTTP request.
-4. **Response** — receive and parse the response.
-5. **Result** — extract the result data for the caller.
-
-At each stage a feature hook fires (e.g. `PrePoint`, `PreSpec`,
-`PreRequest`), allowing features to inspect or modify the pipeline.
-
-### Features
-
-Features are hook-based middleware that extend SDK behaviour.
-
-| Feature | Purpose |
-| --- | --- |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-
-You can add custom features by passing them in the `extend` option at
-construction time.
-
-### Direct and Prepare
-
-For endpoints not covered by the entity model, use the low-level methods:
-
-- **`direct(fetchargs)`** — build and send an HTTP request in one step.
-- **`prepare(fetchargs)`** — build the request without sending it.
-
-Both accept a map with `path`, `method`, `params`, `query`, `headers`,
-and `body`.
-
-
-## Quick start
-
-### Golang
-
-```go
-import sdk "github.com/voxgig-sdk/iam-smart-sdk/go"
-
-client := sdk.NewIamSmartSDK(map[string]any{
-    "apikey": os.Getenv("IAM-SMART_APIKEY"),
-})
-
-// List all mobileregistrationpoints
-mobileregistrationpoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
-```
-
-### Lua
-
-```lua
-local sdk = require("iam-smart_sdk")
-
-local client = sdk.new({
-  apikey = os.getenv("IAM-SMART_APIKEY"),
-})
-
--- List all mobileregistrationpoints
-local mobileregistrationpoints, err = client:MobileRegistrationPoint(nil):list(nil, nil)
+# List all mobileregistrationpoints
+mobileregistrationpoints, err = client.MobileRegistrationPoint(None).list(None, None)
 ```
 
 ### PHP
@@ -90,26 +127,21 @@ local mobileregistrationpoints, err = client:MobileRegistrationPoint(nil):list(n
 <?php
 require_once 'iamsmart_sdk.php';
 
-$client = new IamSmartSDK([
-    "apikey" => getenv("IAM-SMART_APIKEY"),
-]);
+$client = new IamSmartSDK([]);
 
 // List all mobileregistrationpoints
 [$mobileregistrationpoints, $err] = $client->MobileRegistrationPoint(null)->list(null, null);
 ```
 
-### Python
+### Golang
 
-```python
-import os
-from iamsmart_sdk import IamSmartSDK
+```go
+import sdk "github.com/voxgig-sdk/iam-smart-sdk/go"
 
-client = IamSmartSDK({
-    "apikey": os.environ.get("IAM-SMART_APIKEY"),
-})
+client := sdk.NewIamSmartSDK(map[string]any{})
 
-# List all mobileregistrationpoints
-mobileregistrationpoints, err = client.MobileRegistrationPoint(None).list(None, None)
+// List all mobileregistrationpoints
+mobileregistrationpoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
 ```
 
 ### Ruby
@@ -117,48 +149,42 @@ mobileregistrationpoints, err = client.MobileRegistrationPoint(None).list(None, 
 ```ruby
 require_relative "IamSmart_sdk"
 
-client = IamSmartSDK.new({
-  "apikey" => ENV["IAM-SMART_APIKEY"],
-})
+client = IamSmartSDK.new({})
 
 # List all mobileregistrationpoints
 mobileregistrationpoints, err = client.MobileRegistrationPoint(nil).list(nil, nil)
 ```
 
-### TypeScript
-
-```ts
-import { IamSmartSDK } from 'iam-smart'
-
-const client = new IamSmartSDK({
-  apikey: process.env.IAM-SMART_APIKEY,
-})
-
-// List all mobileregistrationpoints
-const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
-```
-
-
-## Testing
-
-Both SDKs provide a test mode that replaces the HTTP transport with an
-in-memory mock, so tests run without a network connection.
-
-### Golang
-
-```go
-client := sdk.TestSDK(nil, nil)
-result, err := client.MobileRegistrationPoint(nil).Load(
-    map[string]any{"id": "test01"}, nil,
-)
-```
-
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:MobileRegistrationPoint(nil):load(
-  { id = "test01" }, nil
+local sdk = require("iam-smart_sdk")
+
+local client = sdk.new({})
+
+-- List all mobileregistrationpoints
+local mobileregistrationpoints, err = client:MobileRegistrationPoint(nil):list(nil, nil)
+```
+
+## Unit testing in offline mode
+
+Every SDK ships a test mode that swaps the HTTP transport for an
+in-memory mock, so unit tests run offline.
+
+### TypeScript
+
+```ts
+const client = IamSmartSDK.test()
+const result = await client.MobileRegistrationPoint().load({ id: 'test01' })
+// result.ok === true, result.data contains mock data
+```
+
+### Python
+
+```python
+client = IamSmartSDK.test(None, None)
+result, err = client.MobileRegistrationPoint(None).load(
+    {"id": "test01"}, None
 )
 ```
 
@@ -171,12 +197,12 @@ $client = IamSmartSDK::test(null, null);
 );
 ```
 
-### Python
+### Golang
 
-```python
-client = IamSmartSDK.test(None, None)
-result, err = client.MobileRegistrationPoint(None).load(
-    {"id": "test01"}, None
+```go
+client := sdk.TestSDK(nil, nil)
+result, err := client.MobileRegistrationPoint(nil).Load(
+    map[string]any{"id": "test01"}, nil,
 )
 ```
 
@@ -189,14 +215,46 @@ result, err = client.MobileRegistrationPoint(nil).load(
 )
 ```
 
-### TypeScript
+### Lua
 
-```ts
-const client = IamSmartSDK.test()
-const result = await client.MobileRegistrationPoint().load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+```lua
+local client = sdk.test(nil, nil)
+local result, err = client:MobileRegistrationPoint(nil):load(
+  { id = "test01" }, nil
+)
 ```
 
+## How it works
+
+Every SDK call runs the same five-stage pipeline:
+
+1. **Point** — resolve the API endpoint from the operation definition.
+2. **Spec** — build the HTTP specification (URL, method, headers, body).
+3. **Request** — send the HTTP request.
+4. **Response** — receive and parse the response.
+5. **Result** — extract the result data for the caller.
+
+A feature hook fires at each stage (e.g. `PrePoint`, `PreSpec`,
+`PreRequest`), so features can inspect or modify the pipeline without
+forking the SDK.
+
+### Features
+
+| Feature | Purpose |
+| --- | --- |
+| **TestFeature** | In-memory mock transport for testing without a live server |
+
+Pass custom features via the `extend` option at construction time.
+
+### Direct and Prepare
+
+For endpoints the entity model doesn't cover, use the low-level methods:
+
+- **`direct(fetchargs)`** — build and send an HTTP request in one step.
+- **`prepare(fetchargs)`** — build the request without sending it.
+
+Both accept a map with `path`, `method`, `params`, `query`,
+`headers`, and `body`. See the [How-to guides](#how-to-guides) below.
 
 ## How-to guides
 
@@ -204,21 +262,22 @@ const result = await client.MobileRegistrationPoint().load({ id: 'test01' })
 
 When the entity interface does not cover an endpoint, use `direct`:
 
-**Go:**
-```go
-result, err := client.Direct(map[string]any{
-    "path":   "/api/resource/{id}",
-    "method": "GET",
-    "params": map[string]any{"id": "example"},
+**TypeScript:**
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example' },
 })
+console.log(result.data)
 ```
 
-**Lua:**
-```lua
-local result, err = client:direct({
-  path = "/api/resource/{id}",
-  method = "GET",
-  params = { id = "example" },
+**Python:**
+```python
+result, err = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example"},
 })
 ```
 
@@ -231,12 +290,12 @@ local result, err = client:direct({
 ]);
 ```
 
-**Python:**
-```python
-result, err = client.direct({
-    "path": "/api/resource/{id}",
+**Go:**
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
     "method": "GET",
-    "params": {"id": "example"},
+    "params": map[string]any{"id": "example"},
 })
 ```
 
@@ -249,25 +308,34 @@ result, err = client.direct({
 })
 ```
 
-**TypeScript:**
-```ts
-const result = await client.direct({
-  path: '/api/resource/{id}',
-  method: 'GET',
-  params: { id: 'example' },
+**Lua:**
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example" },
 })
-console.log(result.data)
 ```
 
+## Per-language documentation
 
-## Language-specific documentation
+- [TypeScript](ts/README.md)
+- [Python](py/README.md)
+- [PHP](php/README.md)
+- [Golang](go/README.md)
+- [Ruby](rb/README.md)
+- [Lua](lua/README.md)
 
-- [Golang SDK](go/README.md)
-- [Go CLI SDK](go-cli/README.md)
-- [Go MCP server SDK](go-mcp/README.md)
-- [Lua SDK](lua/README.md)
-- [PHP SDK](php/README.md)
-- [Python SDK](py/README.md)
-- [Ruby SDK](rb/README.md)
-- [TypeScript SDK](ts/README.md)
+## Using the iAM Smart API
 
+- Upstream: [https://www.digitalpolicy.gov.hk](https://www.digitalpolicy.gov.hk)
+- API docs: [https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations)
+
+- Published as open data by the Hong Kong Digital Policy Office (DPO) via data.gov.hk
+- Use is governed by the data.gov.hk Terms and Conditions
+- No explicit attribution requirement is stated on the dataset page; check the data.gov.hk terms before redistribution
+- Dataset is updated "as and when necessary"
+
+---
+
+Generated from the iAM Smart API OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).

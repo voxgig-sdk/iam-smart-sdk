@@ -61,14 +61,12 @@ def _self_registration_kiosk_direct_setup(mockres):
     env = runner.env_override({
         "IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID": {},
         "IAMSMART_TEST_LIVE": "FALSE",
-        "IAMSMART_APIKEY": "NONE",
     })
 
     live = env.get("IAMSMART_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("IAMSMART_APIKEY"),
         }
         client = IamSmartSDK(merged_opts)
         return {

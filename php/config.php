@@ -20,9 +20,6 @@ class IamSmartConfig
             ],
             "options" => [
                 "base" => "https://www.digitalpolicy.gov.hk",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

@@ -83,7 +83,6 @@ def registration_service_counter_basic_setup(extra)
     "IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID" => idmap,
     "IAMSMART_TEST_LIVE" => "FALSE",
     "IAMSMART_TEST_EXPLAIN" => "FALSE",
-    "IAMSMART_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +94,6 @@ def registration_service_counter_basic_setup(extra)
   if env["IAMSMART_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IAMSMART_APIKEY"],
       },
       extra || {},
     ])

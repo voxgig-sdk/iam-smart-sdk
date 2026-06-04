@@ -119,7 +119,6 @@ func mobile_registration_pointBasicSetup(extra map[string]any) *entityTestSetup 
 		"IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID": idmap,
 		"IAMSMART_TEST_LIVE":      "FALSE",
 		"IAMSMART_TEST_EXPLAIN":   "FALSE",
-		"IAMSMART_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID"])
@@ -130,7 +129,6 @@ func mobile_registration_pointBasicSetup(extra map[string]any) *entityTestSetup 
 	if env["IAMSMART_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["IAMSMART_APIKEY"],
 			},
 			extra,
 		})
