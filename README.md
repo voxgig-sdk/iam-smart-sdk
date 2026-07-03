@@ -1,21 +1,8 @@
 # IamSmart SDK
 
-Locate Hong Kong iAM Smart registration service counters, mobile teams, and self-registration kiosks
+iAM Smart API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About iAM Smart API
-
-This SDK wraps the open dataset of "iAM Smart" Registration Locations published by the [Digital Policy Office](https://www.digitalpolicy.gov.hk) of the Hong Kong SAR Government. iAM Smart is Hong Kong's digital identity service, and the dataset lists where the public can register or get help registering for it.
-
-What you get from the API:
-- Registration Service Counters — fixed in-person counters where staff can assist with iAM Smart sign-up
-- Mobile Registration Points — scheduled mobile team visits at community locations
-- Self-Registration Kiosks — unattended kiosks for self-service registration
-
-Data is served as static JSON files hosted under `digitalpolicy.gov.hk/open_data/iam_smart/`. The files moved to this domain on 25 Jul 2024; the dataset is also catalogued on [data.gov.hk](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations) where a field-level data dictionary PDF is linked.
-
-Operational notes: no authentication is required, no rate limits are documented, and CORS is not enabled on the JSON endpoints — fetch from a server-side context if you hit browser CORS errors.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install iam-smart-sdk
 luarocks install iam-smart-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { IamSmartSDK } from 'iam-smart'
 
-const client = new IamSmartSDK({})
+const client = new IamSmartSDK({
+  apikey: process.env.IAM-SMART_APIKEY,
+})
 
 // List all mobileregistrationpoints
 const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
+console.log(mobileregistrationpoints.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **MobileRegistrationPoint** | Scheduled mobile team registration sessions held at community venues across Hong Kong, served from `/open_data/iam_smart/iAM-Smart-RegistrationMobileTeamService.json`. | `/open_data/iam_smart/mobile-registration-points` |
-| **RegistrationServiceCounter** | Staffed in-person counters where the public can register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-RegistrationServiceCounter.json`. | `/open_data/iam_smart/registration-service-counters` |
-| **SelfRegistrationKiosk** | Unattended kiosks that allow members of the public to self-register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-SelfRegistrationKiosk.json`. | `/open_data/iam_smart/self-registration-kiosks` |
+| **MobileRegistrationPoint** |  | `/open_data/iam_smart/mobile-registration-points` |
+| **RegistrationServiceCounter** |  | `/open_data/iam_smart/registration-service-counters` |
+| **SelfRegistrationKiosk** |  | `/open_data/iam_smart/self-registration-kiosks` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,12 +102,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from iamsmart_sdk import IamSmartSDK
 
-client = IamSmartSDK({})
+client = IamSmartSDK({
+    "apikey": os.environ.get("IAM-SMART_APIKEY"),
+})
 
 # List all mobileregistrationpoints
-mobileregistrationpoints, err = client.MobileRegistrationPoint(None).list(None, None)
+mobileregistrationpoints, err = client.MobileRegistrationPoint().list()
+print(mobileregistrationpoints)
 ```
 
 ### PHP
@@ -127,10 +120,13 @@ mobileregistrationpoints, err = client.MobileRegistrationPoint(None).list(None, 
 <?php
 require_once 'iamsmart_sdk.php';
 
-$client = new IamSmartSDK([]);
+$client = new IamSmartSDK([
+    "apikey" => getenv("IAM-SMART_APIKEY"),
+]);
 
 // List all mobileregistrationpoints
-[$mobileregistrationpoints, $err] = $client->MobileRegistrationPoint(null)->list(null, null);
+[$mobileregistrationpoints, $err] = $client->MobileRegistrationPoint()->list();
+print_r($mobileregistrationpoints);
 ```
 
 ### Golang
@@ -138,10 +134,13 @@ $client = new IamSmartSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/iam-smart-sdk/go"
 
-client := sdk.NewIamSmartSDK(map[string]any{})
+client := sdk.NewIamSmartSDK(map[string]any{
+    "apikey": os.Getenv("IAM-SMART_APIKEY"),
+})
 
 // List all mobileregistrationpoints
 mobileregistrationpoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
+fmt.Println(mobileregistrationpoints)
 ```
 
 ### Ruby
@@ -149,10 +148,13 @@ mobileregistrationpoints, err := client.MobileRegistrationPoint(nil).List(nil, n
 ```ruby
 require_relative "IamSmart_sdk"
 
-client = IamSmartSDK.new({})
+client = IamSmartSDK.new({
+  "apikey" => ENV["IAM-SMART_APIKEY"],
+})
 
 # List all mobileregistrationpoints
-mobileregistrationpoints, err = client.MobileRegistrationPoint(nil).list(nil, nil)
+mobileregistrationpoints, err = client.MobileRegistrationPoint().list
+puts mobileregistrationpoints
 ```
 
 ### Lua
@@ -160,10 +162,13 @@ mobileregistrationpoints, err = client.MobileRegistrationPoint(nil).list(nil, ni
 ```lua
 local sdk = require("iam-smart_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("IAM-SMART_APIKEY"),
+})
 
 -- List all mobileregistrationpoints
-local mobileregistrationpoints, err = client:MobileRegistrationPoint(nil):list(nil, nil)
+local mobileregistrationpoints, err = client:MobileRegistrationPoint():list()
+print(mobileregistrationpoints)
 ```
 
 ## Unit testing in offline mode
@@ -182,25 +187,21 @@ const result = await client.MobileRegistrationPoint().load({ id: 'test01' })
 ### Python
 
 ```python
-client = IamSmartSDK.test(None, None)
-result, err = client.MobileRegistrationPoint(None).load(
-    {"id": "test01"}, None
-)
+client = IamSmartSDK.test()
+result, err = client.MobileRegistrationPoint().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = IamSmartSDK::test(null, null);
-[$result, $err] = $client->MobileRegistrationPoint(null)->load(
-    ["id" => "test01"], null
-);
+$client = IamSmartSDK::test();
+[$result, $err] = $client->MobileRegistrationPoint()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.MobileRegistrationPoint(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -209,19 +210,15 @@ result, err := client.MobileRegistrationPoint(nil).Load(
 ### Ruby
 
 ```ruby
-client = IamSmartSDK.test(nil, nil)
-result, err = client.MobileRegistrationPoint(nil).load(
-  { "id" => "test01" }, nil
-)
+client = IamSmartSDK.test
+result, err = client.MobileRegistrationPoint().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:MobileRegistrationPoint(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:MobileRegistrationPoint():load({ id = "test01" })
 ```
 
 ## How it works
@@ -325,16 +322,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the iAM Smart API
-
-- Upstream: [https://www.digitalpolicy.gov.hk](https://www.digitalpolicy.gov.hk)
-- API docs: [https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations)
-
-- Published as open data by the Hong Kong Digital Policy Office (DPO) via data.gov.hk
-- Use is governed by the data.gov.hk Terms and Conditions
-- No explicit attribution requirement is stated on the dataset page; check the data.gov.hk terms before redistribution
-- Dataset is updated "as and when necessary"
 
 ---
 

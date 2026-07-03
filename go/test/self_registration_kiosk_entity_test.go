@@ -119,6 +119,7 @@ func self_registration_kioskBasicSetup(extra map[string]any) *entityTestSetup {
 		"IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID": idmap,
 		"IAMSMART_TEST_LIVE":      "FALSE",
 		"IAMSMART_TEST_EXPLAIN":   "FALSE",
+		"IAMSMART_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID"])
@@ -129,6 +130,7 @@ func self_registration_kioskBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["IAMSMART_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["IAMSMART_APIKEY"],
 			},
 			extra,
 		})

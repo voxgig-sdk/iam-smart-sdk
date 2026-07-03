@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID': idmap,
     'IAM_SMART_TEST_LIVE': 'FALSE',
     'IAM_SMART_TEST_EXPLAIN': 'FALSE',
+    'IAM_SMART_APIKEY': 'NONE',
   })
 
   idmap = env['IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new IamSmartSDK(merge([
       {
+        apikey: env.IAM_SMART_APIKEY,
       },
       extra
     ]))

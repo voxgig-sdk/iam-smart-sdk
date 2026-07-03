@@ -92,6 +92,7 @@ function mobile_registration_point_basic_setup(extra)
     ["IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID"] = idmap,
     ["IAMSMART_TEST_LIVE"] = "FALSE",
     ["IAMSMART_TEST_EXPLAIN"] = "FALSE",
+    ["IAMSMART_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function mobile_registration_point_basic_setup(extra)
   if env["IAMSMART_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["IAMSMART_APIKEY"],
       },
       extra or {},
     })

@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID': {},
     'IAMSMART_TEST_LIVE': 'FALSE',
+    'IAMSMART_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.IAMSMART_TEST_LIVE
 
   if (live) {
     const client = new IamSmartSDK({
+      apikey: env.IAMSMART_APIKEY,
     })
 
     let idmap: any = env['IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID']

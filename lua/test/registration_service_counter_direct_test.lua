@@ -63,12 +63,14 @@ function registration_service_counter_direct_setup(mockres)
   local env = runner.env_override({
     ["IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID"] = {},
     ["IAMSMART_TEST_LIVE"] = "FALSE",
+    ["IAMSMART_APIKEY"] = "NONE",
   })
 
   local live = env["IAMSMART_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["IAMSMART_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

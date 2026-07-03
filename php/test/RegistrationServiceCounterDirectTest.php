@@ -68,12 +68,14 @@ function registration_service_counter_direct_setup($mockres)
     $env = Runner::env_override([
         "IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID" => [],
         "IAMSMART_TEST_LIVE" => "FALSE",
+        "IAMSMART_APIKEY" => "NONE",
     ]);
 
     $live = $env["IAMSMART_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["IAMSMART_APIKEY"],
         ];
         $client = new IamSmartSDK($merged_opts);
         return [

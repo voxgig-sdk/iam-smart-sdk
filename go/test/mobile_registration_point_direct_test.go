@@ -93,12 +93,14 @@ func mobile_registration_pointDirectSetup(mockres any) *mobile_registration_poin
 	env := envOverride(map[string]any{
 		"IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID": map[string]any{},
 		"IAMSMART_TEST_LIVE":    "FALSE",
+		"IAMSMART_APIKEY":       "NONE",
 	})
 
 	live := env["IAMSMART_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["IAMSMART_APIKEY"],
 		}
 		client := sdk.NewIamSmartSDK(mergedOpts)
 

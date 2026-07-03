@@ -1,9 +1,579 @@
 {
-  "name": "iam-smart",
-  "origin": "voxgig-sdk",
   "def": "iam-smart_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
+      "config": {
+        "auth": {
+          "prefix": "Bearer"
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
+      },
+      "entity": {
+        "mobile_registration_point": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "district",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "latitude",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "location",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "location_en",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "location_zh",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "longitude",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name_en",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name_zh",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "region",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "remark",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "schedule",
+              "req": false,
+              "type": "`$ARRAY`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "mobile_registration_point",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/open_data/iam_smart/mobile-registration-points",
+                  "parts": [
+                    "open_data",
+                    "iam_smart",
+                    "mobile-registration-points"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "registration_service_counter": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "address",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "address_en",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "address_zh",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "district",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "latitude",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "longitude",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name_en",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name_zh",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "operating_hour",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "region",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "remark",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "service",
+              "req": false,
+              "type": "`$ARRAY`"
+            },
+            {
+              "active": true,
+              "name": "telephone",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "registration_service_counter",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/open_data/iam_smart/registration-service-counters",
+                  "parts": [
+                    "open_data",
+                    "iam_smart",
+                    "registration-service-counters"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "self_registration_kiosk": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "address",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "address_en",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "address_zh",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "availability",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "district",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "floor",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "latitude",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "longitude",
+              "req": false,
+              "type": "`$NUMBER`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name_en",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "name_zh",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "operating_hour",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "region",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "remark",
+              "req": false,
+              "type": "`$STRING`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "self_registration_kiosk",
+          "op": {
+            "list": {
+              "input": "data",
+              "name": "list",
+              "points": [
+                {
+                  "active": true,
+                  "args": {},
+                  "method": "GET",
+                  "orig": "/open_data/iam_smart/self-registration-kiosks",
+                  "parts": [
+                    "open_data",
+                    "iam_smart",
+                    "self-registration-kiosks"
+                  ],
+                  "select": {},
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        }
+      },
+      "feature": {
+        "test": {
+          "active": true,
+          "config": {
+            "options": {
+              "active": false
+            }
+          },
+          "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": true,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": true,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PrePoint": {
+              "active": true,
+              "await": false
+            },
+            "PreRequest": {
+              "active": true,
+              "await": false
+            },
+            "PreResponse": {
+              "active": true,
+              "await": false
+            },
+            "PreResult": {
+              "active": true,
+              "await": false
+            },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
+              "await": false
+            }
+          },
+          "name": "test",
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
+        }
+      },
+      "flow": {
+        "BasicMobileRegistrationPointFlow": {
+          "active": true,
+          "entity": "mobile_registration_point",
+          "key$": "BasicMobileRegistrationPointFlow",
+          "kind": "basic",
+          "name": "BasicMobileRegistrationPointFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "mobile_registration_point_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicRegistrationServiceCounterFlow": {
+          "active": true,
+          "entity": "registration_service_counter",
+          "key$": "BasicRegistrationServiceCounterFlow",
+          "kind": "basic",
+          "name": "BasicRegistrationServiceCounterFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "registration_service_counter_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicSelfRegistrationKioskFlow": {
+          "active": true,
+          "entity": "self_registration_kiosk",
+          "key$": "BasicSelfRegistrationKioskFlow",
+          "kind": "basic",
+          "name": "BasicSelfRegistrationKioskFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
+              "op": "list",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "ItemExists",
+                  "def": {
+                    "ref": "self_registration_kiosk_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
       "info": {
         "contact": {
           "email": "enquiry@digitalpolicy.gov.hk",
@@ -22,597 +592,35 @@
           }
         ],
         "title": "iAM Smart API",
-        "version": "1.0.0",
-        "tagline": "Locate Hong Kong iAM Smart registration service counters, mobile teams, and self-registration kiosks",
-        "homepage": "https://www.digitalpolicy.gov.hk",
-        "docs_url": "https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations",
-        "license_short": "Hong Kong Government open data — see data.gov.hk terms and conditions.",
-        "license_md": "- Published as open data by the Hong Kong Digital Policy Office (DPO) via data.gov.hk\n- Use is governed by the data.gov.hk Terms and Conditions\n- No explicit attribution requirement is stated on the dataset page; check the data.gov.hk terms before redistribution\n- Dataset is updated \"as and when necessary\"",
-        "about_md": "This SDK wraps the open dataset of \"iAM Smart\" Registration Locations published by the [Digital Policy Office](https://www.digitalpolicy.gov.hk) of the Hong Kong SAR Government. iAM Smart is Hong Kong's digital identity service, and the dataset lists where the public can register or get help registering for it.\n\nWhat you get from the API:\n- Registration Service Counters — fixed in-person counters where staff can assist with iAM Smart sign-up\n- Mobile Registration Points — scheduled mobile team visits at community locations\n- Self-Registration Kiosks — unattended kiosks for self-service registration\n\nData is served as static JSON files hosted under `digitalpolicy.gov.hk/open_data/iam_smart/`. The files moved to this domain on 25 Jul 2024; the dataset is also catalogued on [data.gov.hk](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations) where a field-level data dictionary PDF is linked.\n\nOperational notes: no authentication is required, no rate limits are documented, and CORS is not enabled on the JSON endpoints — fetch from a server-side context if you hit browser CORS errors.",
-        "entity_desc": {
-          "mobile_registration_point": "Scheduled mobile team registration sessions held at community venues across Hong Kong, served from `/open_data/iam_smart/iAM-Smart-RegistrationMobileTeamService.json`.",
-          "registration_service_counter": "Staffed in-person counters where the public can register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-RegistrationServiceCounter.json`.",
-          "self_registration_kiosk": "Unattended kiosks that allow members of the public to self-register for iAM Smart, served from `/open_data/iam_smart/iAM-Smart-SelfRegistrationKiosk.json`."
-        },
-        "auth": false
+        "version": "1.0.0"
       },
-      "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
-        },
-        "docs_order": [
-          "ts",
-          "py",
-          "php",
-          "go",
-          "rb",
-          "lua"
-        ]
-      },
-      "entity": {
-        "mobile_registration_point": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "district",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "latitude",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "location",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "location_en",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "location_zh",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "longitude",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name_en",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name_zh",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "region",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "remark",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "schedule",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            }
-          ],
-          "id": {
-            "field": "id",
-            "name": "id"
-          },
-          "name": "mobile_registration_point",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/open_data/iam_smart/mobile-registration-points",
-                  "parts": [
-                    "open_data",
-                    "iam_smart",
-                    "mobile-registration-points"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "registration_service_counter": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "address",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "address_en",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "address_zh",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "district",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "latitude",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "longitude",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name_en",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name_zh",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "operating_hour",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "region",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "remark",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "service",
-              "req": false,
-              "type": "`$ARRAY`",
-              "active": true
-            },
-            {
-              "name": "telephone",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "id": {
-            "field": "id",
-            "name": "id"
-          },
-          "name": "registration_service_counter",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/open_data/iam_smart/registration-service-counters",
-                  "parts": [
-                    "open_data",
-                    "iam_smart",
-                    "registration-service-counters"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        },
-        "self_registration_kiosk": {
-          "alias": {
-            "field": {}
-          },
-          "fields": [
-            {
-              "name": "address",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "address_en",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "address_zh",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "availability",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "district",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "floor",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "latitude",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "longitude",
-              "req": false,
-              "type": "`$NUMBER`",
-              "active": true
-            },
-            {
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name_en",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "name_zh",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "operating_hour",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "region",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            },
-            {
-              "name": "remark",
-              "req": false,
-              "type": "`$STRING`",
-              "active": true
-            }
-          ],
-          "id": {
-            "field": "id",
-            "name": "id"
-          },
-          "name": "self_registration_kiosk",
-          "op": {
-            "list": {
-              "name": "list",
-              "points": [
-                {
-                  "method": "GET",
-                  "orig": "/open_data/iam_smart/self-registration-kiosks",
-                  "parts": [
-                    "open_data",
-                    "iam_smart",
-                    "self-registration-kiosks"
-                  ],
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
-                }
-              ],
-              "input": "data"
-            }
-          },
-          "active": true,
-          "relations": {
-            "ancestors": []
-          }
-        }
-      },
-      "feature": {
-        "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
-          "active": true,
-          "config": {
-            "options": {
-              "active": false
-            }
-          },
-          "hook": {
-            "PostConstruct": {
-              "active": true,
-              "await": false
-            },
-            "PostConstructEntity": {
-              "active": true,
-              "await": false
-            },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
-              "await": false
-            },
-            "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
-              "active": true,
-              "await": false
-            },
-            "PreRequest": {
-              "active": true,
-              "await": false
-            },
-            "PreResponse": {
-              "active": true,
-              "await": false
-            },
-            "PreResult": {
-              "active": true,
-              "await": false
-            },
-            "PreTarget": {
-              "active": false,
-              "await": false
-            },
-            "PostOperation": {
-              "active": false,
-              "await": false
-            }
-          },
-          "target": {
-            "ts": {
-              "deps": {}
-            },
-            "go": {
-              "deps": {}
-            },
-            "lua": {
-              "deps": {}
-            },
-            "php": {
-              "deps": {}
-            },
-            "py": {
-              "deps": {}
-            },
-            "rb": {
-              "deps": {}
-            },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
-              "deps": {}
-            }
-          }
-        }
-      },
-      "flow": {
-        "BasicMobileRegistrationPointFlow": {
-          "entity": "mobile_registration_point",
-          "kind": "basic",
-          "name": "BasicMobileRegistrationPointFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "mobile_registration_point_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicMobileRegistrationPointFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicRegistrationServiceCounterFlow": {
-          "entity": "registration_service_counter",
-          "kind": "basic",
-          "name": "BasicRegistrationServiceCounterFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "registration_service_counter_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicRegistrationServiceCounterFlow",
-          "active": true,
-          "param": {}
-        },
-        "BasicSelfRegistrationKioskFlow": {
-          "entity": "self_registration_kiosk",
-          "kind": "basic",
-          "name": "BasicSelfRegistrationKioskFlow",
-          "step": [
-            {
-              "op": "list",
-              "valid": [
-                {
-                  "apply": "ItemExists",
-                  "def": {
-                    "ref": "self_registration_kiosk_ref01"
-                  }
-                }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
-            }
-          ],
-          "key$": "BasicSelfRegistrationKioskFlow",
-          "active": true,
-          "param": {}
-        }
-      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "iam-smart"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "iam-smart"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -627,19 +635,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "iam-smart"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -654,138 +662,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "iam-smart"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "iam-smart"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "iam-smart"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "iam-smart"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "iam-smart"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "iam-smart"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "iam-smart"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "iam-smart"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "iam-smart"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "iam-smart",
+  "origin": "voxgig-sdk"
 }

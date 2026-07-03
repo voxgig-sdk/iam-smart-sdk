@@ -119,6 +119,7 @@ func registration_service_counterBasicSetup(extra map[string]any) *entityTestSet
 		"IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID": idmap,
 		"IAMSMART_TEST_LIVE":      "FALSE",
 		"IAMSMART_TEST_EXPLAIN":   "FALSE",
+		"IAMSMART_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID"])
@@ -129,6 +130,7 @@ func registration_service_counterBasicSetup(extra map[string]any) *entityTestSet
 	if env["IAMSMART_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["IAMSMART_APIKEY"],
 			},
 			extra,
 		})

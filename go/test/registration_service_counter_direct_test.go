@@ -93,12 +93,14 @@ func registration_service_counterDirectSetup(mockres any) *registration_service_
 	env := envOverride(map[string]any{
 		"IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID": map[string]any{},
 		"IAMSMART_TEST_LIVE":    "FALSE",
+		"IAMSMART_APIKEY":       "NONE",
 	})
 
 	live := env["IAMSMART_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["IAMSMART_APIKEY"],
 		}
 		client := sdk.NewIamSmartSDK(mergedOpts)
 
