@@ -10,7 +10,7 @@ The Python SDK for the IamSmart API — an entity-oriented client following Pyth
 
 ## Install
 ```bash
-pip install iam-smart-sdk
+pip install voxgig-sdk-iam-smart
 ```
 
 Or install from source:

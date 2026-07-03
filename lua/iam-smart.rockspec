@@ -8,12 +8,14 @@ source = {
   dir = "iam-smart-sdk/lua"
 }
 description = {
-  summary = "IamSmart SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the iAM Smart public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/iam-smart-sdk",
+  issues_url = "https://github.com/voxgig-sdk/iam-smart-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "iam-smart" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

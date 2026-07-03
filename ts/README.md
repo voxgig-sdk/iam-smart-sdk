@@ -10,7 +10,7 @@ The TypeScript SDK for the IamSmart API — a type-safe, entity-oriented client 
 
 ## Install
 ```bash
-npm install iam-smart
+npm install @voxgig-sdk/iam-smart
 ```
 ## Tutorial: your first API call
 

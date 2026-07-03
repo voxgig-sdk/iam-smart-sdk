@@ -10,7 +10,7 @@ The Lua SDK for the IamSmart API — an entity-oriented client using Lua convent
 
 ## Install
 ```bash
-luarocks install iam-smart-sdk
+luarocks install voxgig-sdk-iam-smart
 ```
 
 If the module is not yet published, add the source directory to

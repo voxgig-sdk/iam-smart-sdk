@@ -10,13 +10,13 @@ The Ruby SDK for the IamSmart API — an entity-oriented client using idiomatic 
 
 ## Install
 ```bash
-gem install iam-smart-sdk
+gem install voxgig-sdk-iam-smart
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "iam-smart-sdk"
+gem "voxgig-sdk-iam-smart"
 ```
 
 Then run:

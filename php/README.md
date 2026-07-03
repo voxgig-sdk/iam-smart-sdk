@@ -10,7 +10,7 @@ The PHP SDK for the IamSmart API — an entity-oriented client using PHP convent
 
 ## Install
 ```bash
-composer require voxgig/iam-smart-sdk
+composer require voxgig-sdk/iam-smart
 ```
 
 
