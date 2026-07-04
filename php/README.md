@@ -29,18 +29,16 @@ require_once 'iamsmart_sdk.php';
 $client = new IamSmartSDK();
 ```
 
-### 2. List mobileregistrationpoints
+### 2. List mobileregistrationpoint records
 
 ```php
 try {
-    $result = $client->mobileregistrationpoint()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of MobileRegistrationPoint records — iterate directly.
+    $mobileregistrationpoints = $client->MobileRegistrationPoint()->list();
+    foreach ($mobileregistrationpoints as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = IamSmartSDK::test();
+$client = IamSmartSDK::test([
+    "entity" => ["mobileregistrationpoint" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->mobileregistrationpoint()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$mobileregistrationpoint = $client->MobileRegistrationPoint()->load(["id" => "test01"]);
+print_r($mobileregistrationpoint);
 ```
 
 ### Use a custom fetch function
@@ -290,7 +292,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.mobile_registration_point`
+Create an instance: `$mobile_registration_point = $client->MobileRegistrationPoint();`
 
 #### Operations
 
@@ -318,14 +320,15 @@ Create an instance: `const mobile_registration_point = client.mobile_registratio
 
 #### Example: List
 
-```ts
-const mobile_registration_points = await client.mobile_registration_point.list()
+```php
+// list() returns an array of MobileRegistrationPoint records (throws on error).
+$mobile_registration_points = $client->MobileRegistrationPoint()->list();
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.registration_service_counter`
+Create an instance: `$registration_service_counter = $client->RegistrationServiceCounter();`
 
 #### Operations
 
@@ -355,14 +358,15 @@ Create an instance: `const registration_service_counter = client.registration_se
 
 #### Example: List
 
-```ts
-const registration_service_counters = await client.registration_service_counter.list()
+```php
+// list() returns an array of RegistrationServiceCounter records (throws on error).
+$registration_service_counters = $client->RegistrationServiceCounter()->list();
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
+Create an instance: `$self_registration_kiosk = $client->SelfRegistrationKiosk();`
 
 #### Operations
 
@@ -392,8 +396,9 @@ Create an instance: `const self_registration_kiosk = client.self_registration_ki
 
 #### Example: List
 
-```ts
-const self_registration_kiosks = await client.self_registration_kiosk.list()
+```php
+// list() returns an array of SelfRegistrationKiosk records (throws on error).
+$self_registration_kiosks = $client->SelfRegistrationKiosk()->list();
 ```
 
 
@@ -468,7 +473,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$mobileregistrationpoint = $client->mobileregistrationpoint();
+$mobileregistrationpoint = $client->MobileRegistrationPoint();
 $mobileregistrationpoint->load(["id" => "example_id"]);
 
 // $mobileregistrationpoint->dataGet() now returns the loaded mobileregistrationpoint data

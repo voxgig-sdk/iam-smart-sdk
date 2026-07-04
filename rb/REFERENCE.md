@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## MobileRegistrationPointEntity
 
 ```ruby
-mobile_registration_point = client.mobile_registration_point
+mobile_registration_point = client.MobileRegistrationPoint
 ```
 
 ### Fields
@@ -122,7 +122,7 @@ mobile_registration_point = client.mobile_registration_point
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.mobile_registration_point.list(nil)
+results = client.MobileRegistrationPoint.list(nil)
 ```
 
 ### Common Methods
@@ -158,7 +158,7 @@ Return the entity name.
 ## RegistrationServiceCounterEntity
 
 ```ruby
-registration_service_counter = client.registration_service_counter
+registration_service_counter = client.RegistrationServiceCounter
 ```
 
 ### Fields
@@ -188,7 +188,7 @@ registration_service_counter = client.registration_service_counter
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.registration_service_counter.list(nil)
+results = client.RegistrationServiceCounter.list(nil)
 ```
 
 ### Common Methods
@@ -224,7 +224,7 @@ Return the entity name.
 ## SelfRegistrationKioskEntity
 
 ```ruby
-self_registration_kiosk = client.self_registration_kiosk
+self_registration_kiosk = client.SelfRegistrationKiosk
 ```
 
 ### Fields
@@ -254,7 +254,7 @@ self_registration_kiosk = client.self_registration_kiosk
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.self_registration_kiosk.list(nil)
+results = client.SelfRegistrationKiosk.list(nil)
 ```
 
 ### Common Methods

@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MobileRegistrationPointEntity
 
 ```php
-$mobile_registration_point = $client->mobile_registration_point();
+$mobile_registration_point = $client->MobileRegistrationPoint();
 ```
 
 ### Fields
@@ -121,7 +121,7 @@ $mobile_registration_point = $client->mobile_registration_point();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->mobile_registration_point()->list([]);
+$results = $client->MobileRegistrationPoint()->list([]);
 ```
 
 ### Common Methods
@@ -157,7 +157,7 @@ Return the entity name.
 ## RegistrationServiceCounterEntity
 
 ```php
-$registration_service_counter = $client->registration_service_counter();
+$registration_service_counter = $client->RegistrationServiceCounter();
 ```
 
 ### Fields
@@ -187,7 +187,7 @@ $registration_service_counter = $client->registration_service_counter();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->registration_service_counter()->list([]);
+$results = $client->RegistrationServiceCounter()->list([]);
 ```
 
 ### Common Methods
@@ -223,7 +223,7 @@ Return the entity name.
 ## SelfRegistrationKioskEntity
 
 ```php
-$self_registration_kiosk = $client->self_registration_kiosk();
+$self_registration_kiosk = $client->SelfRegistrationKiosk();
 ```
 
 ### Fields
@@ -253,7 +253,7 @@ $self_registration_kiosk = $client->self_registration_kiosk();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->self_registration_kiosk()->list([]);
+$results = $client->SelfRegistrationKiosk()->list([]);
 ```
 
 ### Common Methods

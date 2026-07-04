@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## MobileRegistrationPointEntity
 
 ```lua
-local mobile_registration_point = client:mobile_registration_point(nil)
+local mobile_registration_point = client:MobileRegistrationPoint(nil)
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ local mobile_registration_point = client:mobile_registration_point(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:mobile_registration_point():list()
+local results, err = client:MobileRegistrationPoint():list()
 ```
 
 ### Common Methods
@@ -155,7 +155,7 @@ Return the entity name.
 ## RegistrationServiceCounterEntity
 
 ```lua
-local registration_service_counter = client:registration_service_counter(nil)
+local registration_service_counter = client:RegistrationServiceCounter(nil)
 ```
 
 ### Fields
@@ -185,7 +185,7 @@ local registration_service_counter = client:registration_service_counter(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:registration_service_counter():list()
+local results, err = client:RegistrationServiceCounter():list()
 ```
 
 ### Common Methods
@@ -221,7 +221,7 @@ Return the entity name.
 ## SelfRegistrationKioskEntity
 
 ```lua
-local self_registration_kiosk = client:self_registration_kiosk(nil)
+local self_registration_kiosk = client:SelfRegistrationKiosk(nil)
 ```
 
 ### Fields
@@ -251,7 +251,7 @@ local self_registration_kiosk = client:self_registration_kiosk(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:self_registration_kiosk():list()
+local results, err = client:SelfRegistrationKiosk():list()
 ```
 
 ### Common Methods

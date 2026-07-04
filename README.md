@@ -26,9 +26,11 @@ import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
 
 const client = new IamSmartSDK()
 
-// List all mobileregistrationpoints
-const mobileregistrationpoints = await client.mobileregistrationpoint.list()
-console.log(mobileregistrationpoints.data)
+// List all mobileregistrationpoints (returns MobileRegistrationPoint[])
+const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
+for (const mobileregistrationpoint of mobileregistrationpoints) {
+  console.log(mobileregistrationpoint)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,9 +87,10 @@ from iamsmart_sdk import IamSmartSDK
 
 client = IamSmartSDK()
 
-# List all mobileregistrationpoints
-mobileregistrationpoints = client.mobileregistrationpoint.list()
-print(mobileregistrationpoints)
+# List all mobileregistrationpoints (returns a list, raises on error)
+mobileregistrationpoints = client.MobileRegistrationPoint().list({})
+for mobileregistrationpoint in mobileregistrationpoints:
+    print(mobileregistrationpoint)
 ```
 
 ### PHP
@@ -98,8 +101,8 @@ require_once 'iamsmart_sdk.php';
 
 $client = new IamSmartSDK();
 
-// List all mobileregistrationpoints (throws on error)
-$mobileregistrationpoints = $client->mobileregistrationpoint()->list();
+// List all mobileregistrationpoints (returns an array; throws on error)
+$mobileregistrationpoints = $client->MobileRegistrationPoint()->list();
 print_r($mobileregistrationpoints);
 ```
 
@@ -122,8 +125,8 @@ require_relative "IamSmart_sdk"
 
 client = IamSmartSDK.new
 
-# List all mobileregistrationpoints
-mobileregistrationpoints = client.mobileregistrationpoint.list
+# List all mobileregistrationpoints (returns an Array; raises on error)
+mobileregistrationpoints = client.MobileRegistrationPoint.list
 puts mobileregistrationpoints
 ```
 
@@ -135,7 +138,7 @@ local sdk = require("iam-smart_sdk")
 local client = sdk.new()
 
 -- List all mobileregistrationpoints
-local mobileregistrationpoints, err = client:mobileregistrationpoint():list()
+local mobileregistrationpoints, err = client:MobileRegistrationPoint():list()
 print(mobileregistrationpoints)
 ```
 
@@ -148,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = IamSmartSDK.test()
-const result = await client.mobileregistrationpoint.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const mobileregistrationpoint = await client.MobileRegistrationPoint().load({ id: 'test01' })
+// mobileregistrationpoint is a bare MobileRegistrationPoint populated with mock data
+console.log(mobileregistrationpoint)
 ```
 
 ### Python
 
 ```python
 client = IamSmartSDK.test()
-result = client.mobileregistrationpoint.load({"id": "test01"})
+mobileregistrationpoint = client.MobileRegistrationPoint().load({"id": "test01"})
+print(mobileregistrationpoint)
 ```
 
 ### PHP
 
 ```php
-$client = IamSmartSDK::test();
-$result = $client->mobileregistrationpoint()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = IamSmartSDK::test([
+    "entity" => ["mobileregistrationpoint" => ["test01" => ["id" => "test01"]]],
+]);
+$mobileregistrationpoint = $client->MobileRegistrationPoint()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -178,15 +186,18 @@ result, err := client.MobileRegistrationPoint(nil).Load(
 ### Ruby
 
 ```ruby
-client = IamSmartSDK.test
-result = client.mobileregistrationpoint.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = IamSmartSDK.test({
+  "entity" => { "mobileregistrationpoint" => { "test01" => { "id" => "test01" } } },
+})
+mobileregistrationpoint = client.MobileRegistrationPoint.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:mobileregistrationpoint():load({ id = "test01" })
+local result, err = client:MobileRegistrationPoint():load({ id = "test01" })
 ```
 
 ## How it works
@@ -234,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

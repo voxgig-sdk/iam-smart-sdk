@@ -133,7 +133,7 @@ Alias for `IamSmartSDK.test()`.
 ## MobileRegistrationPointEntity
 
 ```ts
-const mobile_registration_point = client.mobile_registration_point
+const mobile_registration_point = client.MobileRegistrationPoint()
 ```
 
 ### Fields
@@ -161,7 +161,7 @@ const mobile_registration_point = client.mobile_registration_point
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.mobile_registration_point.list()
+const results = await client.MobileRegistrationPoint().list()
 ```
 
 ### Common Methods
@@ -195,7 +195,7 @@ Return a copy of the entity options.
 ## RegistrationServiceCounterEntity
 
 ```ts
-const registration_service_counter = client.registration_service_counter
+const registration_service_counter = client.RegistrationServiceCounter()
 ```
 
 ### Fields
@@ -225,7 +225,7 @@ const registration_service_counter = client.registration_service_counter
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.registration_service_counter.list()
+const results = await client.RegistrationServiceCounter().list()
 ```
 
 ### Common Methods
@@ -259,7 +259,7 @@ Return a copy of the entity options.
 ## SelfRegistrationKioskEntity
 
 ```ts
-const self_registration_kiosk = client.self_registration_kiosk
+const self_registration_kiosk = client.SelfRegistrationKiosk()
 ```
 
 ### Fields
@@ -289,7 +289,7 @@ const self_registration_kiosk = client.self_registration_kiosk
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.self_registration_kiosk.list()
+const results = await client.SelfRegistrationKiosk().list()
 ```
 
 ### Common Methods

@@ -28,16 +28,14 @@ require_relative "IamSmart_sdk"
 client = IamSmartSDK.new
 ```
 
-### 2. List mobileregistrationpoints
+### 2. List mobileregistrationpoint records
 
 ```ruby
 begin
-  result = client.mobileregistrationpoint.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of MobileRegistrationPoint records — iterate directly.
+  mobileregistrationpoints = client.MobileRegistrationPoint.list
+  mobileregistrationpoints.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = IamSmartSDK.test
+client = IamSmartSDK.test({
+  "entity" => { "mobileregistrationpoint" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.mobileregistrationpoint.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+mobileregistrationpoint = client.MobileRegistrationPoint.load({ "id" => "test01" })
+puts mobileregistrationpoint
 ```
 
 ### Use a custom fetch function
@@ -285,7 +287,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.mobile_registration_point`
+Create an instance: `mobile_registration_point = client.MobileRegistrationPoint`
 
 #### Operations
 
@@ -313,14 +315,15 @@ Create an instance: `const mobile_registration_point = client.mobile_registratio
 
 #### Example: List
 
-```ts
-const mobile_registration_points = await client.mobile_registration_point.list()
+```ruby
+# list returns an Array of MobileRegistrationPoint records (raises on error).
+mobile_registration_points = client.MobileRegistrationPoint.list
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.registration_service_counter`
+Create an instance: `registration_service_counter = client.RegistrationServiceCounter`
 
 #### Operations
 
@@ -350,14 +353,15 @@ Create an instance: `const registration_service_counter = client.registration_se
 
 #### Example: List
 
-```ts
-const registration_service_counters = await client.registration_service_counter.list()
+```ruby
+# list returns an Array of RegistrationServiceCounter records (raises on error).
+registration_service_counters = client.RegistrationServiceCounter.list
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
+Create an instance: `self_registration_kiosk = client.SelfRegistrationKiosk`
 
 #### Operations
 
@@ -387,8 +391,9 @@ Create an instance: `const self_registration_kiosk = client.self_registration_ki
 
 #### Example: List
 
-```ts
-const self_registration_kiosks = await client.self_registration_kiosk.list()
+```ruby
+# list returns an Array of SelfRegistrationKiosk records (raises on error).
+self_registration_kiosks = client.SelfRegistrationKiosk.list
 ```
 
 
@@ -463,7 +468,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-mobileregistrationpoint = client.mobileregistrationpoint
+mobileregistrationpoint = client.MobileRegistrationPoint
 mobileregistrationpoint.load({ "id" => "example_id" })
 
 # mobileregistrationpoint.data_get now returns the loaded mobileregistrationpoint data

@@ -28,15 +28,15 @@ import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
 const client = new IamSmartSDK()
 ```
 
-### 2. List mobileregistrationpoints
+### 2. List mobileregistrationpoint records
+
+`list()` resolves to an array of MobileRegistrationPoint objects — iterate it directly:
 
 ```ts
-const result = await client.mobileregistrationpoint.list()
+const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
 
-if (result.ok) {
-  for (const item of result.data) {
-    console.log(item.id, item.name)
-  }
+for (const mobileregistrationpoint of mobileregistrationpoints) {
+  console.log(mobileregistrationpoint)
 }
 ```
 
@@ -54,6 +54,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -82,9 +85,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = IamSmartSDK.test()
 
-const result = await client.mobileregistrationpoint.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const mobileregistrationpoint = await client.MobileRegistrationPoint().load({ id: 'test01' })
+// mobileregistrationpoint is a bare entity populated with mock response data
+console.log(mobileregistrationpoint)
 ```
 
 You can also use the instance method:
@@ -99,7 +102,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.mobileregistrationpoint
+const entity = client.MobileRegistrationPoint()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -196,29 +199,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): IamSmartSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -327,7 +331,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.mobile_registration_point`
+Create an instance: `const mobile_registration_point = client.MobileRegistrationPoint()`
 
 #### Operations
 
@@ -356,13 +360,13 @@ Create an instance: `const mobile_registration_point = client.mobile_registratio
 #### Example: List
 
 ```ts
-const mobile_registration_points = await client.mobile_registration_point.list()
+const mobile_registration_points = await client.MobileRegistrationPoint().list()
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.registration_service_counter`
+Create an instance: `const registration_service_counter = client.RegistrationServiceCounter()`
 
 #### Operations
 
@@ -393,13 +397,13 @@ Create an instance: `const registration_service_counter = client.registration_se
 #### Example: List
 
 ```ts
-const registration_service_counters = await client.registration_service_counter.list()
+const registration_service_counters = await client.RegistrationServiceCounter().list()
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
+Create an instance: `const self_registration_kiosk = client.SelfRegistrationKiosk()`
 
 #### Operations
 
@@ -430,7 +434,7 @@ Create an instance: `const self_registration_kiosk = client.self_registration_ki
 #### Example: List
 
 ```ts
-const self_registration_kiosks = await client.self_registration_kiosk.list()
+const self_registration_kiosks = await client.SelfRegistrationKiosk().list()
 ```
 
 
@@ -501,7 +505,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const mobileregistrationpoint = client.mobileregistrationpoint
+const mobileregistrationpoint = client.MobileRegistrationPoint()
 await mobileregistrationpoint.load({ id: "example_id" })
 
 // mobileregistrationpoint.data() now returns the loaded mobileregistrationpoint data

@@ -208,39 +208,21 @@ class IamSmartSDK
   end
 
 
-  # Idiomatic facade: client.mobile_registration_point.list / client.mobile_registration_point.load({ "id" => ... })
-  def mobile_registration_point
-    require_relative 'entity/mobile_registration_point_entity'
-    @mobile_registration_point ||= MobileRegistrationPointEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.mobile_registration_point instead.
+  # Canonical facade: client.MobileRegistrationPoint.list / client.MobileRegistrationPoint.load({ "id" => ... })
   def MobileRegistrationPoint(data = nil)
     require_relative 'entity/mobile_registration_point_entity'
     MobileRegistrationPointEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.registration_service_counter.list / client.registration_service_counter.load({ "id" => ... })
-  def registration_service_counter
-    require_relative 'entity/registration_service_counter_entity'
-    @registration_service_counter ||= RegistrationServiceCounterEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.registration_service_counter instead.
+  # Canonical facade: client.RegistrationServiceCounter.list / client.RegistrationServiceCounter.load({ "id" => ... })
   def RegistrationServiceCounter(data = nil)
     require_relative 'entity/registration_service_counter_entity'
     RegistrationServiceCounterEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.self_registration_kiosk.list / client.self_registration_kiosk.load({ "id" => ... })
-  def self_registration_kiosk
-    require_relative 'entity/self_registration_kiosk_entity'
-    @self_registration_kiosk ||= SelfRegistrationKioskEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.self_registration_kiosk instead.
+  # Canonical facade: client.SelfRegistrationKiosk.list / client.SelfRegistrationKiosk.load({ "id" => ... })
   def SelfRegistrationKiosk(data = nil)
     require_relative 'entity/self_registration_kiosk_entity'
     SelfRegistrationKioskEntity.new(self, data)

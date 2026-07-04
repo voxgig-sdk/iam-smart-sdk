@@ -233,10 +233,10 @@ class IamSmartSDK
 
     private $_mobile_registration_point = null;
 
-    // Idiomatic facade: $client->mobile_registration_point()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias MobileRegistrationPoint() (PHP method
-    // names are case-insensitive).
-    public function mobile_registration_point($data = null)
+    // Canonical facade: $client->MobileRegistrationPoint()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->mobile_registration_point()
+    // resolves here too.
+    public function MobileRegistrationPoint($data = null)
     {
         require_once __DIR__ . '/entity/mobile_registration_point_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class IamSmartSDK
 
     private $_registration_service_counter = null;
 
-    // Idiomatic facade: $client->registration_service_counter()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias RegistrationServiceCounter() (PHP method
-    // names are case-insensitive).
-    public function registration_service_counter($data = null)
+    // Canonical facade: $client->RegistrationServiceCounter()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->registration_service_counter()
+    // resolves here too.
+    public function RegistrationServiceCounter($data = null)
     {
         require_once __DIR__ . '/entity/registration_service_counter_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class IamSmartSDK
 
     private $_self_registration_kiosk = null;
 
-    // Idiomatic facade: $client->self_registration_kiosk()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SelfRegistrationKiosk() (PHP method
-    // names are case-insensitive).
-    public function self_registration_kiosk($data = null)
+    // Canonical facade: $client->SelfRegistrationKiosk()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->self_registration_kiosk()
+    // resolves here too.
+    public function SelfRegistrationKiosk($data = null)
     {
         require_once __DIR__ . '/entity/self_registration_kiosk_entity.php';
         if ($data === null) {

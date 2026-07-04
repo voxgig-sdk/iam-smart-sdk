@@ -4,119 +4,117 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class MobileRegistrationPoint:
-    district: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[float] = None
-    location: Optional[str] = None
-    location_en: Optional[str] = None
-    location_zh: Optional[str] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    name_en: Optional[str] = None
-    name_zh: Optional[str] = None
-    region: Optional[str] = None
-    remark: Optional[str] = None
-    schedule: Optional[list] = None
+class MobileRegistrationPoint(TypedDict, total=False):
+    district: str
+    id: str
+    latitude: float
+    location: str
+    location_en: str
+    location_zh: str
+    longitude: float
+    name: str
+    name_en: str
+    name_zh: str
+    region: str
+    remark: str
+    schedule: list
 
 
-@dataclass
-class MobileRegistrationPointListMatch:
-    district: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[float] = None
-    location: Optional[str] = None
-    location_en: Optional[str] = None
-    location_zh: Optional[str] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    name_en: Optional[str] = None
-    name_zh: Optional[str] = None
-    region: Optional[str] = None
-    remark: Optional[str] = None
-    schedule: Optional[list] = None
+class MobileRegistrationPointListMatch(TypedDict, total=False):
+    district: str
+    id: str
+    latitude: float
+    location: str
+    location_en: str
+    location_zh: str
+    longitude: float
+    name: str
+    name_en: str
+    name_zh: str
+    region: str
+    remark: str
+    schedule: list
 
 
-@dataclass
-class RegistrationServiceCounter:
-    address: Optional[str] = None
-    address_en: Optional[str] = None
-    address_zh: Optional[str] = None
-    district: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    name_en: Optional[str] = None
-    name_zh: Optional[str] = None
-    operating_hour: Optional[str] = None
-    region: Optional[str] = None
-    remark: Optional[str] = None
-    service: Optional[list] = None
-    telephone: Optional[str] = None
+class RegistrationServiceCounter(TypedDict, total=False):
+    address: str
+    address_en: str
+    address_zh: str
+    district: str
+    id: str
+    latitude: float
+    longitude: float
+    name: str
+    name_en: str
+    name_zh: str
+    operating_hour: str
+    region: str
+    remark: str
+    service: list
+    telephone: str
 
 
-@dataclass
-class RegistrationServiceCounterListMatch:
-    address: Optional[str] = None
-    address_en: Optional[str] = None
-    address_zh: Optional[str] = None
-    district: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    name_en: Optional[str] = None
-    name_zh: Optional[str] = None
-    operating_hour: Optional[str] = None
-    region: Optional[str] = None
-    remark: Optional[str] = None
-    service: Optional[list] = None
-    telephone: Optional[str] = None
+class RegistrationServiceCounterListMatch(TypedDict, total=False):
+    address: str
+    address_en: str
+    address_zh: str
+    district: str
+    id: str
+    latitude: float
+    longitude: float
+    name: str
+    name_en: str
+    name_zh: str
+    operating_hour: str
+    region: str
+    remark: str
+    service: list
+    telephone: str
 
 
-@dataclass
-class SelfRegistrationKiosk:
-    address: Optional[str] = None
-    address_en: Optional[str] = None
-    address_zh: Optional[str] = None
-    availability: Optional[str] = None
-    district: Optional[str] = None
-    floor: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    name_en: Optional[str] = None
-    name_zh: Optional[str] = None
-    operating_hour: Optional[str] = None
-    region: Optional[str] = None
-    remark: Optional[str] = None
+class SelfRegistrationKiosk(TypedDict, total=False):
+    address: str
+    address_en: str
+    address_zh: str
+    availability: str
+    district: str
+    floor: str
+    id: str
+    latitude: float
+    longitude: float
+    name: str
+    name_en: str
+    name_zh: str
+    operating_hour: str
+    region: str
+    remark: str
 
 
-@dataclass
-class SelfRegistrationKioskListMatch:
-    address: Optional[str] = None
-    address_en: Optional[str] = None
-    address_zh: Optional[str] = None
-    availability: Optional[str] = None
-    district: Optional[str] = None
-    floor: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    name: Optional[str] = None
-    name_en: Optional[str] = None
-    name_zh: Optional[str] = None
-    operating_hour: Optional[str] = None
-    region: Optional[str] = None
-    remark: Optional[str] = None
-
+class SelfRegistrationKioskListMatch(TypedDict, total=False):
+    address: str
+    address_en: str
+    address_zh: str
+    availability: str
+    district: str
+    floor: str
+    id: str
+    latitude: float
+    longitude: float
+    name: str
+    name_en: str
+    name_zh: str
+    operating_hour: str
+    region: str
+    remark: str

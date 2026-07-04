@@ -31,17 +31,17 @@ local sdk = require("iam-smart_sdk")
 local client = sdk.new()
 ```
 
-### 2. List mobileregistrationpoints
+### 2. List mobileregistrationpoint records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:mobileregistrationpoint():list()
+local mobileregistrationpoints, err = client:MobileRegistrationPoint():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(mobileregistrationpoints) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:mobileregistrationpoint():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:MobileRegistrationPoint():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -191,17 +191,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local mobile_registration_point, err = client:MobileRegistrationPoint():load({ id = "example_id" })
+    if err then error(err) end
+    -- mobile_registration_point is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -282,7 +287,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.mobile_registration_point`
+Create an instance: `local mobile_registration_point = client:MobileRegistrationPoint(nil)`
 
 #### Operations
 
@@ -310,14 +315,14 @@ Create an instance: `const mobile_registration_point = client.mobile_registratio
 
 #### Example: List
 
-```ts
-const mobile_registration_points = await client.mobile_registration_point.list()
+```lua
+local mobile_registration_points, err = client:MobileRegistrationPoint():list()
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.registration_service_counter`
+Create an instance: `local registration_service_counter = client:RegistrationServiceCounter(nil)`
 
 #### Operations
 
@@ -347,14 +352,14 @@ Create an instance: `const registration_service_counter = client.registration_se
 
 #### Example: List
 
-```ts
-const registration_service_counters = await client.registration_service_counter.list()
+```lua
+local registration_service_counters, err = client:RegistrationServiceCounter():list()
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
+Create an instance: `local self_registration_kiosk = client:SelfRegistrationKiosk(nil)`
 
 #### Operations
 
@@ -384,8 +389,8 @@ Create an instance: `const self_registration_kiosk = client.self_registration_ki
 
 #### Example: List
 
-```ts
-const self_registration_kiosks = await client.self_registration_kiosk.list()
+```lua
+local self_registration_kiosks, err = client:SelfRegistrationKiosk():list()
 ```
 
 
@@ -460,7 +465,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local mobileregistrationpoint = client:mobileregistrationpoint()
+local mobileregistrationpoint = client:MobileRegistrationPoint()
 mobileregistrationpoint:load({ id = "example_id" })
 
 -- mobileregistrationpoint:data_get() now returns the loaded mobileregistrationpoint data

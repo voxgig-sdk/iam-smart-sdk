@@ -31,14 +31,16 @@ from iamsmart_sdk import IamSmartSDK
 client = IamSmartSDK()
 ```
 
-### 2. List mobileregistrationpoints
+### 2. List mobileregistrationpoint records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.mobileregistrationpoint.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    mobileregistrationpoints = client.MobileRegistrationPoint().list({})
+    for mobileregistrationpoint in mobileregistrationpoints:
+        print(mobileregistrationpoint)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IamSmartSDK.test()
 
-result = client.mobileregistrationpoint.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+mobileregistrationpoint = client.MobileRegistrationPoint().load({"id": "test01"})
+# mobileregistrationpoint contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -282,7 +285,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.mobile_registration_point`
+Create an instance: `mobile_registration_point = client.MobileRegistrationPoint()`
 
 #### Operations
 
@@ -310,14 +313,14 @@ Create an instance: `const mobile_registration_point = client.mobile_registratio
 
 #### Example: List
 
-```ts
-const mobile_registration_points = await client.mobile_registration_point.list()
+```python
+mobile_registration_points = client.MobileRegistrationPoint().list({})
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.registration_service_counter`
+Create an instance: `registration_service_counter = client.RegistrationServiceCounter()`
 
 #### Operations
 
@@ -347,14 +350,14 @@ Create an instance: `const registration_service_counter = client.registration_se
 
 #### Example: List
 
-```ts
-const registration_service_counters = await client.registration_service_counter.list()
+```python
+registration_service_counters = client.RegistrationServiceCounter().list({})
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
+Create an instance: `self_registration_kiosk = client.SelfRegistrationKiosk()`
 
 #### Operations
 
@@ -384,8 +387,8 @@ Create an instance: `const self_registration_kiosk = client.self_registration_ki
 
 #### Example: List
 
-```ts
-const self_registration_kiosks = await client.self_registration_kiosk.list()
+```python
+self_registration_kiosks = client.SelfRegistrationKiosk().list({})
 ```
 
 
@@ -459,7 +462,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-mobileregistrationpoint = client.mobileregistrationpoint
+mobileregistrationpoint = client.MobileRegistrationPoint()
 mobileregistrationpoint.load({"id": "example_id"})
 
 # mobileregistrationpoint.data_get() now returns the loaded mobileregistrationpoint data

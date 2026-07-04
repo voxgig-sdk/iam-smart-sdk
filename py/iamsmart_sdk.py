@@ -220,57 +220,27 @@ class IamSmartSDK:
         }
 
 
-    @property
-    def mobile_registration_point(self):
-        """Idiomatic facade: client.mobile_registration_point.list() / client.mobile_registration_point.load({"id": ...})."""
-        from entity.mobile_registration_point_entity import MobileRegistrationPointEntity
-        cached = getattr(self, "_mobile_registration_point", None)
-        if cached is None:
-            cached = MobileRegistrationPointEntity(self, None)
-            self._mobile_registration_point = cached
-        return cached
-
-    def MobileRegistrationPoint(self, data=None):
-        # Deprecated: use client.mobile_registration_point instead.
+    def MobileRegistrationPoint(self, data=None) -> "MobileRegistrationPointEntity":
+        """Entity factory: client.MobileRegistrationPoint().list({}) / client.MobileRegistrationPoint().load({"id": ...})."""
         from entity.mobile_registration_point_entity import MobileRegistrationPointEntity
         return MobileRegistrationPointEntity(self, data)
 
 
-    @property
-    def registration_service_counter(self):
-        """Idiomatic facade: client.registration_service_counter.list() / client.registration_service_counter.load({"id": ...})."""
-        from entity.registration_service_counter_entity import RegistrationServiceCounterEntity
-        cached = getattr(self, "_registration_service_counter", None)
-        if cached is None:
-            cached = RegistrationServiceCounterEntity(self, None)
-            self._registration_service_counter = cached
-        return cached
-
-    def RegistrationServiceCounter(self, data=None):
-        # Deprecated: use client.registration_service_counter instead.
+    def RegistrationServiceCounter(self, data=None) -> "RegistrationServiceCounterEntity":
+        """Entity factory: client.RegistrationServiceCounter().list({}) / client.RegistrationServiceCounter().load({"id": ...})."""
         from entity.registration_service_counter_entity import RegistrationServiceCounterEntity
         return RegistrationServiceCounterEntity(self, data)
 
 
-    @property
-    def self_registration_kiosk(self):
-        """Idiomatic facade: client.self_registration_kiosk.list() / client.self_registration_kiosk.load({"id": ...})."""
-        from entity.self_registration_kiosk_entity import SelfRegistrationKioskEntity
-        cached = getattr(self, "_self_registration_kiosk", None)
-        if cached is None:
-            cached = SelfRegistrationKioskEntity(self, None)
-            self._self_registration_kiosk = cached
-        return cached
-
-    def SelfRegistrationKiosk(self, data=None):
-        # Deprecated: use client.self_registration_kiosk instead.
+    def SelfRegistrationKiosk(self, data=None) -> "SelfRegistrationKioskEntity":
+        """Entity factory: client.SelfRegistrationKiosk().list({}) / client.SelfRegistrationKiosk().load({"id": ...})."""
         from entity.self_registration_kiosk_entity import SelfRegistrationKioskEntity
         return SelfRegistrationKioskEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "IamSmartSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class IamSmartSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.mobile_registration_point_entity import MobileRegistrationPointEntity
+    from entity.registration_service_counter_entity import RegistrationServiceCounterEntity
+    from entity.self_registration_kiosk_entity import SelfRegistrationKioskEntity
