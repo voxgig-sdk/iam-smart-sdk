@@ -4,6 +4,8 @@ import { MobileRegistrationPointEntity } from './entity/MobileRegistrationPointE
 import { RegistrationServiceCounterEntity } from './entity/RegistrationServiceCounterEntity'
 import { SelfRegistrationKioskEntity } from './entity/SelfRegistrationKioskEntity'
 
+export type * from './IamSmartTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class IamSmartSDK {
 
 
 
+  _mobile_registration_point?: MobileRegistrationPointEntity
+
+  // Idiomatic facade: `client.mobile_registration_point.list()` / `client.mobile_registration_point.load({ id })`.
+  get mobile_registration_point(): MobileRegistrationPointEntity {
+    return (this._mobile_registration_point ??= new MobileRegistrationPointEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.mobile_registration_point` instead. */
   MobileRegistrationPoint(data?: any) {
     const self = this
     return new MobileRegistrationPointEntity(self,data)
   }
 
 
+  _registration_service_counter?: RegistrationServiceCounterEntity
+
+  // Idiomatic facade: `client.registration_service_counter.list()` / `client.registration_service_counter.load({ id })`.
+  get registration_service_counter(): RegistrationServiceCounterEntity {
+    return (this._registration_service_counter ??= new RegistrationServiceCounterEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.registration_service_counter` instead. */
   RegistrationServiceCounter(data?: any) {
     const self = this
     return new RegistrationServiceCounterEntity(self,data)
   }
 
 
+  _self_registration_kiosk?: SelfRegistrationKioskEntity
+
+  // Idiomatic facade: `client.self_registration_kiosk.list()` / `client.self_registration_kiosk.load({ id })`.
+  get self_registration_kiosk(): SelfRegistrationKioskEntity {
+    return (this._self_registration_kiosk ??= new SelfRegistrationKioskEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.self_registration_kiosk` instead. */
   SelfRegistrationKiosk(data?: any) {
     const self = this
     return new SelfRegistrationKioskEntity(self,data)

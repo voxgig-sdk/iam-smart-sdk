@@ -144,16 +144,23 @@ class IamSmartSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class IamSmartSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,25 +212,58 @@ class IamSmartSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def mobile_registration_point(self):
+        """Idiomatic facade: client.mobile_registration_point.list() / client.mobile_registration_point.load({"id": ...})."""
+        from entity.mobile_registration_point_entity import MobileRegistrationPointEntity
+        cached = getattr(self, "_mobile_registration_point", None)
+        if cached is None:
+            cached = MobileRegistrationPointEntity(self, None)
+            self._mobile_registration_point = cached
+        return cached
 
     def MobileRegistrationPoint(self, data=None):
+        # Deprecated: use client.mobile_registration_point instead.
         from entity.mobile_registration_point_entity import MobileRegistrationPointEntity
         return MobileRegistrationPointEntity(self, data)
 
 
+    @property
+    def registration_service_counter(self):
+        """Idiomatic facade: client.registration_service_counter.list() / client.registration_service_counter.load({"id": ...})."""
+        from entity.registration_service_counter_entity import RegistrationServiceCounterEntity
+        cached = getattr(self, "_registration_service_counter", None)
+        if cached is None:
+            cached = RegistrationServiceCounterEntity(self, None)
+            self._registration_service_counter = cached
+        return cached
+
     def RegistrationServiceCounter(self, data=None):
+        # Deprecated: use client.registration_service_counter instead.
         from entity.registration_service_counter_entity import RegistrationServiceCounterEntity
         return RegistrationServiceCounterEntity(self, data)
 
 
+    @property
+    def self_registration_kiosk(self):
+        """Idiomatic facade: client.self_registration_kiosk.list() / client.self_registration_kiosk.load({"id": ...})."""
+        from entity.self_registration_kiosk_entity import SelfRegistrationKioskEntity
+        cached = getattr(self, "_self_registration_kiosk", None)
+        if cached is None:
+            cached = SelfRegistrationKioskEntity(self, None)
+            self._self_registration_kiosk = cached
+        return cached
+
     def SelfRegistrationKiosk(self, data=None):
+        # Deprecated: use client.self_registration_kiosk instead.
         from entity.self_registration_kiosk_entity import SelfRegistrationKioskEntity
         return SelfRegistrationKioskEntity(self, data)
 

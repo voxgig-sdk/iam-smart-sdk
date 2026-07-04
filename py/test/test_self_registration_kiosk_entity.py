@@ -50,8 +50,7 @@ class TestSelfRegistrationKioskEntity:
         self_registration_kiosk_ref01_ent = client.SelfRegistrationKiosk(None)
         self_registration_kiosk_ref01_match = {}
 
-        self_registration_kiosk_ref01_list_result, err = self_registration_kiosk_ref01_ent.list(self_registration_kiosk_ref01_match, None)
-        assert err is None
+        self_registration_kiosk_ref01_list_result = self_registration_kiosk_ref01_ent.list(self_registration_kiosk_ref01_match, None)
         assert isinstance(self_registration_kiosk_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _self_registration_kiosk_basic_setup(extra):
         "IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID": idmap,
         "IAMSMART_TEST_LIVE": "FALSE",
         "IAMSMART_TEST_EXPLAIN": "FALSE",
-        "IAMSMART_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _self_registration_kiosk_basic_setup(extra):
     if env.get("IAMSMART_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IAMSMART_APIKEY"),
             },
             extra or {},
         ])

@@ -43,8 +43,7 @@ class RegistrationServiceCounterEntityTest < Minitest::Test
     registration_service_counter_ref01_ent = client.RegistrationServiceCounter(nil)
     registration_service_counter_ref01_match = {}
 
-    registration_service_counter_ref01_list_result, err = registration_service_counter_ref01_ent.list(registration_service_counter_ref01_match, nil)
-    assert_nil err
+    registration_service_counter_ref01_list_result = registration_service_counter_ref01_ent.list(registration_service_counter_ref01_match, nil)
     assert registration_service_counter_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def registration_service_counter_basic_setup(extra)
     "IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID" => idmap,
     "IAMSMART_TEST_LIVE" => "FALSE",
     "IAMSMART_TEST_EXPLAIN" => "FALSE",
-    "IAMSMART_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def registration_service_counter_basic_setup(extra)
   if env["IAMSMART_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IAMSMART_APIKEY"],
       },
       extra || {},
     ])

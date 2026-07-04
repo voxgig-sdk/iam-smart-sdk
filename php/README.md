@@ -9,9 +9,10 @@ The PHP SDK for the IamSmart API — an entity-oriented client using PHP convent
 
 
 ## Install
-```bash
-composer require voxgig-sdk/iam-smart
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/iam-smart-sdk/releases](https://github.com/voxgig-sdk/iam-smart-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,22 +26,22 @@ loading a specific record.
 <?php
 require_once 'iamsmart_sdk.php';
 
-$client = new IamSmartSDK([
-    "apikey" => getenv("IAM-SMART_APIKEY"),
-]);
+$client = new IamSmartSDK();
 ```
 
 ### 2. List mobileregistrationpoints
 
 ```php
-[$result, $err] = $client->MobileRegistrationPoint()->list();
-if ($err) { throw new \Exception($err); }
-
-if (is_array($result)) {
-    foreach ($result as $item) {
-        $d = $item->data_get();
-        echo $d["id"] . " " . $d["name"] . "\n";
+try {
+    $result = $client->mobileregistrationpoint()->list();
+    if (is_array($result)) {
+        foreach ($result as $item) {
+            $d = $item->data_get();
+            echo $d["id"] . " " . $d["name"] . "\n";
+        }
     }
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
 }
 ```
 
@@ -52,28 +53,31 @@ if (is_array($result)) {
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -87,7 +91,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = IamSmartSDK::test();
 
-[$result, $err] = $client->IamSmart()->load(["id" => "test01"]);
+$result = $client->mobileregistrationpoint()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -121,8 +125,7 @@ $client = new IamSmartSDK([
 Create a `.env.local` file at the project root:
 
 ```
-IAM-SMART_TEST_LIVE=TRUE
-IAM-SMART_APIKEY=<your-key>
+IAM_SMART_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -145,7 +148,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -193,8 +195,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -284,7 +290,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.MobileRegistrationPoint()`
+Create an instance: `const mobile_registration_point = client.mobile_registration_point`
 
 #### Operations
 
@@ -313,13 +319,13 @@ Create an instance: `const mobile_registration_point = client.MobileRegistration
 #### Example: List
 
 ```ts
-const mobile_registration_points = await client.MobileRegistrationPoint().list()
+const mobile_registration_points = await client.mobile_registration_point.list()
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.RegistrationServiceCounter()`
+Create an instance: `const registration_service_counter = client.registration_service_counter`
 
 #### Operations
 
@@ -350,13 +356,13 @@ Create an instance: `const registration_service_counter = client.RegistrationSer
 #### Example: List
 
 ```ts
-const registration_service_counters = await client.RegistrationServiceCounter().list()
+const registration_service_counters = await client.registration_service_counter.list()
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.SelfRegistrationKiosk()`
+Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
 
 #### Operations
 
@@ -387,7 +393,7 @@ Create an instance: `const self_registration_kiosk = client.SelfRegistrationKios
 #### Example: List
 
 ```ts
-const self_registration_kiosks = await client.SelfRegistrationKiosk().list()
+const self_registration_kiosks = await client.self_registration_kiosk.list()
 ```
 
 
@@ -462,11 +468,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$mobileregistrationpoint = $client->mobileregistrationpoint();
+$mobileregistrationpoint->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $mobileregistrationpoint->dataGet() now returns the loaded mobileregistrationpoint data
+// $mobileregistrationpoint->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

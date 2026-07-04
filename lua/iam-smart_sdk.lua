@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:mobile_registration_point():list() / client:mobile_registration_point():load({ id = ... })
+function IamSmartSDK:mobile_registration_point(data)
+  local EntityMod = require("entity.mobile_registration_point_entity")
+  if data == nil then
+    if self._mobile_registration_point == nil then
+      self._mobile_registration_point = EntityMod.new(self, nil)
+    end
+    return self._mobile_registration_point
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:mobile_registration_point() instead.
 function IamSmartSDK:MobileRegistrationPoint(data)
   local EntityMod = require("entity.mobile_registration_point_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:registration_service_counter():list() / client:registration_service_counter():load({ id = ... })
+function IamSmartSDK:registration_service_counter(data)
+  local EntityMod = require("entity.registration_service_counter_entity")
+  if data == nil then
+    if self._registration_service_counter == nil then
+      self._registration_service_counter = EntityMod.new(self, nil)
+    end
+    return self._registration_service_counter
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:registration_service_counter() instead.
 function IamSmartSDK:RegistrationServiceCounter(data)
   local EntityMod = require("entity.registration_service_counter_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:self_registration_kiosk():list() / client:self_registration_kiosk():load({ id = ... })
+function IamSmartSDK:self_registration_kiosk(data)
+  local EntityMod = require("entity.self_registration_kiosk_entity")
+  if data == nil then
+    if self._self_registration_kiosk == nil then
+      self._self_registration_kiosk = EntityMod.new(self, nil)
+    end
+    return self._self_registration_kiosk
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:self_registration_kiosk() instead.
 function IamSmartSDK:SelfRegistrationKiosk(data)
   local EntityMod = require("entity.self_registration_kiosk_entity")
   return EntityMod.new(self, data)

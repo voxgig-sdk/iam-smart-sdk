@@ -50,8 +50,7 @@ class TestMobileRegistrationPointEntity:
         mobile_registration_point_ref01_ent = client.MobileRegistrationPoint(None)
         mobile_registration_point_ref01_match = {}
 
-        mobile_registration_point_ref01_list_result, err = mobile_registration_point_ref01_ent.list(mobile_registration_point_ref01_match, None)
-        assert err is None
+        mobile_registration_point_ref01_list_result = mobile_registration_point_ref01_ent.list(mobile_registration_point_ref01_match, None)
         assert isinstance(mobile_registration_point_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _mobile_registration_point_basic_setup(extra):
         "IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID": idmap,
         "IAMSMART_TEST_LIVE": "FALSE",
         "IAMSMART_TEST_EXPLAIN": "FALSE",
-        "IAMSMART_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _mobile_registration_point_basic_setup(extra):
     if env.get("IAMSMART_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IAMSMART_APIKEY"),
             },
             extra or {},
         ])

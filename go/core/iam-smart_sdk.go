@@ -245,16 +245,25 @@ func (sdk *IamSmartSDK) Direct(fetchargs map[string]any) (map[string]any, error)
 }
 
 
+// MobileRegistrationPoint returns a MobileRegistrationPoint entity bound to this client.
+// Idiomatic usage: client.MobileRegistrationPoint(nil).List(nil, nil) or
+// client.MobileRegistrationPoint(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *IamSmartSDK) MobileRegistrationPoint(data map[string]any) IamSmartEntity {
 	return NewMobileRegistrationPointEntityFunc(sdk, data)
 }
 
 
+// RegistrationServiceCounter returns a RegistrationServiceCounter entity bound to this client.
+// Idiomatic usage: client.RegistrationServiceCounter(nil).List(nil, nil) or
+// client.RegistrationServiceCounter(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *IamSmartSDK) RegistrationServiceCounter(data map[string]any) IamSmartEntity {
 	return NewRegistrationServiceCounterEntityFunc(sdk, data)
 }
 
 
+// SelfRegistrationKiosk returns a SelfRegistrationKiosk entity bound to this client.
+// Idiomatic usage: client.SelfRegistrationKiosk(nil).List(nil, nil) or
+// client.SelfRegistrationKiosk(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *IamSmartSDK) SelfRegistrationKiosk(data map[string]any) IamSmartEntity {
 	return NewSelfRegistrationKioskEntityFunc(sdk, data)
 }

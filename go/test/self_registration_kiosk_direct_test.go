@@ -93,14 +93,12 @@ func self_registration_kioskDirectSetup(mockres any) *self_registration_kioskDir
 	env := envOverride(map[string]any{
 		"IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID": map[string]any{},
 		"IAMSMART_TEST_LIVE":    "FALSE",
-		"IAMSMART_APIKEY":       "NONE",
 	})
 
 	live := env["IAMSMART_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IAMSMART_APIKEY"],
 		}
 		client := sdk.NewIamSmartSDK(mergedOpts)
 

@@ -45,6 +45,7 @@ class MobileRegistrationPointEntity
     end
   end
 
+  # @return [MobileRegistrationPoint, Hash] the current MobileRegistrationPoint data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class MobileRegistrationPointEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of MobileRegistrationPoint fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class MobileRegistrationPointEntity
   
 
   
+  # List MobileRegistrationPoint items matching the given filter.
+  #
+  # @param reqmatch [MobileRegistrationPointListMatch, Hash, nil] match filter (any subset of MobileRegistrationPoint fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<MobileRegistrationPoint>, Array] the matching MobileRegistrationPoint items; raises IamSmartError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

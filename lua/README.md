@@ -9,12 +9,9 @@ The Lua SDK for the IamSmart API — an entity-oriented client using Lua convent
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-iam-smart
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/iam-smart-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("iam-smart_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("IAM-SMART_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List mobileregistrationpoints
 
 ```lua
-local result, err = client:MobileRegistrationPoint():list()
+local result, err = client:mobileregistrationpoint():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:IamSmart():load({ id = "test01" })
+local result, err = client:mobileregistrationpoint():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-IAM-SMART_TEST_LIVE=TRUE
-IAM-SMART_APIKEY=<your-key>
+IAM_SMART_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -289,7 +282,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.MobileRegistrationPoint()`
+Create an instance: `const mobile_registration_point = client.mobile_registration_point`
 
 #### Operations
 
@@ -318,13 +311,13 @@ Create an instance: `const mobile_registration_point = client.MobileRegistration
 #### Example: List
 
 ```ts
-const mobile_registration_points = await client.MobileRegistrationPoint().list()
+const mobile_registration_points = await client.mobile_registration_point.list()
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.RegistrationServiceCounter()`
+Create an instance: `const registration_service_counter = client.registration_service_counter`
 
 #### Operations
 
@@ -355,13 +348,13 @@ Create an instance: `const registration_service_counter = client.RegistrationSer
 #### Example: List
 
 ```ts
-const registration_service_counters = await client.RegistrationServiceCounter().list()
+const registration_service_counters = await client.registration_service_counter.list()
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.SelfRegistrationKiosk()`
+Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
 
 #### Operations
 
@@ -392,7 +385,7 @@ Create an instance: `const self_registration_kiosk = client.SelfRegistrationKios
 #### Example: List
 
 ```ts
-const self_registration_kiosks = await client.SelfRegistrationKiosk().list()
+const self_registration_kiosks = await client.self_registration_kiosk.list()
 ```
 
 
@@ -467,11 +460,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local mobileregistrationpoint = client:mobileregistrationpoint()
+mobileregistrationpoint:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- mobileregistrationpoint:data_get() now returns the loaded mobileregistrationpoint data
+-- mobileregistrationpoint:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch SelfRegistrationKioskListMatch
+---@param ctrl? table
+---@return SelfRegistrationKiosk[]
+---@return string? err
 function SelfRegistrationKioskEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

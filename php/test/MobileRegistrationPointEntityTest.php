@@ -50,8 +50,7 @@ class MobileRegistrationPointEntityTest extends TestCase
         $mobile_registration_point_ref01_ent = $client->MobileRegistrationPoint(null);
         $mobile_registration_point_ref01_match = [];
 
-        [$mobile_registration_point_ref01_list_result, $err] = $mobile_registration_point_ref01_ent->list($mobile_registration_point_ref01_match, null);
-        $this->assertNull($err);
+        $mobile_registration_point_ref01_list_result = $mobile_registration_point_ref01_ent->list($mobile_registration_point_ref01_match, null);
         $this->assertIsArray($mobile_registration_point_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function mobile_registration_point_basic_setup($extra)
         "IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID" => $idmap,
         "IAMSMART_TEST_LIVE" => "FALSE",
         "IAMSMART_TEST_EXPLAIN" => "FALSE",
-        "IAMSMART_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function mobile_registration_point_basic_setup($extra)
     if ($env["IAMSMART_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["IAMSMART_APIKEY"],
             ],
             $extra ?? [],
         ]);

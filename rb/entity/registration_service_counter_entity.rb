@@ -45,6 +45,7 @@ class RegistrationServiceCounterEntity
     end
   end
 
+  # @return [RegistrationServiceCounter, Hash] the current RegistrationServiceCounter data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class RegistrationServiceCounterEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of RegistrationServiceCounter fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class RegistrationServiceCounterEntity
   
 
   
+  # List RegistrationServiceCounter items matching the given filter.
+  #
+  # @param reqmatch [RegistrationServiceCounterListMatch, Hash, nil] match filter (any subset of RegistrationServiceCounter fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<RegistrationServiceCounter>, Array] the matching RegistrationServiceCounter items; raises IamSmartError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

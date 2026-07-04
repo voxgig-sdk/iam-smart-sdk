@@ -43,8 +43,7 @@ class SelfRegistrationKioskEntityTest < Minitest::Test
     self_registration_kiosk_ref01_ent = client.SelfRegistrationKiosk(nil)
     self_registration_kiosk_ref01_match = {}
 
-    self_registration_kiosk_ref01_list_result, err = self_registration_kiosk_ref01_ent.list(self_registration_kiosk_ref01_match, nil)
-    assert_nil err
+    self_registration_kiosk_ref01_list_result = self_registration_kiosk_ref01_ent.list(self_registration_kiosk_ref01_match, nil)
     assert self_registration_kiosk_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def self_registration_kiosk_basic_setup(extra)
     "IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID" => idmap,
     "IAMSMART_TEST_LIVE" => "FALSE",
     "IAMSMART_TEST_EXPLAIN" => "FALSE",
-    "IAMSMART_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def self_registration_kiosk_basic_setup(extra)
   if env["IAMSMART_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IAMSMART_APIKEY"],
       },
       extra || {},
     ])

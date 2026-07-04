@@ -103,7 +103,7 @@ class IamSmartSDK
         return $this->_rootctx;
     }
 
-    public function prepare(array $fetchargs = []): array
+    public function prepare(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
         $fetchargs = $fetchargs ?? [];
@@ -149,19 +149,27 @@ class IamSmartSDK
 
         [$_, $err] = ($utility->prepare_auth)($ctx);
         if ($err) {
-            return [null, $err];
+            return ($utility->make_error)($ctx, $err);
         }
 
-        return ($utility->make_fetch_def)($ctx);
+        [$fetchdef, $fd_err] = ($utility->make_fetch_def)($ctx);
+        if ($fd_err) {
+            return ($utility->make_error)($ctx, $fd_err);
+        }
+        return $fetchdef;
     }
 
-    public function direct(array $fetchargs = []): array
+    public function direct(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
-        [$fetchdef, $err] = $this->prepare($fetchargs);
-        if ($err) {
-            return [["ok" => false, "err" => $err], null];
+        // direct() is the raw-HTTP escape hatch: it never throws, it returns
+        // an {ok, err, ...} dict. prepare() now raises on error, so catch it
+        // and surface the failure through the dict instead.
+        try {
+            $fetchdef = $this->prepare($fetchargs);
+        } catch (\Throwable $err) {
+            return ["ok" => false, "err" => $err];
         }
 
         $fetchargs = $fetchargs ?? [];
@@ -176,14 +184,14 @@ class IamSmartSDK
         [$fetched, $fetch_err] = ($utility->fetcher)($ctx, $url, $fetchdef);
 
         if ($fetch_err) {
-            return [["ok" => false, "err" => $fetch_err], null];
+            return ["ok" => false, "err" => $fetch_err];
         }
 
         if ($fetched === null) {
-            return [[
+            return [
                 "ok" => false,
                 "err" => $ctx->make_error("direct_no_response", "response: undefined"),
-            ], null];
+            ];
         }
 
         if (is_array($fetched)) {
@@ -208,38 +216,71 @@ class IamSmartSDK
                 }
             }
 
-            return [[
+            return [
                 "ok" => $status >= 200 && $status < 300,
                 "status" => $status,
                 "headers" => Struct::getprop($fetched, "headers"),
                 "data" => $json_data,
-            ], null];
+            ];
         }
 
-        return [[
+        return [
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
-        ], null];
+        ];
     }
 
 
-    public function MobileRegistrationPoint($data = null)
+    private $_mobile_registration_point = null;
+
+    // Idiomatic facade: $client->mobile_registration_point()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias MobileRegistrationPoint() (PHP method
+    // names are case-insensitive).
+    public function mobile_registration_point($data = null)
     {
         require_once __DIR__ . '/entity/mobile_registration_point_entity.php';
+        if ($data === null) {
+            if ($this->_mobile_registration_point === null) {
+                $this->_mobile_registration_point = new MobileRegistrationPointEntity($this, null);
+            }
+            return $this->_mobile_registration_point;
+        }
         return new MobileRegistrationPointEntity($this, $data);
     }
 
 
-    public function RegistrationServiceCounter($data = null)
+    private $_registration_service_counter = null;
+
+    // Idiomatic facade: $client->registration_service_counter()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias RegistrationServiceCounter() (PHP method
+    // names are case-insensitive).
+    public function registration_service_counter($data = null)
     {
         require_once __DIR__ . '/entity/registration_service_counter_entity.php';
+        if ($data === null) {
+            if ($this->_registration_service_counter === null) {
+                $this->_registration_service_counter = new RegistrationServiceCounterEntity($this, null);
+            }
+            return $this->_registration_service_counter;
+        }
         return new RegistrationServiceCounterEntity($this, $data);
     }
 
 
-    public function SelfRegistrationKiosk($data = null)
+    private $_self_registration_kiosk = null;
+
+    // Idiomatic facade: $client->self_registration_kiosk()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias SelfRegistrationKiosk() (PHP method
+    // names are case-insensitive).
+    public function self_registration_kiosk($data = null)
     {
         require_once __DIR__ . '/entity/self_registration_kiosk_entity.php';
+        if ($data === null) {
+            if ($this->_self_registration_kiosk === null) {
+                $this->_self_registration_kiosk = new SelfRegistrationKioskEntity($this, null);
+            }
+            return $this->_self_registration_kiosk;
+        }
         return new SelfRegistrationKioskEntity($this, $data);
     }
 

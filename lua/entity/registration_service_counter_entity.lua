@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch RegistrationServiceCounterListMatch
+---@param ctrl? table
+---@return RegistrationServiceCounter[]
+---@return string? err
 function RegistrationServiceCounterEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

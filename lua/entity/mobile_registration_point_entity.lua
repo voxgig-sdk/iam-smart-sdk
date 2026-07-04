@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch MobileRegistrationPointListMatch
+---@param ctrl? table
+---@return MobileRegistrationPoint[]
+---@return string? err
 function MobileRegistrationPointEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

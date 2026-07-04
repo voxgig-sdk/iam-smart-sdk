@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  SelfRegistrationKiosk,
+  SelfRegistrationKioskListMatch,
+} from '../IamSmartTypes'
 
 // TODO: needs Entity superclass
-class SelfRegistrationKioskEntity extends IamSmartEntityBase {
+class SelfRegistrationKioskEntity extends IamSmartEntityBase<SelfRegistrationKiosk> {
 
   constructor(client: IamSmartSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class SelfRegistrationKioskEntity extends IamSmartEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: SelfRegistrationKioskListMatch, ctrl?: Control): Promise<SelfRegistrationKiosk[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class SelfRegistrationKioskEntity extends IamSmartEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<SelfRegistrationKiosk[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

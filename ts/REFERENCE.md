@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `IamSmartSDK.test()`.
 ## MobileRegistrationPointEntity
 
 ```ts
-const mobile_registration_point = client.MobileRegistrationPoint()
+const mobile_registration_point = client.mobile_registration_point
 ```
 
 ### Fields
@@ -162,7 +161,7 @@ const mobile_registration_point = client.MobileRegistrationPoint()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.MobileRegistrationPoint().list()
+const results = await client.mobile_registration_point.list()
 ```
 
 ### Common Methods
@@ -196,7 +195,7 @@ Return a copy of the entity options.
 ## RegistrationServiceCounterEntity
 
 ```ts
-const registration_service_counter = client.RegistrationServiceCounter()
+const registration_service_counter = client.registration_service_counter
 ```
 
 ### Fields
@@ -226,7 +225,7 @@ const registration_service_counter = client.RegistrationServiceCounter()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.RegistrationServiceCounter().list()
+const results = await client.registration_service_counter.list()
 ```
 
 ### Common Methods
@@ -260,7 +259,7 @@ Return a copy of the entity options.
 ## SelfRegistrationKioskEntity
 
 ```ts
-const self_registration_kiosk = client.SelfRegistrationKiosk()
+const self_registration_kiosk = client.self_registration_kiosk
 ```
 
 ### Fields
@@ -290,7 +289,7 @@ const self_registration_kiosk = client.SelfRegistrationKiosk()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.SelfRegistrationKiosk().list()
+const results = await client.self_registration_kiosk.list()
 ```
 
 ### Common Methods

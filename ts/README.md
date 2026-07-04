@@ -9,9 +9,12 @@ The TypeScript SDK for the IamSmart API — a type-safe, entity-oriented client 
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/iam-smart
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/iam-smart-sdk/releases](https://github.com/voxgig-sdk/iam-smart-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IamSmartSDK } from 'iam-smart'
+import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
 
-const client = new IamSmartSDK({
-  apikey: process.env.IAM-SMART_APIKEY,
-})
+const client = new IamSmartSDK()
 ```
 
 ### 2. List mobileregistrationpoints
 
 ```ts
-const result = await client.MobileRegistrationPoint().list()
+const result = await client.mobileregistrationpoint.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = IamSmartSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.mobileregistrationpoint.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new IamSmartSDK({ apikey: '...' })
+const client = new IamSmartSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.mobileregistrationpoint
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new IamSmartSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new IamSmartSDK({
 Create a `.env.local` file at the project root:
 
 ```
-IAM-SMART_TEST_LIVE=TRUE
-IAM-SMART_APIKEY=<your-key>
+IAM_SMART_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new IamSmartSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new IamSmartSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -330,7 +327,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `const mobile_registration_point = client.MobileRegistrationPoint()`
+Create an instance: `const mobile_registration_point = client.mobile_registration_point`
 
 #### Operations
 
@@ -359,13 +356,13 @@ Create an instance: `const mobile_registration_point = client.MobileRegistration
 #### Example: List
 
 ```ts
-const mobile_registration_points = await client.MobileRegistrationPoint().list()
+const mobile_registration_points = await client.mobile_registration_point.list()
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `const registration_service_counter = client.RegistrationServiceCounter()`
+Create an instance: `const registration_service_counter = client.registration_service_counter`
 
 #### Operations
 
@@ -396,13 +393,13 @@ Create an instance: `const registration_service_counter = client.RegistrationSer
 #### Example: List
 
 ```ts
-const registration_service_counters = await client.RegistrationServiceCounter().list()
+const registration_service_counters = await client.registration_service_counter.list()
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `const self_registration_kiosk = client.SelfRegistrationKiosk()`
+Create an instance: `const self_registration_kiosk = client.self_registration_kiosk`
 
 #### Operations
 
@@ -433,7 +430,7 @@ Create an instance: `const self_registration_kiosk = client.SelfRegistrationKios
 #### Example: List
 
 ```ts
-const self_registration_kiosks = await client.SelfRegistrationKiosk().list()
+const self_registration_kiosks = await client.self_registration_kiosk.list()
 ```
 
 
@@ -494,7 +491,7 @@ iam-smart/
 Import the SDK from the package root:
 
 ```ts
-import { IamSmartSDK } from 'iam-smart'
+import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
 ```
 
 ### Entity state
@@ -504,11 +501,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const mobileregistrationpoint = client.mobileregistrationpoint
+await mobileregistrationpoint.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// mobileregistrationpoint.data() now returns the loaded mobileregistrationpoint data
+// mobileregistrationpoint.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -50,8 +50,7 @@ class RegistrationServiceCounterEntityTest extends TestCase
         $registration_service_counter_ref01_ent = $client->RegistrationServiceCounter(null);
         $registration_service_counter_ref01_match = [];
 
-        [$registration_service_counter_ref01_list_result, $err] = $registration_service_counter_ref01_ent->list($registration_service_counter_ref01_match, null);
-        $this->assertNull($err);
+        $registration_service_counter_ref01_list_result = $registration_service_counter_ref01_ent->list($registration_service_counter_ref01_match, null);
         $this->assertIsArray($registration_service_counter_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function registration_service_counter_basic_setup($extra)
         "IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID" => $idmap,
         "IAMSMART_TEST_LIVE" => "FALSE",
         "IAMSMART_TEST_EXPLAIN" => "FALSE",
-        "IAMSMART_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function registration_service_counter_basic_setup($extra)
     if ($env["IAMSMART_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["IAMSMART_APIKEY"],
             ],
             $extra ?? [],
         ]);

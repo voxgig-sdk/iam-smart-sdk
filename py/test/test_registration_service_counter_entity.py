@@ -50,8 +50,7 @@ class TestRegistrationServiceCounterEntity:
         registration_service_counter_ref01_ent = client.RegistrationServiceCounter(None)
         registration_service_counter_ref01_match = {}
 
-        registration_service_counter_ref01_list_result, err = registration_service_counter_ref01_ent.list(registration_service_counter_ref01_match, None)
-        assert err is None
+        registration_service_counter_ref01_list_result = registration_service_counter_ref01_ent.list(registration_service_counter_ref01_match, None)
         assert isinstance(registration_service_counter_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _registration_service_counter_basic_setup(extra):
         "IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID": idmap,
         "IAMSMART_TEST_LIVE": "FALSE",
         "IAMSMART_TEST_EXPLAIN": "FALSE",
-        "IAMSMART_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _registration_service_counter_basic_setup(extra):
     if env.get("IAMSMART_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("IAMSMART_APIKEY"),
             },
             extra or {},
         ])

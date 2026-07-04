@@ -45,6 +45,7 @@ class SelfRegistrationKioskEntity
     end
   end
 
+  # @return [SelfRegistrationKiosk, Hash] the current SelfRegistrationKiosk data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class SelfRegistrationKioskEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of SelfRegistrationKiosk fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class SelfRegistrationKioskEntity
   
 
   
+  # List SelfRegistrationKiosk items matching the given filter.
+  #
+  # @param reqmatch [SelfRegistrationKioskListMatch, Hash, nil] match filter (any subset of SelfRegistrationKiosk fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<SelfRegistrationKiosk>, Array] the matching SelfRegistrationKiosk items; raises IamSmartError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -92,7 +91,7 @@ same parameters as `direct()`.
 ## MobileRegistrationPointEntity
 
 ```lua
-local mobile_registration_point = client:MobileRegistrationPoint(nil)
+local mobile_registration_point = client:mobile_registration_point(nil)
 ```
 
 ### Fields
@@ -120,7 +119,7 @@ local mobile_registration_point = client:MobileRegistrationPoint(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:MobileRegistrationPoint():list()
+local results, err = client:mobile_registration_point():list()
 ```
 
 ### Common Methods
@@ -156,7 +155,7 @@ Return the entity name.
 ## RegistrationServiceCounterEntity
 
 ```lua
-local registration_service_counter = client:RegistrationServiceCounter(nil)
+local registration_service_counter = client:registration_service_counter(nil)
 ```
 
 ### Fields
@@ -186,7 +185,7 @@ local registration_service_counter = client:RegistrationServiceCounter(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:RegistrationServiceCounter():list()
+local results, err = client:registration_service_counter():list()
 ```
 
 ### Common Methods
@@ -222,7 +221,7 @@ Return the entity name.
 ## SelfRegistrationKioskEntity
 
 ```lua
-local self_registration_kiosk = client:SelfRegistrationKiosk(nil)
+local self_registration_kiosk = client:self_registration_kiosk(nil)
 ```
 
 ### Fields
@@ -252,7 +251,7 @@ local self_registration_kiosk = client:SelfRegistrationKiosk(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:SelfRegistrationKiosk():list()
+local results, err = client:self_registration_kiosk():list()
 ```
 
 ### Common Methods
