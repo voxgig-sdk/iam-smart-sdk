@@ -8,7 +8,7 @@ Complete API reference for the IamSmart PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/iam-smart_sdk.php';
+require_once __DIR__ . '/iamsmart_sdk.php';
 
 $client = new IamSmartSDK($options);
 ```
@@ -53,11 +53,11 @@ Create a new `RegistrationServiceCounterEntity` instance. Pass `null` for no ini
 
 Create a new `SelfRegistrationKioskEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): IamSmartUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,45 +100,45 @@ $mobile_registration_point = $client->MobileRegistrationPoint();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_en` | ``$STRING`` | No |  |
-| `location_zh` | ``$STRING`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `schedule` | ``$ARRAY`` | No |  |
+| `district` | `string` | No |  |
+| `id` | `string` | No |  |
+| `latitude` | `float` | No |  |
+| `location` | `string` | No |  |
+| `location_en` | `string` | No |  |
+| `location_zh` | `string` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `string` | No |  |
+| `name_en` | `string` | No |  |
+| `name_zh` | `string` | No |  |
+| `region` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `schedule` | `array` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->MobileRegistrationPoint()->list([]);
+$results = $client->MobileRegistrationPoint()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -147,7 +147,7 @@ Set the entity match criteria.
 Create a new `MobileRegistrationPointEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -164,47 +164,47 @@ $registration_service_counter = $client->RegistrationServiceCounter();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `service` | ``$ARRAY`` | No |  |
-| `telephone` | ``$STRING`` | No |  |
+| `address` | `string` | No |  |
+| `address_en` | `string` | No |  |
+| `address_zh` | `string` | No |  |
+| `district` | `string` | No |  |
+| `id` | `string` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `string` | No |  |
+| `name_en` | `string` | No |  |
+| `name_zh` | `string` | No |  |
+| `operating_hour` | `string` | No |  |
+| `region` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `service` | `array` | No |  |
+| `telephone` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->RegistrationServiceCounter()->list([]);
+$results = $client->RegistrationServiceCounter()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -213,7 +213,7 @@ Set the entity match criteria.
 Create a new `RegistrationServiceCounterEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -230,47 +230,47 @@ $self_registration_kiosk = $client->SelfRegistrationKiosk();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `availability` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `floor` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
+| `address` | `string` | No |  |
+| `address_en` | `string` | No |  |
+| `address_zh` | `string` | No |  |
+| `availability` | `string` | No |  |
+| `district` | `string` | No |  |
+| `floor` | `string` | No |  |
+| `id` | `string` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `string` | No |  |
+| `name_en` | `string` | No |  |
+| `name_zh` | `string` | No |  |
+| `operating_hour` | `string` | No |  |
+| `region` | `string` | No |  |
+| `remark` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->SelfRegistrationKiosk()->list([]);
+$results = $client->SelfRegistrationKiosk()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -279,7 +279,7 @@ Set the entity match criteria.
 Create a new `SelfRegistrationKioskEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

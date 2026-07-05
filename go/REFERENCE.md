@@ -105,19 +105,19 @@ mobile_registration_point := client.MobileRegistrationPoint(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_en` | ``$STRING`` | No |  |
-| `location_zh` | ``$STRING`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `schedule` | ``$ARRAY`` | No |  |
+| `district` | `string` | No |  |
+| `id` | `string` | No |  |
+| `latitude` | `float64` | No |  |
+| `location` | `string` | No |  |
+| `location_en` | `string` | No |  |
+| `location_zh` | `string` | No |  |
+| `longitude` | `float64` | No |  |
+| `name` | `string` | No |  |
+| `name_en` | `string` | No |  |
+| `name_zh` | `string` | No |  |
+| `region` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `schedule` | `[]any` | No |  |
 
 ### Operations
 
@@ -163,21 +163,21 @@ registration_service_counter := client.RegistrationServiceCounter(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `service` | ``$ARRAY`` | No |  |
-| `telephone` | ``$STRING`` | No |  |
+| `address` | `string` | No |  |
+| `address_en` | `string` | No |  |
+| `address_zh` | `string` | No |  |
+| `district` | `string` | No |  |
+| `id` | `string` | No |  |
+| `latitude` | `float64` | No |  |
+| `longitude` | `float64` | No |  |
+| `name` | `string` | No |  |
+| `name_en` | `string` | No |  |
+| `name_zh` | `string` | No |  |
+| `operating_hour` | `string` | No |  |
+| `region` | `string` | No |  |
+| `remark` | `string` | No |  |
+| `service` | `[]any` | No |  |
+| `telephone` | `string` | No |  |
 
 ### Operations
 
@@ -223,21 +223,21 @@ self_registration_kiosk := client.SelfRegistrationKiosk(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `availability` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `floor` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
+| `address` | `string` | No |  |
+| `address_en` | `string` | No |  |
+| `address_zh` | `string` | No |  |
+| `availability` | `string` | No |  |
+| `district` | `string` | No |  |
+| `floor` | `string` | No |  |
+| `id` | `string` | No |  |
+| `latitude` | `float64` | No |  |
+| `longitude` | `float64` | No |  |
+| `name` | `string` | No |  |
+| `name_en` | `string` | No |  |
+| `name_zh` | `string` | No |  |
+| `operating_hour` | `string` | No |  |
+| `region` | `string` | No |  |
+| `remark` | `string` | No |  |
 
 ### Operations
 

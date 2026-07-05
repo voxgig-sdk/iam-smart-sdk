@@ -65,7 +65,7 @@ MobileRegistrationPoint = Struct.new(
   keyword_init: true
 )
 
-# Match filter for MobileRegistrationPoint#list (any subset of MobileRegistrationPoint fields).
+# Request payload for MobileRegistrationPoint#list.
 #
 # @!attribute [rw] district
 #   @return [String, nil]
@@ -187,7 +187,7 @@ RegistrationServiceCounter = Struct.new(
   keyword_init: true
 )
 
-# Match filter for RegistrationServiceCounter#list (any subset of RegistrationServiceCounter fields).
+# Request payload for RegistrationServiceCounter#list.
 #
 # @!attribute [rw] address
 #   @return [String, nil]
@@ -317,7 +317,7 @@ SelfRegistrationKiosk = Struct.new(
   keyword_init: true
 )
 
-# Match filter for SelfRegistrationKiosk#list (any subset of SelfRegistrationKiosk fields).
+# Request payload for SelfRegistrationKiosk#list.
 #
 # @!attribute [rw] address
 #   @return [String, nil]

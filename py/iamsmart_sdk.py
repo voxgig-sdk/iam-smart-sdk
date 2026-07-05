@@ -221,19 +221,19 @@ class IamSmartSDK:
 
 
     def MobileRegistrationPoint(self, data=None) -> "MobileRegistrationPointEntity":
-        """Entity factory: client.MobileRegistrationPoint().list({}) / client.MobileRegistrationPoint().load({"id": ...})."""
+        """Entity factory: client.MobileRegistrationPoint().list() / client.MobileRegistrationPoint().load({"id": ...})."""
         from entity.mobile_registration_point_entity import MobileRegistrationPointEntity
         return MobileRegistrationPointEntity(self, data)
 
 
     def RegistrationServiceCounter(self, data=None) -> "RegistrationServiceCounterEntity":
-        """Entity factory: client.RegistrationServiceCounter().list({}) / client.RegistrationServiceCounter().load({"id": ...})."""
+        """Entity factory: client.RegistrationServiceCounter().list() / client.RegistrationServiceCounter().load({"id": ...})."""
         from entity.registration_service_counter_entity import RegistrationServiceCounterEntity
         return RegistrationServiceCounterEntity(self, data)
 
 
     def SelfRegistrationKiosk(self, data=None) -> "SelfRegistrationKioskEntity":
-        """Entity factory: client.SelfRegistrationKiosk().list({}) / client.SelfRegistrationKiosk().load({"id": ...})."""
+        """Entity factory: client.SelfRegistrationKiosk().list() / client.SelfRegistrationKiosk().load({"id": ...})."""
         from entity.self_registration_kiosk_entity import SelfRegistrationKioskEntity
         return SelfRegistrationKioskEntity(self, data)
 

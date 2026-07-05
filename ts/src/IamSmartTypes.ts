@@ -21,7 +21,21 @@ export interface MobileRegistrationPoint {
   schedule?: any[]
 }
 
-export type MobileRegistrationPointListMatch = Partial<MobileRegistrationPoint>
+export interface MobileRegistrationPointListMatch {
+  district?: string
+  id?: string
+  latitude?: number
+  location?: string
+  location_en?: string
+  location_zh?: string
+  longitude?: number
+  name?: string
+  name_en?: string
+  name_zh?: string
+  region?: string
+  remark?: string
+  schedule?: any[]
+}
 
 export interface RegistrationServiceCounter {
   address?: string
@@ -41,7 +55,23 @@ export interface RegistrationServiceCounter {
   telephone?: string
 }
 
-export type RegistrationServiceCounterListMatch = Partial<RegistrationServiceCounter>
+export interface RegistrationServiceCounterListMatch {
+  address?: string
+  address_en?: string
+  address_zh?: string
+  district?: string
+  id?: string
+  latitude?: number
+  longitude?: number
+  name?: string
+  name_en?: string
+  name_zh?: string
+  operating_hour?: string
+  region?: string
+  remark?: string
+  service?: any[]
+  telephone?: string
+}
 
 export interface SelfRegistrationKiosk {
   address?: string
@@ -61,5 +91,21 @@ export interface SelfRegistrationKiosk {
   remark?: string
 }
 
-export type SelfRegistrationKioskListMatch = Partial<SelfRegistrationKiosk>
+export interface SelfRegistrationKioskListMatch {
+  address?: string
+  address_en?: string
+  address_zh?: string
+  availability?: string
+  district?: string
+  floor?: string
+  id?: string
+  latitude?: number
+  longitude?: number
+  name?: string
+  name_en?: string
+  name_zh?: string
+  operating_hour?: string
+  region?: string
+  remark?: string
+}
 

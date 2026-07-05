@@ -30,7 +30,7 @@ class MobileRegistrationPoint
     public ?array $schedule = null;
 }
 
-/** Match filter for MobileRegistrationPoint#list (any subset of MobileRegistrationPoint fields). */
+/** Request payload for MobileRegistrationPoint#list. */
 class MobileRegistrationPointListMatch
 {
     public ?string $district = null;
@@ -68,7 +68,7 @@ class RegistrationServiceCounter
     public ?string $telephone = null;
 }
 
-/** Match filter for RegistrationServiceCounter#list (any subset of RegistrationServiceCounter fields). */
+/** Request payload for RegistrationServiceCounter#list. */
 class RegistrationServiceCounterListMatch
 {
     public ?string $address = null;
@@ -108,7 +108,7 @@ class SelfRegistrationKiosk
     public ?string $remark = null;
 }
 
-/** Match filter for SelfRegistrationKiosk#list (any subset of SelfRegistrationKiosk fields). */
+/** Request payload for SelfRegistrationKiosk#list. */
 class SelfRegistrationKioskListMatch
 {
     public ?string $address = null;

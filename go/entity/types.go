@@ -25,8 +25,7 @@ type MobileRegistrationPoint struct {
 	Schedule *[]any `json:"schedule,omitempty"`
 }
 
-// MobileRegistrationPointListMatch mirrors the mobile_registration_point fields as an all-optional match
-// filter (Go analog of Partial<MobileRegistrationPoint>).
+// MobileRegistrationPointListMatch is the typed request payload for MobileRegistrationPoint.ListTyped.
 type MobileRegistrationPointListMatch struct {
 	District *string `json:"district,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -62,8 +61,7 @@ type RegistrationServiceCounter struct {
 	Telephone *string `json:"telephone,omitempty"`
 }
 
-// RegistrationServiceCounterListMatch mirrors the registration_service_counter fields as an all-optional match
-// filter (Go analog of Partial<RegistrationServiceCounter>).
+// RegistrationServiceCounterListMatch is the typed request payload for RegistrationServiceCounter.ListTyped.
 type RegistrationServiceCounterListMatch struct {
 	Address *string `json:"address,omitempty"`
 	AddressEn *string `json:"address_en,omitempty"`
@@ -101,8 +99,7 @@ type SelfRegistrationKiosk struct {
 	Remark *string `json:"remark,omitempty"`
 }
 
-// SelfRegistrationKioskListMatch mirrors the self_registration_kiosk fields as an all-optional match
-// filter (Go analog of Partial<SelfRegistrationKiosk>).
+// SelfRegistrationKioskListMatch is the typed request payload for SelfRegistrationKiosk.ListTyped.
 type SelfRegistrationKioskListMatch struct {
 	Address *string `json:"address,omitempty"`
 	AddressEn *string `json:"address_en,omitempty"`

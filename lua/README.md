@@ -4,6 +4,8 @@
 
 The Lua SDK for the IamSmart API — an entity-oriented client using Lua conventions.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:MobileRegistrationPoint()` — each with the same small set of operations (`list`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -41,8 +43,30 @@ local mobileregistrationpoints, err = client:MobileRegistrationPoint():list()
 if err then error(err) end
 
 for _, item in ipairs(mobileregistrationpoints) do
-  print(item["id"], item["name"])
+  print(item["id"], item["district"])
 end
+```
+
+
+## Error handling
+
+Entity operations return `(value, err)`. Check `err` before using
+the value:
+
+```lua
+local mobileregistrationpoints, err = client:MobileRegistrationPoint():list()
+if err then error(err) end
+```
+
+`direct` follows the same `(value, err)` convention:
+
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example_id" },
+})
+if err then error(err) end
 ```
 
 
@@ -88,8 +112,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:MobileRegistrationPoint():load({ id = "test01" })
--- result is the loaded data; err is set on failure
+local result, err = client:MobileRegistrationPoint():list()
+-- result is the returned data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -177,11 +201,7 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
 | `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
-| `create` | `(reqdata, ctrl) -> any, err` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> any, err` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> any, err` | Remove an entity. |
 | `data_get` | `() -> table` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> table` | Get entity match criteria. |
@@ -196,12 +216,11 @@ data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
 | `list` | an array (`table`) of entity records |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local mobile_registration_point, err = client:MobileRegistrationPoint():load({ id = "example_id" })
+    local mobile_registration_point, err = client:MobileRegistrationPoint():load()
     if err then error(err) end
     -- mobile_registration_point is the loaded record
 
@@ -299,19 +318,19 @@ Create an instance: `local mobile_registration_point = client:MobileRegistration
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `district` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `location` | ``$STRING`` |  |
-| `location_en` | ``$STRING`` |  |
-| `location_zh` | ``$STRING`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `name` | ``$STRING`` |  |
-| `name_en` | ``$STRING`` |  |
-| `name_zh` | ``$STRING`` |  |
-| `region` | ``$STRING`` |  |
-| `remark` | ``$STRING`` |  |
-| `schedule` | ``$ARRAY`` |  |
+| `district` | `string` |  |
+| `id` | `string` |  |
+| `latitude` | `number` |  |
+| `location` | `string` |  |
+| `location_en` | `string` |  |
+| `location_zh` | `string` |  |
+| `longitude` | `number` |  |
+| `name` | `string` |  |
+| `name_en` | `string` |  |
+| `name_zh` | `string` |  |
+| `region` | `string` |  |
+| `remark` | `string` |  |
+| `schedule` | `table` |  |
 
 #### Example: List
 
@@ -334,21 +353,21 @@ Create an instance: `local registration_service_counter = client:RegistrationSer
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address` | ``$STRING`` |  |
-| `address_en` | ``$STRING`` |  |
-| `address_zh` | ``$STRING`` |  |
-| `district` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `name` | ``$STRING`` |  |
-| `name_en` | ``$STRING`` |  |
-| `name_zh` | ``$STRING`` |  |
-| `operating_hour` | ``$STRING`` |  |
-| `region` | ``$STRING`` |  |
-| `remark` | ``$STRING`` |  |
-| `service` | ``$ARRAY`` |  |
-| `telephone` | ``$STRING`` |  |
+| `address` | `string` |  |
+| `address_en` | `string` |  |
+| `address_zh` | `string` |  |
+| `district` | `string` |  |
+| `id` | `string` |  |
+| `latitude` | `number` |  |
+| `longitude` | `number` |  |
+| `name` | `string` |  |
+| `name_en` | `string` |  |
+| `name_zh` | `string` |  |
+| `operating_hour` | `string` |  |
+| `region` | `string` |  |
+| `remark` | `string` |  |
+| `service` | `table` |  |
+| `telephone` | `string` |  |
 
 #### Example: List
 
@@ -371,21 +390,21 @@ Create an instance: `local self_registration_kiosk = client:SelfRegistrationKios
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address` | ``$STRING`` |  |
-| `address_en` | ``$STRING`` |  |
-| `address_zh` | ``$STRING`` |  |
-| `availability` | ``$STRING`` |  |
-| `district` | ``$STRING`` |  |
-| `floor` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `latitude` | ``$NUMBER`` |  |
-| `longitude` | ``$NUMBER`` |  |
-| `name` | ``$STRING`` |  |
-| `name_en` | ``$STRING`` |  |
-| `name_zh` | ``$STRING`` |  |
-| `operating_hour` | ``$STRING`` |  |
-| `region` | ``$STRING`` |  |
-| `remark` | ``$STRING`` |  |
+| `address` | `string` |  |
+| `address_en` | `string` |  |
+| `address_zh` | `string` |  |
+| `availability` | `string` |  |
+| `district` | `string` |  |
+| `floor` | `string` |  |
+| `id` | `string` |  |
+| `latitude` | `number` |  |
+| `longitude` | `number` |  |
+| `name` | `string` |  |
+| `name_en` | `string` |  |
+| `name_zh` | `string` |  |
+| `operating_hour` | `string` |  |
+| `region` | `string` |  |
+| `remark` | `string` |  |
 
 #### Example: List
 
@@ -394,12 +413,16 @@ local self_registration_kiosks, err = client:SelfRegistrationKiosk():list()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -416,8 +439,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -461,14 +485,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
 local mobileregistrationpoint = client:MobileRegistrationPoint()
-mobileregistrationpoint:load({ id = "example_id" })
+mobileregistrationpoint:list()
 
--- mobileregistrationpoint:data_get() now returns the loaded mobileregistrationpoint data
+-- mobileregistrationpoint:data_get() now returns the mobileregistrationpoint data from the last list
 -- mobileregistrationpoint:match_get() returns the last match criteria
 ```
 

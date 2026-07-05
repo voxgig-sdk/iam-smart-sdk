@@ -8,7 +8,7 @@ Complete API reference for the IamSmart Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'iam-smart_sdk'
+require_relative 'IamSmart_sdk'
 
 client = IamSmartSDK.new(options)
 ```
@@ -101,28 +101,28 @@ mobile_registration_point = client.MobileRegistrationPoint
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_en` | ``$STRING`` | No |  |
-| `location_zh` | ``$STRING`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `schedule` | ``$ARRAY`` | No |  |
+| `district` | `String` | No |  |
+| `id` | `String` | No |  |
+| `latitude` | `Float` | No |  |
+| `location` | `String` | No |  |
+| `location_en` | `String` | No |  |
+| `location_zh` | `String` | No |  |
+| `longitude` | `Float` | No |  |
+| `name` | `String` | No |  |
+| `name_en` | `String` | No |  |
+| `name_zh` | `String` | No |  |
+| `region` | `String` | No |  |
+| `remark` | `String` | No |  |
+| `schedule` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.MobileRegistrationPoint.list(nil)
+results = client.MobileRegistrationPoint.list
 ```
 
 ### Common Methods
@@ -165,30 +165,30 @@ registration_service_counter = client.RegistrationServiceCounter
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `service` | ``$ARRAY`` | No |  |
-| `telephone` | ``$STRING`` | No |  |
+| `address` | `String` | No |  |
+| `address_en` | `String` | No |  |
+| `address_zh` | `String` | No |  |
+| `district` | `String` | No |  |
+| `id` | `String` | No |  |
+| `latitude` | `Float` | No |  |
+| `longitude` | `Float` | No |  |
+| `name` | `String` | No |  |
+| `name_en` | `String` | No |  |
+| `name_zh` | `String` | No |  |
+| `operating_hour` | `String` | No |  |
+| `region` | `String` | No |  |
+| `remark` | `String` | No |  |
+| `service` | `Array` | No |  |
+| `telephone` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.RegistrationServiceCounter.list(nil)
+results = client.RegistrationServiceCounter.list
 ```
 
 ### Common Methods
@@ -231,30 +231,30 @@ self_registration_kiosk = client.SelfRegistrationKiosk
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `availability` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `floor` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
+| `address` | `String` | No |  |
+| `address_en` | `String` | No |  |
+| `address_zh` | `String` | No |  |
+| `availability` | `String` | No |  |
+| `district` | `String` | No |  |
+| `floor` | `String` | No |  |
+| `id` | `String` | No |  |
+| `latitude` | `Float` | No |  |
+| `longitude` | `Float` | No |  |
+| `name` | `String` | No |  |
+| `name_en` | `String` | No |  |
+| `name_zh` | `String` | No |  |
+| `operating_hour` | `String` | No |  |
+| `region` | `String` | No |  |
+| `remark` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.SelfRegistrationKiosk.list(nil)
+results = client.SelfRegistrationKiosk.list
 ```
 
 ### Common Methods

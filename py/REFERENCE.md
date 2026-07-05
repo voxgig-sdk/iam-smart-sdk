@@ -8,7 +8,7 @@ Complete API reference for the IamSmart Python SDK.
 ### Constructor
 
 ```python
-from iam-smart_sdk import IamSmartSDK
+from iamsmart_sdk import IamSmartSDK
 
 client = IamSmartSDK(options)
 ```
@@ -95,28 +95,28 @@ mobile_registration_point = client.MobileRegistrationPoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `location` | ``$STRING`` | No |  |
-| `location_en` | ``$STRING`` | No |  |
-| `location_zh` | ``$STRING`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `schedule` | ``$ARRAY`` | No |  |
+| `district` | `str` | No |  |
+| `id` | `str` | No |  |
+| `latitude` | `float` | No |  |
+| `location` | `str` | No |  |
+| `location_en` | `str` | No |  |
+| `location_zh` | `str` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `str` | No |  |
+| `name_en` | `str` | No |  |
+| `name_zh` | `str` | No |  |
+| `region` | `str` | No |  |
+| `remark` | `str` | No |  |
+| `schedule` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.MobileRegistrationPoint().list({})
+results = client.MobileRegistrationPoint().list()
 for mobile_registration_point in results:
     print(mobile_registration_point)
 ```
@@ -160,30 +160,30 @@ registration_service_counter = client.RegistrationServiceCounter()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
-| `service` | ``$ARRAY`` | No |  |
-| `telephone` | ``$STRING`` | No |  |
+| `address` | `str` | No |  |
+| `address_en` | `str` | No |  |
+| `address_zh` | `str` | No |  |
+| `district` | `str` | No |  |
+| `id` | `str` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `str` | No |  |
+| `name_en` | `str` | No |  |
+| `name_zh` | `str` | No |  |
+| `operating_hour` | `str` | No |  |
+| `region` | `str` | No |  |
+| `remark` | `str` | No |  |
+| `service` | `list` | No |  |
+| `telephone` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.RegistrationServiceCounter().list({})
+results = client.RegistrationServiceCounter().list()
 for registration_service_counter in results:
     print(registration_service_counter)
 ```
@@ -227,30 +227,30 @@ self_registration_kiosk = client.SelfRegistrationKiosk()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | ``$STRING`` | No |  |
-| `address_en` | ``$STRING`` | No |  |
-| `address_zh` | ``$STRING`` | No |  |
-| `availability` | ``$STRING`` | No |  |
-| `district` | ``$STRING`` | No |  |
-| `floor` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `name_en` | ``$STRING`` | No |  |
-| `name_zh` | ``$STRING`` | No |  |
-| `operating_hour` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `remark` | ``$STRING`` | No |  |
+| `address` | `str` | No |  |
+| `address_en` | `str` | No |  |
+| `address_zh` | `str` | No |  |
+| `availability` | `str` | No |  |
+| `district` | `str` | No |  |
+| `floor` | `str` | No |  |
+| `id` | `str` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `name` | `str` | No |  |
+| `name_en` | `str` | No |  |
+| `name_zh` | `str` | No |  |
+| `operating_hour` | `str` | No |  |
+| `region` | `str` | No |  |
+| `remark` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.SelfRegistrationKiosk().list({})
+results = client.SelfRegistrationKiosk().list()
 for self_registration_kiosk in results:
     print(self_registration_kiosk)
 ```
