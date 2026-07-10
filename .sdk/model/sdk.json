@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -586,14 +583,17 @@
           "name": "Terms and Conditions",
           "url": "https://data.gov.hk/en/terms-and-conditions"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.digitalpolicy.gov.hk"
           }
         ],
+        "summary": "The iAM Smart API provides information about registration locations for the iAM Smart service, which facilitates digital identity verification in Hong Kong.",
         "title": "iAM Smart API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.digitalpolicy.gov.hk/open_data/iam_smart/iAM-Smart-Registration-data-dictionary-en.pdf"
       },
       "option": {},
       "target": {
@@ -646,6 +646,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -696,6 +699,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

@@ -98,7 +98,8 @@ same parameters as `Direct()`.
 ## MobileRegistrationPointEntity
 
 ```go
-mobile_registration_point := client.MobileRegistrationPoint(nil)
+mobileRegistrationPoint := client.MobileRegistrationPoint(nil)
+fmt.Println(mobileRegistrationPoint.GetName()) // "mobile_registration_point"
 ```
 
 ### Fields
@@ -127,6 +128,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.MobileRegistrationPoint(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -156,7 +161,8 @@ Return the entity name.
 ## RegistrationServiceCounterEntity
 
 ```go
-registration_service_counter := client.RegistrationServiceCounter(nil)
+registrationServiceCounter := client.RegistrationServiceCounter(nil)
+fmt.Println(registrationServiceCounter.GetName()) // "registration_service_counter"
 ```
 
 ### Fields
@@ -187,6 +193,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.RegistrationServiceCounter(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -216,7 +226,8 @@ Return the entity name.
 ## SelfRegistrationKioskEntity
 
 ```go
-self_registration_kiosk := client.SelfRegistrationKiosk(nil)
+selfRegistrationKiosk := client.SelfRegistrationKiosk(nil)
+fmt.Println(selfRegistrationKiosk.GetName()) // "self_registration_kiosk"
 ```
 
 ### Fields
@@ -247,6 +258,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.SelfRegistrationKiosk(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

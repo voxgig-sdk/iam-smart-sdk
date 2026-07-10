@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List mobileregistrationpoint records — the value is the array of records itself.
-    mobileregistrationpoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
+    // List mobileRegistrationPoint records — the value is the array of records itself.
+    mobileRegistrationPoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range mobileregistrationpoints.([]any) {
+    for _, item := range mobileRegistrationPoints.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-mobileregistrationpoint, err := client.MobileRegistrationPoint(nil).List(
+mobileRegistrationPoint, err := client.MobileRegistrationPoint(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(mobileregistrationpoint) // the returned mock data
+fmt.Println(mobileRegistrationPoint) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -249,9 +249,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    mobileregistrationpoint, err := client.MobileRegistrationPoint(nil).List(map[string]any{/* fields */}, nil)
+    mobileRegistrationPoint, err := client.MobileRegistrationPoint(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // mobileregistrationpoint is the returned record
+    // mobileRegistrationPoint is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -335,7 +335,7 @@ API path: `/open_data/iam_smart/self-registration-kiosks`
 
 ### MobileRegistrationPoint
 
-Create an instance: `mobile_registration_point := client.MobileRegistrationPoint(nil)`
+Create an instance: `mobileRegistrationPoint := client.MobileRegistrationPoint(nil)`
 
 #### Operations
 
@@ -364,17 +364,17 @@ Create an instance: `mobile_registration_point := client.MobileRegistrationPoint
 #### Example: List
 
 ```go
-mobile_registration_points, err := client.MobileRegistrationPoint(nil).List(nil, nil)
+mobileRegistrationPoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(mobile_registration_points) // the array of records
+fmt.Println(mobileRegistrationPoints) // the array of records
 ```
 
 
 ### RegistrationServiceCounter
 
-Create an instance: `registration_service_counter := client.RegistrationServiceCounter(nil)`
+Create an instance: `registrationServiceCounter := client.RegistrationServiceCounter(nil)`
 
 #### Operations
 
@@ -405,17 +405,17 @@ Create an instance: `registration_service_counter := client.RegistrationServiceC
 #### Example: List
 
 ```go
-registration_service_counters, err := client.RegistrationServiceCounter(nil).List(nil, nil)
+registrationServiceCounters, err := client.RegistrationServiceCounter(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(registration_service_counters) // the array of records
+fmt.Println(registrationServiceCounters) // the array of records
 ```
 
 
 ### SelfRegistrationKiosk
 
-Create an instance: `self_registration_kiosk := client.SelfRegistrationKiosk(nil)`
+Create an instance: `selfRegistrationKiosk := client.SelfRegistrationKiosk(nil)`
 
 #### Operations
 
@@ -446,11 +446,11 @@ Create an instance: `self_registration_kiosk := client.SelfRegistrationKiosk(nil
 #### Example: List
 
 ```go
-self_registration_kiosks, err := client.SelfRegistrationKiosk(nil).List(nil, nil)
+selfRegistrationKiosks, err := client.SelfRegistrationKiosk(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(self_registration_kiosks) // the array of records
+fmt.Println(selfRegistrationKiosks) // the array of records
 ```
 
 

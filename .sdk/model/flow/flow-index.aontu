@@ -1,0 +1,5 @@
+# Flows
+
+@"BasicMobileRegistrationPointFlow.aontu"
+@"BasicRegistrationServiceCounterFlow.aontu"
+@"BasicSelfRegistrationKioskFlow.aontu"
