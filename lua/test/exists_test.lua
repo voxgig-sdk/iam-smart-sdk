@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- IamSmart SDK exists test
 
 local sdk = require("iam-smart_sdk")
 
