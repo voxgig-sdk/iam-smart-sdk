@@ -16,11 +16,11 @@
 import pytest
 
 from iamsmart_sdk import IamSmartSDK
-from core.error import IamSmartError
-from core.result import IamSmartResult
-from core.response import IamSmartResponse
-from core.spec import IamSmartSpec
-from feature.base_feature import IamSmartBaseFeature
+from iamsmart_sdk.core.error import IamSmartError
+from iamsmart_sdk.core.result import IamSmartResult
+from iamsmart_sdk.core.response import IamSmartResponse
+from iamsmart_sdk.core.spec import IamSmartSpec
+from iamsmart_sdk.feature.base_feature import IamSmartBaseFeature
 
 
 def _client():

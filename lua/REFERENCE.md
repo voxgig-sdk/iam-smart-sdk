@@ -102,14 +102,14 @@ local mobile_registration_point = client:MobileRegistrationPoint(nil)
 | `id` | `string` | No |  |
 | `latitude` | `number` | No |  |
 | `location` | `string` | No |  |
-| `location_en` | `string` | No |  |
-| `location_zh` | `string` | No |  |
+| `locationEn` | `string` | No |  |
+| `locationZh` | `string` | No |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `schedule` | `table` | No |  |
 
 ### Operations
@@ -163,19 +163,19 @@ local registration_service_counter = client:RegistrationServiceCounter(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `string` | No |  |
-| `address_en` | `string` | No |  |
-| `address_zh` | `string` | No |  |
+| `addressEn` | `string` | No |  |
+| `addressZh` | `string` | No |  |
 | `district` | `string` | No |  |
 | `id` | `string` | No |  |
 | `latitude` | `number` | No |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
-| `operating_hour` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
+| `operatingHours` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
-| `service` | `table` | No |  |
+| `remarks` | `string` | No |  |
+| `services` | `table` | No |  |
 | `telephone` | `string` | No |  |
 
 ### Operations
@@ -229,8 +229,8 @@ local self_registration_kiosk = client:SelfRegistrationKiosk(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `string` | No |  |
-| `address_en` | `string` | No |  |
-| `address_zh` | `string` | No |  |
+| `addressEn` | `string` | No |  |
+| `addressZh` | `string` | No |  |
 | `availability` | `string` | No |  |
 | `district` | `string` | No |  |
 | `floor` | `string` | No |  |
@@ -238,11 +238,11 @@ local self_registration_kiosk = client:SelfRegistrationKiosk(nil)
 | `latitude` | `number` | No |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
-| `operating_hour` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
+| `operatingHours` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 
 ### Operations
 

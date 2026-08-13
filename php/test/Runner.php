@@ -43,8 +43,8 @@ class IamSmartTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('IAMSMART_TEST_LIVE');
-        $override = self::getenv('IAMSMART_TEST_OVERRIDE');
+        $live = self::getenv('IAM_SMART_TEST_LIVE');
+        $override = self::getenv('IAM_SMART_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class IamSmartTestRunner
             }
         }
 
-        $explain = self::getenv('IAMSMART_TEST_EXPLAIN');
+        $explain = self::getenv('IAM_SMART_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['IAMSMART_TEST_EXPLAIN'] = $explain;
+            $m['IAM_SMART_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'IamSmart',
   }
 
 
@@ -90,14 +90,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "location_en",
+          "name": "locationEn",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "location_zh",
+          "name": "locationZh",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
@@ -118,14 +118,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_en",
+          "name": "nameEn",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "name_zh",
+          "name": "nameZh",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -139,7 +139,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "remark",
+          "name": "remarks",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
@@ -161,6 +161,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/open_data/iam_smart/mobile-registration-points",
               "parts": [
@@ -194,14 +195,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "address_en",
+          "name": "addressEn",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "address_zh",
+          "name": "addressZh",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -243,21 +244,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_en",
+          "name": "nameEn",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "name_zh",
+          "name": "nameZh",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "operating_hour",
+          "name": "operatingHours",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -271,14 +272,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "remark",
+          "name": "remarks",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "service",
+          "name": "services",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 13
@@ -300,6 +301,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/open_data/iam_smart/registration-service-counters",
               "parts": [
@@ -333,14 +335,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "address_en",
+          "name": "addressEn",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "address_zh",
+          "name": "addressZh",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -396,21 +398,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "name_en",
+          "name": "nameEn",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "name_zh",
+          "name": "nameZh",
           "req": false,
           "type": "`$STRING`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "operating_hour",
+          "name": "operatingHours",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
@@ -424,7 +426,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "remark",
+          "name": "remarks",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -439,6 +441,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/open_data/iam_smart/self-registration-kiosks",
               "parts": [

@@ -19,14 +19,14 @@ class MobileRegistrationPoint
     public ?string $id = null;
     public ?float $latitude = null;
     public ?string $location = null;
-    public ?string $location_en = null;
-    public ?string $location_zh = null;
+    public ?string $locationEn = null;
+    public ?string $locationZh = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $name_en = null;
-    public ?string $name_zh = null;
+    public ?string $nameEn = null;
+    public ?string $nameZh = null;
     public ?string $region = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?array $schedule = null;
 }
 
@@ -37,14 +37,14 @@ class MobileRegistrationPointListMatch
     public ?string $id = null;
     public ?float $latitude = null;
     public ?string $location = null;
-    public ?string $location_en = null;
-    public ?string $location_zh = null;
+    public ?string $locationEn = null;
+    public ?string $locationZh = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $name_en = null;
-    public ?string $name_zh = null;
+    public ?string $nameEn = null;
+    public ?string $nameZh = null;
     public ?string $region = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
     public ?array $schedule = null;
 }
 
@@ -52,19 +52,19 @@ class MobileRegistrationPointListMatch
 class RegistrationServiceCounter
 {
     public ?string $address = null;
-    public ?string $address_en = null;
-    public ?string $address_zh = null;
+    public ?string $addressEn = null;
+    public ?string $addressZh = null;
     public ?string $district = null;
     public ?string $id = null;
     public ?float $latitude = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $name_en = null;
-    public ?string $name_zh = null;
-    public ?string $operating_hour = null;
+    public ?string $nameEn = null;
+    public ?string $nameZh = null;
+    public ?string $operatingHours = null;
     public ?string $region = null;
-    public ?string $remark = null;
-    public ?array $service = null;
+    public ?string $remarks = null;
+    public ?array $services = null;
     public ?string $telephone = null;
 }
 
@@ -72,19 +72,19 @@ class RegistrationServiceCounter
 class RegistrationServiceCounterListMatch
 {
     public ?string $address = null;
-    public ?string $address_en = null;
-    public ?string $address_zh = null;
+    public ?string $addressEn = null;
+    public ?string $addressZh = null;
     public ?string $district = null;
     public ?string $id = null;
     public ?float $latitude = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $name_en = null;
-    public ?string $name_zh = null;
-    public ?string $operating_hour = null;
+    public ?string $nameEn = null;
+    public ?string $nameZh = null;
+    public ?string $operatingHours = null;
     public ?string $region = null;
-    public ?string $remark = null;
-    public ?array $service = null;
+    public ?string $remarks = null;
+    public ?array $services = null;
     public ?string $telephone = null;
 }
 
@@ -92,8 +92,8 @@ class RegistrationServiceCounterListMatch
 class SelfRegistrationKiosk
 {
     public ?string $address = null;
-    public ?string $address_en = null;
-    public ?string $address_zh = null;
+    public ?string $addressEn = null;
+    public ?string $addressZh = null;
     public ?string $availability = null;
     public ?string $district = null;
     public ?string $floor = null;
@@ -101,19 +101,19 @@ class SelfRegistrationKiosk
     public ?float $latitude = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $name_en = null;
-    public ?string $name_zh = null;
-    public ?string $operating_hour = null;
+    public ?string $nameEn = null;
+    public ?string $nameZh = null;
+    public ?string $operatingHours = null;
     public ?string $region = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
 }
 
 /** Request payload for SelfRegistrationKiosk#list. */
 class SelfRegistrationKioskListMatch
 {
     public ?string $address = null;
-    public ?string $address_en = null;
-    public ?string $address_zh = null;
+    public ?string $addressEn = null;
+    public ?string $addressZh = null;
     public ?string $availability = null;
     public ?string $district = null;
     public ?string $floor = null;
@@ -121,10 +121,10 @@ class SelfRegistrationKioskListMatch
     public ?float $latitude = null;
     public ?float $longitude = null;
     public ?string $name = null;
-    public ?string $name_en = null;
-    public ?string $name_zh = null;
-    public ?string $operating_hour = null;
+    public ?string $nameEn = null;
+    public ?string $nameZh = null;
+    public ?string $operatingHours = null;
     public ?string $region = null;
-    public ?string $remark = null;
+    public ?string $remarks = null;
 }
 

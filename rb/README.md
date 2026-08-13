@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  mobileregistrationpoints = client.MobileRegistrationPoint.list()
+  selfregistrationkiosks = client.SelfRegistrationKiosk.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -119,9 +119,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = IamSmartSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-mobileregistrationpoint = client.MobileRegistrationPoint.list()
-puts mobileregistrationpoint
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+selfregistrationkiosk = client.SelfRegistrationKiosk.list()
+puts selfregistrationkiosk
 ```
 
 ### Use a custom fetch function
@@ -242,14 +243,14 @@ returns a result `Hash` with these keys:
 | `id` |  |
 | `latitude` |  |
 | `location` |  |
-| `location_en` |  |
-| `location_zh` |  |
+| `locationEn` |  |
+| `locationZh` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
+| `nameEn` |  |
+| `nameZh` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 | `schedule` |  |
 
 Operations: List.
@@ -261,19 +262,19 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `district` |  |
 | `id` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
-| `service` |  |
+| `remarks` |  |
+| `services` |  |
 | `telephone` |  |
 
 Operations: List.
@@ -285,8 +286,8 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `availability` |  |
 | `district` |  |
 | `floor` |  |
@@ -294,11 +295,11 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 
 Operations: List.
 
@@ -327,14 +328,14 @@ Create an instance: `mobile_registration_point = client.MobileRegistrationPoint`
 | `id` | `String` |  |
 | `latitude` | `Float` |  |
 | `location` | `String` |  |
-| `location_en` | `String` |  |
-| `location_zh` | `String` |  |
+| `locationEn` | `String` |  |
+| `locationZh` | `String` |  |
 | `longitude` | `Float` |  |
 | `name` | `String` |  |
-| `name_en` | `String` |  |
-| `name_zh` | `String` |  |
+| `nameEn` | `String` |  |
+| `nameZh` | `String` |  |
 | `region` | `String` |  |
-| `remark` | `String` |  |
+| `remarks` | `String` |  |
 | `schedule` | `Array` |  |
 
 #### Example: List
@@ -360,19 +361,19 @@ Create an instance: `registration_service_counter = client.RegistrationServiceCo
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `String` |  |
-| `address_en` | `String` |  |
-| `address_zh` | `String` |  |
+| `addressEn` | `String` |  |
+| `addressZh` | `String` |  |
 | `district` | `String` |  |
 | `id` | `String` |  |
 | `latitude` | `Float` |  |
 | `longitude` | `Float` |  |
 | `name` | `String` |  |
-| `name_en` | `String` |  |
-| `name_zh` | `String` |  |
-| `operating_hour` | `String` |  |
+| `nameEn` | `String` |  |
+| `nameZh` | `String` |  |
+| `operatingHours` | `String` |  |
 | `region` | `String` |  |
-| `remark` | `String` |  |
-| `service` | `Array` |  |
+| `remarks` | `String` |  |
+| `services` | `Array` |  |
 | `telephone` | `String` |  |
 
 #### Example: List
@@ -398,8 +399,8 @@ Create an instance: `self_registration_kiosk = client.SelfRegistrationKiosk`
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `String` |  |
-| `address_en` | `String` |  |
-| `address_zh` | `String` |  |
+| `addressEn` | `String` |  |
+| `addressZh` | `String` |  |
 | `availability` | `String` |  |
 | `district` | `String` |  |
 | `floor` | `String` |  |
@@ -407,11 +408,11 @@ Create an instance: `self_registration_kiosk = client.SelfRegistrationKiosk`
 | `latitude` | `Float` |  |
 | `longitude` | `Float` |  |
 | `name` | `String` |  |
-| `name_en` | `String` |  |
-| `name_zh` | `String` |  |
-| `operating_hour` | `String` |  |
+| `nameEn` | `String` |  |
+| `nameZh` | `String` |  |
+| `operatingHours` | `String` |  |
 | `region` | `String` |  |
-| `remark` | `String` |  |
+| `remarks` | `String` |  |
 
 #### Example: List
 
@@ -497,11 +498,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-mobileregistrationpoint = client.MobileRegistrationPoint
-mobileregistrationpoint.list()
+selfregistrationkiosk = client.SelfRegistrationKiosk
+selfregistrationkiosk.list()
 
-# mobileregistrationpoint.data_get now returns the mobileregistrationpoint data from the last list
-# mobileregistrationpoint.match_get returns the last match criteria
+# selfregistrationkiosk.data_get now returns the selfregistrationkiosk data from the last list
+# selfregistrationkiosk.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

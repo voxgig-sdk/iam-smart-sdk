@@ -10,14 +10,14 @@ export interface MobileRegistrationPoint {
   id?: string
   latitude?: number
   location?: string
-  location_en?: string
-  location_zh?: string
+  locationEn?: string
+  locationZh?: string
   longitude?: number
   name?: string
-  name_en?: string
-  name_zh?: string
+  nameEn?: string
+  nameZh?: string
   region?: string
-  remark?: string
+  remarks?: string
   schedule?: any[]
 }
 
@@ -26,57 +26,57 @@ export interface MobileRegistrationPointListMatch {
   id?: string
   latitude?: number
   location?: string
-  location_en?: string
-  location_zh?: string
+  locationEn?: string
+  locationZh?: string
   longitude?: number
   name?: string
-  name_en?: string
-  name_zh?: string
+  nameEn?: string
+  nameZh?: string
   region?: string
-  remark?: string
+  remarks?: string
   schedule?: any[]
 }
 
 export interface RegistrationServiceCounter {
   address?: string
-  address_en?: string
-  address_zh?: string
+  addressEn?: string
+  addressZh?: string
   district?: string
   id?: string
   latitude?: number
   longitude?: number
   name?: string
-  name_en?: string
-  name_zh?: string
-  operating_hour?: string
+  nameEn?: string
+  nameZh?: string
+  operatingHours?: string
   region?: string
-  remark?: string
-  service?: any[]
+  remarks?: string
+  services?: any[]
   telephone?: string
 }
 
 export interface RegistrationServiceCounterListMatch {
   address?: string
-  address_en?: string
-  address_zh?: string
+  addressEn?: string
+  addressZh?: string
   district?: string
   id?: string
   latitude?: number
   longitude?: number
   name?: string
-  name_en?: string
-  name_zh?: string
-  operating_hour?: string
+  nameEn?: string
+  nameZh?: string
+  operatingHours?: string
   region?: string
-  remark?: string
-  service?: any[]
+  remarks?: string
+  services?: any[]
   telephone?: string
 }
 
 export interface SelfRegistrationKiosk {
   address?: string
-  address_en?: string
-  address_zh?: string
+  addressEn?: string
+  addressZh?: string
   availability?: string
   district?: string
   floor?: string
@@ -84,17 +84,17 @@ export interface SelfRegistrationKiosk {
   latitude?: number
   longitude?: number
   name?: string
-  name_en?: string
-  name_zh?: string
-  operating_hour?: string
+  nameEn?: string
+  nameZh?: string
+  operatingHours?: string
   region?: string
-  remark?: string
+  remarks?: string
 }
 
 export interface SelfRegistrationKioskListMatch {
   address?: string
-  address_en?: string
-  address_zh?: string
+  addressEn?: string
+  addressZh?: string
   availability?: string
   district?: string
   floor?: string
@@ -102,10 +102,10 @@ export interface SelfRegistrationKioskListMatch {
   latitude?: number
   longitude?: number
   name?: string
-  name_en?: string
-  name_zh?: string
-  operating_hour?: string
+  nameEn?: string
+  nameZh?: string
+  operatingHours?: string
   region?: string
-  remark?: string
+  remarks?: string
 }
 

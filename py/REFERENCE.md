@@ -99,14 +99,14 @@ mobile_registration_point = client.MobileRegistrationPoint()
 | `id` | `str` | No |  |
 | `latitude` | `float` | No |  |
 | `location` | `str` | No |  |
-| `location_en` | `str` | No |  |
-| `location_zh` | `str` | No |  |
+| `locationEn` | `str` | No |  |
+| `locationZh` | `str` | No |  |
 | `longitude` | `float` | No |  |
 | `name` | `str` | No |  |
-| `name_en` | `str` | No |  |
-| `name_zh` | `str` | No |  |
+| `nameEn` | `str` | No |  |
+| `nameZh` | `str` | No |  |
 | `region` | `str` | No |  |
-| `remark` | `str` | No |  |
+| `remarks` | `str` | No |  |
 | `schedule` | `list` | No |  |
 
 ### Operations
@@ -161,19 +161,19 @@ registration_service_counter = client.RegistrationServiceCounter()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `str` | No |  |
-| `address_en` | `str` | No |  |
-| `address_zh` | `str` | No |  |
+| `addressEn` | `str` | No |  |
+| `addressZh` | `str` | No |  |
 | `district` | `str` | No |  |
 | `id` | `str` | No |  |
 | `latitude` | `float` | No |  |
 | `longitude` | `float` | No |  |
 | `name` | `str` | No |  |
-| `name_en` | `str` | No |  |
-| `name_zh` | `str` | No |  |
-| `operating_hour` | `str` | No |  |
+| `nameEn` | `str` | No |  |
+| `nameZh` | `str` | No |  |
+| `operatingHours` | `str` | No |  |
 | `region` | `str` | No |  |
-| `remark` | `str` | No |  |
-| `service` | `list` | No |  |
+| `remarks` | `str` | No |  |
+| `services` | `list` | No |  |
 | `telephone` | `str` | No |  |
 
 ### Operations
@@ -228,8 +228,8 @@ self_registration_kiosk = client.SelfRegistrationKiosk()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `str` | No |  |
-| `address_en` | `str` | No |  |
-| `address_zh` | `str` | No |  |
+| `addressEn` | `str` | No |  |
+| `addressZh` | `str` | No |  |
 | `availability` | `str` | No |  |
 | `district` | `str` | No |  |
 | `floor` | `str` | No |  |
@@ -237,11 +237,11 @@ self_registration_kiosk = client.SelfRegistrationKiosk()
 | `latitude` | `float` | No |  |
 | `longitude` | `float` | No |  |
 | `name` | `str` | No |  |
-| `name_en` | `str` | No |  |
-| `name_zh` | `str` | No |  |
-| `operating_hour` | `str` | No |  |
+| `nameEn` | `str` | No |  |
+| `nameZh` | `str` | No |  |
+| `operatingHours` | `str` | No |  |
 | `region` | `str` | No |  |
-| `remark` | `str` | No |  |
+| `remarks` | `str` | No |  |
 
 ### Operations
 

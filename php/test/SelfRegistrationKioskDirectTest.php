@@ -66,11 +66,11 @@ function self_registration_kiosk_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "IAMSMART_TEST_SELF_REGISTRATION_KIOSK_ENTID" => [],
-        "IAMSMART_TEST_LIVE" => "FALSE",
+        "IAM_SMART_TEST_SELF_REGISTRATION_KIOSK_ENTID" => [],
+        "IAM_SMART_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["IAMSMART_TEST_LIVE"] === "TRUE";
+    $live = $env["IAM_SMART_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

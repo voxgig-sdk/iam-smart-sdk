@@ -54,7 +54,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local mobileregistrationpoints, err = client:MobileRegistrationPoint():list()
+local selfregistrationkiosks, err = client:SelfRegistrationKiosk():list()
 if err then error(err) end
 ```
 
@@ -112,7 +112,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:MobileRegistrationPoint():list()
+local result, err = client:SelfRegistrationKiosk():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -220,9 +220,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local mobile_registration_point, err = client:MobileRegistrationPoint():load()
+    local mobile_registration_point, err = client:MobileRegistrationPoint():list()
     if err then error(err) end
-    -- mobile_registration_point is the loaded record
+    -- mobile_registration_point is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -237,14 +237,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `id` |  |
 | `latitude` |  |
 | `location` |  |
-| `location_en` |  |
-| `location_zh` |  |
+| `locationEn` |  |
+| `locationZh` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
+| `nameEn` |  |
+| `nameZh` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 | `schedule` |  |
 
 Operations: List.
@@ -256,19 +256,19 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `district` |  |
 | `id` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
-| `service` |  |
+| `remarks` |  |
+| `services` |  |
 | `telephone` |  |
 
 Operations: List.
@@ -280,8 +280,8 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `availability` |  |
 | `district` |  |
 | `floor` |  |
@@ -289,11 +289,11 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 
 Operations: List.
 
@@ -322,14 +322,14 @@ Create an instance: `local mobile_registration_point = client:MobileRegistration
 | `id` | `string` |  |
 | `latitude` | `number` |  |
 | `location` | `string` |  |
-| `location_en` | `string` |  |
-| `location_zh` | `string` |  |
+| `locationEn` | `string` |  |
+| `locationZh` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `schedule` | `table` |  |
 
 #### Example: List
@@ -354,19 +354,19 @@ Create an instance: `local registration_service_counter = client:RegistrationSer
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `district` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `number` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
-| `service` | `table` |  |
+| `remarks` | `string` |  |
+| `services` | `table` |  |
 | `telephone` | `string` |  |
 
 #### Example: List
@@ -391,8 +391,8 @@ Create an instance: `local self_registration_kiosk = client:SelfRegistrationKios
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `availability` | `string` |  |
 | `district` | `string` |  |
 | `floor` | `string` |  |
@@ -400,11 +400,11 @@ Create an instance: `local self_registration_kiosk = client:SelfRegistrationKios
 | `latitude` | `number` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 
 #### Example: List
 
@@ -489,11 +489,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local mobileregistrationpoint = client:MobileRegistrationPoint()
-mobileregistrationpoint:list()
+local selfregistrationkiosk = client:SelfRegistrationKiosk()
+selfregistrationkiosk:list()
 
--- mobileregistrationpoint:data_get() now returns the mobileregistrationpoint data from the last list
--- mobileregistrationpoint:match_get() returns the last match criteria
+-- selfregistrationkiosk:data_get() now returns the selfregistrationkiosk data from the last list
+-- selfregistrationkiosk:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -144,14 +144,14 @@ const mobile_registration_point = client.MobileRegistrationPoint()
 | `id` | `string` | No |  |
 | `latitude` | `number` | No |  |
 | `location` | `string` | No |  |
-| `location_en` | `string` | No |  |
-| `location_zh` | `string` | No |  |
+| `locationEn` | `string` | No |  |
+| `locationZh` | `string` | No |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `schedule` | `any[]` | No |  |
 
 ### Operations
@@ -203,19 +203,19 @@ const registration_service_counter = client.RegistrationServiceCounter()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `string` | No |  |
-| `address_en` | `string` | No |  |
-| `address_zh` | `string` | No |  |
+| `addressEn` | `string` | No |  |
+| `addressZh` | `string` | No |  |
 | `district` | `string` | No |  |
 | `id` | `string` | No |  |
 | `latitude` | `number` | No |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
-| `operating_hour` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
+| `operatingHours` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
-| `service` | `any[]` | No |  |
+| `remarks` | `string` | No |  |
+| `services` | `any[]` | No |  |
 | `telephone` | `string` | No |  |
 
 ### Operations
@@ -267,8 +267,8 @@ const self_registration_kiosk = client.SelfRegistrationKiosk()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `string` | No |  |
-| `address_en` | `string` | No |  |
-| `address_zh` | `string` | No |  |
+| `addressEn` | `string` | No |  |
+| `addressZh` | `string` | No |  |
 | `availability` | `string` | No |  |
 | `district` | `string` | No |  |
 | `floor` | `string` | No |  |
@@ -276,11 +276,11 @@ const self_registration_kiosk = client.SelfRegistrationKiosk()
 | `latitude` | `number` | No |  |
 | `longitude` | `number` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
-| `operating_hour` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
+| `operatingHours` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 
 ### Operations
 

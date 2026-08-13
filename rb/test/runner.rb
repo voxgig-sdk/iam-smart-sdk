@@ -23,8 +23,8 @@ module IamSmartTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("IAMSMART_TEST_LIVE")
-    override = getenv("IAMSMART_TEST_OVERRIDE")
+    live = getenv("IAM_SMART_TEST_LIVE")
+    override = getenv("IAM_SMART_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module IamSmartTestRunner
       end
     end
 
-    explain = getenv("IAMSMART_TEST_EXPLAIN")
-    m["IAMSMART_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("IAM_SMART_TEST_EXPLAIN")
+    m["IAM_SMART_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

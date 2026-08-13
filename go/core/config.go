@@ -56,14 +56,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "location_en",
+						"name": "locationEn",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "location_zh",
+						"name": "locationZh",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 5,
@@ -84,14 +84,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "name_en",
+						"name": "nameEn",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
-						"name": "name_zh",
+						"name": "nameZh",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
@@ -105,7 +105,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "remark",
+						"name": "remarks",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 11,
@@ -127,6 +127,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/open_data/iam_smart/mobile-registration-points",
 								"parts": []any{
@@ -142,7 +143,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -160,14 +160,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "address_en",
+						"name": "addressEn",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "address_zh",
+						"name": "addressZh",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -209,21 +209,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "name_en",
+						"name": "nameEn",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
-						"name": "name_zh",
+						"name": "nameZh",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
 					},
 					map[string]any{
 						"active": true,
-						"name": "operating_hour",
+						"name": "operatingHours",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 10,
@@ -237,14 +237,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "remark",
+						"name": "remarks",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 12,
 					},
 					map[string]any{
 						"active": true,
-						"name": "service",
+						"name": "services",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 13,
@@ -266,6 +266,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/open_data/iam_smart/registration-service-counters",
 								"parts": []any{
@@ -281,7 +282,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -299,14 +299,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "address_en",
+						"name": "addressEn",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "address_zh",
+						"name": "addressZh",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -362,21 +362,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "name_en",
+						"name": "nameEn",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 10,
 					},
 					map[string]any{
 						"active": true,
-						"name": "name_zh",
+						"name": "nameZh",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 11,
 					},
 					map[string]any{
 						"active": true,
-						"name": "operating_hour",
+						"name": "operatingHours",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 12,
@@ -390,7 +390,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "remark",
+						"name": "remarks",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 14,
@@ -405,6 +405,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/open_data/iam_smart/self-registration-kiosks",
 								"parts": []any{
@@ -420,7 +421,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

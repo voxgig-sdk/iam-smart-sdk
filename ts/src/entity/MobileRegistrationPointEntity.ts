@@ -37,7 +37,7 @@ class MobileRegistrationPointEntity extends IamSmartEntityBase<MobileRegistratio
 
 
 
-  async list(this: any, reqmatch?: MobileRegistrationPointListMatch, ctrl?: Control): Promise<MobileRegistrationPoint[]> {
+  async list(this: any, reqmatch?: MobileRegistrationPointListMatch, ctrl?: Control): Promise<MobileRegistrationPointEntity[]> {
 
     const utility = this._utility
 

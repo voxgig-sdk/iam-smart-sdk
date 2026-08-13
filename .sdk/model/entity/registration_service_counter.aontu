@@ -11,12 +11,12 @@ main: kit: entity: registration_service_counter: {
       type: "`$STRING`"
     }
     {
-      name: "address_en"
+      name: "addressEn"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "address_zh"
+      name: "addressZh"
       req: false
       type: "`$STRING`"
     }
@@ -46,17 +46,17 @@ main: kit: entity: registration_service_counter: {
       type: "`$STRING`"
     }
     {
-      name: "name_en"
+      name: "nameEn"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "name_zh"
+      name: "nameZh"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "operating_hour"
+      name: "operatingHours"
       req: false
       type: "`$STRING`"
     }
@@ -66,12 +66,12 @@ main: kit: entity: registration_service_counter: {
       type: "`$STRING`"
     }
     {
-      name: "remark"
+      name: "remarks"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "service"
+      name: "services"
       req: false
       type: "`$ARRAY`"
     }

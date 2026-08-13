@@ -5,6 +5,10 @@
       "desc": ""
     },
     "kit": {
+      "author": {
+        "name": "",
+        "url": ""
+      },
       "config": {
         "docs_order": [
           "ts",
@@ -18,6 +22,7 @@
           "content-type": "application/json"
         }
       },
+      "contributor": {},
       "entity": {
         "mobile_registration_point": {
           "active": true,
@@ -51,13 +56,13 @@
             },
             {
               "active": true,
-              "name": "location_en",
+              "name": "locationEn",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "location_zh",
+              "name": "locationZh",
               "req": false,
               "type": "`$STRING`"
             },
@@ -75,13 +80,13 @@
             },
             {
               "active": true,
-              "name": "name_en",
+              "name": "nameEn",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "name_zh",
+              "name": "nameZh",
               "req": false,
               "type": "`$STRING`"
             },
@@ -93,7 +98,7 @@
             },
             {
               "active": true,
-              "name": "remark",
+              "name": "remarks",
               "req": false,
               "type": "`$STRING`"
             },
@@ -117,6 +122,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/open_data/iam_smart/mobile-registration-points",
                   "parts": [
@@ -151,13 +157,13 @@
             },
             {
               "active": true,
-              "name": "address_en",
+              "name": "addressEn",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "address_zh",
+              "name": "addressZh",
               "req": false,
               "type": "`$STRING`"
             },
@@ -193,19 +199,19 @@
             },
             {
               "active": true,
-              "name": "name_en",
+              "name": "nameEn",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "name_zh",
+              "name": "nameZh",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "operating_hour",
+              "name": "operatingHours",
               "req": false,
               "type": "`$STRING`"
             },
@@ -217,13 +223,13 @@
             },
             {
               "active": true,
-              "name": "remark",
+              "name": "remarks",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "service",
+              "name": "services",
               "req": false,
               "type": "`$ARRAY`"
             },
@@ -247,6 +253,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/open_data/iam_smart/registration-service-counters",
                   "parts": [
@@ -281,13 +288,13 @@
             },
             {
               "active": true,
-              "name": "address_en",
+              "name": "addressEn",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "address_zh",
+              "name": "addressZh",
               "req": false,
               "type": "`$STRING`"
             },
@@ -335,19 +342,19 @@
             },
             {
               "active": true,
-              "name": "name_en",
+              "name": "nameEn",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "name_zh",
+              "name": "nameZh",
               "req": false,
               "type": "`$STRING`"
             },
             {
               "active": true,
-              "name": "operating_hour",
+              "name": "operatingHours",
               "req": false,
               "type": "`$STRING`"
             },
@@ -359,7 +366,7 @@
             },
             {
               "active": true,
-              "name": "remark",
+              "name": "remarks",
               "req": false,
               "type": "`$STRING`"
             }
@@ -377,6 +384,7 @@
                 {
                   "active": true,
                   "args": {},
+                  "kind": "http",
                   "method": "GET",
                   "orig": "/open_data/iam_smart/self-registration-kiosks",
                   "parts": [
@@ -596,18 +604,41 @@
         "website": "https://www.digitalpolicy.gov.hk/open_data/iam_smart/iAM-Smart-Registration-data-dictionary-en.pdf"
       },
       "option": {},
+      "repo": {
+        "host": "github.com",
+        "path": ""
+      },
       "target": {
         "go": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [
+              "test/feature_test.go"
+            ],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "go",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -629,22 +660,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Golang"
         },
         "go-cli": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "go-cli",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -683,21 +732,39 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go CLI"
         },
         "go-mcp": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "go",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "go-mcp",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "phase": {
             "agentguide": {
               "active": false
@@ -736,12 +803,17 @@
                 "recipe": "github"
               },
               "via": "root"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "Go MCP server"
         },
         "lua": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "--"
           },
@@ -753,10 +825,23 @@
             }
           },
           "ext": "lua",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "lua",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -778,22 +863,40 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Lua"
         },
         "php": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "//"
           },
           "deps": {},
           "ext": "php",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "php",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -815,13 +918,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "PHP"
         },
         "py": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -833,10 +941,23 @@
             }
           },
           "ext": "py",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "py",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -858,13 +979,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Python"
         },
         "rb": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "comment": {
             "line": "#"
           },
@@ -881,10 +1007,23 @@
             }
           },
           "ext": "rb",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "rb",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -906,13 +1045,18 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "srcfeature": false,
           "title": "Ruby"
         },
         "ts": {
           "active": true,
+          "author": {
+            "name": "",
+            "url": ""
+          },
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "comment": {
             "line": "//"
@@ -935,10 +1079,23 @@
             }
           },
           "ext": "ts",
+          "feature": {
+            "fullset": [],
+            "trim": true
+          },
           "module": {
-            "name": "iam-smart"
+            "goversion": "",
+            "name": "iam-smart",
+            "package": "",
+            "path": ""
           },
           "name": "ts",
+          "output": {
+            "adopt": false,
+            "path": "",
+            "repo": "",
+            "sdkrel": ""
+          },
           "publish": {
             "registry": {
               "active": false,
@@ -960,9 +1117,17 @@
                 "recipe": "github"
               },
               "via": "port"
-            }
+            },
+            "version": "0.0.1"
           },
           "title": "TypeScript"
+        }
+      },
+      "test": {
+        "live": {
+          "app": false,
+          "base": "",
+          "strict": false
         }
       }
     }

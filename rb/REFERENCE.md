@@ -105,14 +105,14 @@ mobile_registration_point = client.MobileRegistrationPoint
 | `id` | `String` | No |  |
 | `latitude` | `Float` | No |  |
 | `location` | `String` | No |  |
-| `location_en` | `String` | No |  |
-| `location_zh` | `String` | No |  |
+| `locationEn` | `String` | No |  |
+| `locationZh` | `String` | No |  |
 | `longitude` | `Float` | No |  |
 | `name` | `String` | No |  |
-| `name_en` | `String` | No |  |
-| `name_zh` | `String` | No |  |
+| `nameEn` | `String` | No |  |
+| `nameZh` | `String` | No |  |
 | `region` | `String` | No |  |
-| `remark` | `String` | No |  |
+| `remarks` | `String` | No |  |
 | `schedule` | `Array` | No |  |
 
 ### Operations
@@ -166,19 +166,19 @@ registration_service_counter = client.RegistrationServiceCounter
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `String` | No |  |
-| `address_en` | `String` | No |  |
-| `address_zh` | `String` | No |  |
+| `addressEn` | `String` | No |  |
+| `addressZh` | `String` | No |  |
 | `district` | `String` | No |  |
 | `id` | `String` | No |  |
 | `latitude` | `Float` | No |  |
 | `longitude` | `Float` | No |  |
 | `name` | `String` | No |  |
-| `name_en` | `String` | No |  |
-| `name_zh` | `String` | No |  |
-| `operating_hour` | `String` | No |  |
+| `nameEn` | `String` | No |  |
+| `nameZh` | `String` | No |  |
+| `operatingHours` | `String` | No |  |
 | `region` | `String` | No |  |
-| `remark` | `String` | No |  |
-| `service` | `Array` | No |  |
+| `remarks` | `String` | No |  |
+| `services` | `Array` | No |  |
 | `telephone` | `String` | No |  |
 
 ### Operations
@@ -232,8 +232,8 @@ self_registration_kiosk = client.SelfRegistrationKiosk
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `String` | No |  |
-| `address_en` | `String` | No |  |
-| `address_zh` | `String` | No |  |
+| `addressEn` | `String` | No |  |
+| `addressZh` | `String` | No |  |
 | `availability` | `String` | No |  |
 | `district` | `String` | No |  |
 | `floor` | `String` | No |  |
@@ -241,11 +241,11 @@ self_registration_kiosk = client.SelfRegistrationKiosk
 | `latitude` | `Float` | No |  |
 | `longitude` | `Float` | No |  |
 | `name` | `String` | No |  |
-| `name_en` | `String` | No |  |
-| `name_zh` | `String` | No |  |
-| `operating_hour` | `String` | No |  |
+| `nameEn` | `String` | No |  |
+| `nameZh` | `String` | No |  |
+| `operatingHours` | `String` | No |  |
 | `region` | `String` | No |  |
-| `remark` | `String` | No |  |
+| `remarks` | `String` | No |  |
 
 ### Operations
 

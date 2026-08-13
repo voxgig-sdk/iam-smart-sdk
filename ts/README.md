@@ -35,7 +35,9 @@ const client = new IamSmartSDK()
 
 ### 2. List mobileregistrationpoint records
 
-`list()` resolves to an array of MobileRegistrationPoint objects — iterate it directly:
+`list()` resolves to an array of MobileRegistrationPoint ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
@@ -52,8 +54,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
-  console.log(mobileregistrationpoints)
+  const selfregistrationkiosks = await client.SelfRegistrationKiosk().list()
+  console.log(selfregistrationkiosks)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -119,9 +121,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = IamSmartSDK.test()
 
-const mobileregistrationpoint = await client.MobileRegistrationPoint().list()
-// mobileregistrationpoint is a bare entity populated with mock response data
-console.log(mobileregistrationpoint)
+const selfregistrationkiosk = await client.SelfRegistrationKiosk().list()
+// selfregistrationkiosk is the entity, populated with mock response data
+// — call selfregistrationkiosk.data() for the record itself
+console.log(selfregistrationkiosk)
 ```
 
 You can also use the instance method:
@@ -136,7 +139,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.MobileRegistrationPoint()
+const entity = client.SelfRegistrationKiosk()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -290,14 +293,14 @@ The `prepare()` method returns:
 | `id` |  |
 | `latitude` |  |
 | `location` |  |
-| `location_en` |  |
-| `location_zh` |  |
+| `locationEn` |  |
+| `locationZh` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
+| `nameEn` |  |
+| `nameZh` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 | `schedule` |  |
 
 Operations: list.
@@ -309,19 +312,19 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `district` |  |
 | `id` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
-| `service` |  |
+| `remarks` |  |
+| `services` |  |
 | `telephone` |  |
 
 Operations: list.
@@ -333,8 +336,8 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `availability` |  |
 | `district` |  |
 | `floor` |  |
@@ -342,11 +345,11 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 
 Operations: list.
 
@@ -375,14 +378,14 @@ Create an instance: `const mobile_registration_point = client.MobileRegistration
 | `id` | `string` |  |
 | `latitude` | `number` |  |
 | `location` | `string` |  |
-| `location_en` | `string` |  |
-| `location_zh` | `string` |  |
+| `locationEn` | `string` |  |
+| `locationZh` | `string` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `schedule` | `any[]` |  |
 
 #### Example: List
@@ -407,19 +410,19 @@ Create an instance: `const registration_service_counter = client.RegistrationSer
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `district` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `number` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
-| `service` | `any[]` |  |
+| `remarks` | `string` |  |
+| `services` | `any[]` |  |
 | `telephone` | `string` |  |
 
 #### Example: List
@@ -444,8 +447,8 @@ Create an instance: `const self_registration_kiosk = client.SelfRegistrationKios
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `availability` | `string` |  |
 | `district` | `string` |  |
 | `floor` | `string` |  |
@@ -453,11 +456,11 @@ Create an instance: `const self_registration_kiosk = client.SelfRegistrationKios
 | `latitude` | `number` |  |
 | `longitude` | `number` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 
 #### Example: List
 
@@ -535,11 +538,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const mobileregistrationpoint = client.MobileRegistrationPoint()
-await mobileregistrationpoint.list()
+const selfregistrationkiosk = client.SelfRegistrationKiosk()
+await selfregistrationkiosk.list()
 
-// mobileregistrationpoint.data() now returns the mobileregistrationpoint data from the last `list`
-// mobileregistrationpoint.match() returns the last match criteria
+// selfregistrationkiosk.data() now returns the selfregistrationkiosk data from the last `list`
+// selfregistrationkiosk.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

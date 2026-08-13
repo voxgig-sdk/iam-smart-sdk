@@ -26,8 +26,8 @@ import {
 describe('MobileRegistrationPointEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when IAMSMART_TEST_LIVE=TRUE.
-  afterEach(liveDelay('IAMSMART_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when IAM_SMART_TEST_LIVE=TRUE.
+  afterEach(liveDelay('IAM_SMART_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = IamSmartSDK.test()
@@ -63,7 +63,7 @@ describe('MobileRegistrationPointEntity', async () => {
     const mobile_registration_point_ref01_ent = client.MobileRegistrationPoint()
     const mobile_registration_point_ref01_match: any = {}
 
-    const mobile_registration_point_ref01_list = await mobile_registration_point_ref01_ent.list(mobile_registration_point_ref01_match)
+    const mobile_registration_point_ref01_list = (await mobile_registration_point_ref01_ent.list(mobile_registration_point_ref01_match)).map((e: any) => e.data())
 
 
   })

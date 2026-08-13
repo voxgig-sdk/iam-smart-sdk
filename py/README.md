@@ -57,8 +57,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    mobileregistrationpoints = client.MobileRegistrationPoint().list()
-    print(mobileregistrationpoints)
+    selfregistrationkiosks = client.SelfRegistrationKiosk().list()
+    print(selfregistrationkiosks)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IamSmartSDK.test()
 
-# Entity ops return the bare record and raise on error.
-mobileregistrationpoint = client.MobileRegistrationPoint().list()
-# mobileregistrationpoint contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+selfregistrationkiosk = client.SelfRegistrationKiosk().list()
+# selfregistrationkiosk contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -248,14 +249,14 @@ On error, `ok` is `False` and `err` contains the error value.
 | `id` |  |
 | `latitude` |  |
 | `location` |  |
-| `location_en` |  |
-| `location_zh` |  |
+| `locationEn` |  |
+| `locationZh` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
+| `nameEn` |  |
+| `nameZh` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 | `schedule` |  |
 
 Operations: List.
@@ -267,19 +268,19 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `district` |  |
 | `id` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
-| `service` |  |
+| `remarks` |  |
+| `services` |  |
 | `telephone` |  |
 
 Operations: List.
@@ -291,8 +292,8 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `availability` |  |
 | `district` |  |
 | `floor` |  |
@@ -300,11 +301,11 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 
 Operations: List.
 
@@ -333,14 +334,14 @@ Create an instance: `mobile_registration_point = client.MobileRegistrationPoint(
 | `id` | `str` |  |
 | `latitude` | `float` |  |
 | `location` | `str` |  |
-| `location_en` | `str` |  |
-| `location_zh` | `str` |  |
+| `locationEn` | `str` |  |
+| `locationZh` | `str` |  |
 | `longitude` | `float` |  |
 | `name` | `str` |  |
-| `name_en` | `str` |  |
-| `name_zh` | `str` |  |
+| `nameEn` | `str` |  |
+| `nameZh` | `str` |  |
 | `region` | `str` |  |
-| `remark` | `str` |  |
+| `remarks` | `str` |  |
 | `schedule` | `list` |  |
 
 #### Example: List
@@ -365,19 +366,19 @@ Create an instance: `registration_service_counter = client.RegistrationServiceCo
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `str` |  |
-| `address_en` | `str` |  |
-| `address_zh` | `str` |  |
+| `addressEn` | `str` |  |
+| `addressZh` | `str` |  |
 | `district` | `str` |  |
 | `id` | `str` |  |
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
 | `name` | `str` |  |
-| `name_en` | `str` |  |
-| `name_zh` | `str` |  |
-| `operating_hour` | `str` |  |
+| `nameEn` | `str` |  |
+| `nameZh` | `str` |  |
+| `operatingHours` | `str` |  |
 | `region` | `str` |  |
-| `remark` | `str` |  |
-| `service` | `list` |  |
+| `remarks` | `str` |  |
+| `services` | `list` |  |
 | `telephone` | `str` |  |
 
 #### Example: List
@@ -402,8 +403,8 @@ Create an instance: `self_registration_kiosk = client.SelfRegistrationKiosk()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `str` |  |
-| `address_en` | `str` |  |
-| `address_zh` | `str` |  |
+| `addressEn` | `str` |  |
+| `addressZh` | `str` |  |
 | `availability` | `str` |  |
 | `district` | `str` |  |
 | `floor` | `str` |  |
@@ -411,11 +412,11 @@ Create an instance: `self_registration_kiosk = client.SelfRegistrationKiosk()`
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
 | `name` | `str` |  |
-| `name_en` | `str` |  |
-| `name_zh` | `str` |  |
-| `operating_hour` | `str` |  |
+| `nameEn` | `str` |  |
+| `nameZh` | `str` |  |
+| `operatingHours` | `str` |  |
 | `region` | `str` |  |
-| `remark` | `str` |  |
+| `remarks` | `str` |  |
 
 #### Example: List
 
@@ -499,11 +500,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-mobileregistrationpoint = client.MobileRegistrationPoint()
-mobileregistrationpoint.list()
+selfregistrationkiosk = client.SelfRegistrationKiosk()
+selfregistrationkiosk.list()
 
-# mobileregistrationpoint.data_get() now returns the mobileregistrationpoint data from the last list
-# mobileregistrationpoint.match_get() returns the last match criteria
+# selfregistrationkiosk.data_get() now returns the selfregistrationkiosk data from the last list
+# selfregistrationkiosk.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

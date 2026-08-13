@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from iamsmart_sdk.utility.voxgig_struct import voxgig_struct as vs
 from iamsmart_sdk import IamSmartSDK
-from core import helpers
+from iamsmart_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _registration_service_counter_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "IAMSMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID": {},
-        "IAMSMART_TEST_LIVE": "FALSE",
+        "IAM_SMART_TEST_REGISTRATION_SERVICE_COUNTER_ENTID": {},
+        "IAM_SMART_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("IAMSMART_TEST_LIVE") == "TRUE"
+    live = env.get("IAM_SMART_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

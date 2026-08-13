@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ IamSmartUtility.registrar = ->(u) {
   u.prepare_params = IamSmartUtilities::PrepareParams
   u.prepare_path = IamSmartUtilities::PreparePath
   u.prepare_query = IamSmartUtilities::PrepareQuery
+  u.graphql_body = IamSmartUtilities::GraphqlBody
+  u.graphql_errors = IamSmartUtilities::GraphqlErrors
   u.result_basic = IamSmartUtilities::ResultBasic
   u.result_body = IamSmartUtilities::ResultBody
   u.result_headers = IamSmartUtilities::ResultHeaders

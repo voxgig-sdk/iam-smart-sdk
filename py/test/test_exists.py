@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# IamSmart SDK exists test
 
 import pytest
 from iamsmart_sdk import IamSmartSDK

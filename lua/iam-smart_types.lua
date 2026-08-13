@@ -11,14 +11,14 @@
 ---@field id? string
 ---@field latitude? number
 ---@field location? string
----@field location_en? string
----@field location_zh? string
+---@field locationEn? string
+---@field locationZh? string
 ---@field longitude? number
 ---@field name? string
----@field name_en? string
----@field name_zh? string
+---@field nameEn? string
+---@field nameZh? string
 ---@field region? string
----@field remark? string
+---@field remarks? string
 ---@field schedule? table
 
 ---@class MobileRegistrationPointListMatch
@@ -26,54 +26,54 @@
 ---@field id? string
 ---@field latitude? number
 ---@field location? string
----@field location_en? string
----@field location_zh? string
+---@field locationEn? string
+---@field locationZh? string
 ---@field longitude? number
 ---@field name? string
----@field name_en? string
----@field name_zh? string
+---@field nameEn? string
+---@field nameZh? string
 ---@field region? string
----@field remark? string
+---@field remarks? string
 ---@field schedule? table
 
 ---@class RegistrationServiceCounter
 ---@field address? string
----@field address_en? string
----@field address_zh? string
+---@field addressEn? string
+---@field addressZh? string
 ---@field district? string
 ---@field id? string
 ---@field latitude? number
 ---@field longitude? number
 ---@field name? string
----@field name_en? string
----@field name_zh? string
----@field operating_hour? string
+---@field nameEn? string
+---@field nameZh? string
+---@field operatingHours? string
 ---@field region? string
----@field remark? string
----@field service? table
+---@field remarks? string
+---@field services? table
 ---@field telephone? string
 
 ---@class RegistrationServiceCounterListMatch
 ---@field address? string
----@field address_en? string
----@field address_zh? string
+---@field addressEn? string
+---@field addressZh? string
 ---@field district? string
 ---@field id? string
 ---@field latitude? number
 ---@field longitude? number
 ---@field name? string
----@field name_en? string
----@field name_zh? string
----@field operating_hour? string
+---@field nameEn? string
+---@field nameZh? string
+---@field operatingHours? string
 ---@field region? string
----@field remark? string
----@field service? table
+---@field remarks? string
+---@field services? table
 ---@field telephone? string
 
 ---@class SelfRegistrationKiosk
 ---@field address? string
----@field address_en? string
----@field address_zh? string
+---@field addressEn? string
+---@field addressZh? string
 ---@field availability? string
 ---@field district? string
 ---@field floor? string
@@ -81,16 +81,16 @@
 ---@field latitude? number
 ---@field longitude? number
 ---@field name? string
----@field name_en? string
----@field name_zh? string
----@field operating_hour? string
+---@field nameEn? string
+---@field nameZh? string
+---@field operatingHours? string
 ---@field region? string
----@field remark? string
+---@field remarks? string
 
 ---@class SelfRegistrationKioskListMatch
 ---@field address? string
----@field address_en? string
----@field address_zh? string
+---@field addressEn? string
+---@field addressZh? string
 ---@field availability? string
 ---@field district? string
 ---@field floor? string
@@ -98,11 +98,11 @@
 ---@field latitude? number
 ---@field longitude? number
 ---@field name? string
----@field name_en? string
----@field name_zh? string
----@field operating_hour? string
+---@field nameEn? string
+---@field nameZh? string
+---@field operatingHours? string
 ---@field region? string
----@field remark? string
+---@field remarks? string
 
 local M = {}
 

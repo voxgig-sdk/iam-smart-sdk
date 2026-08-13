@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $mobileregistrationpoints = $client->MobileRegistrationPoint()->list();
+    $selfregistrationkiosks = $client->SelfRegistrationKiosk()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,9 +125,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = IamSmartSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$mobileregistrationpoint = $client->MobileRegistrationPoint()->list();
-print_r($mobileregistrationpoint);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$selfregistrationkiosk = $client->SelfRegistrationKiosk()->list();
+print_r($selfregistrationkiosk);
 ```
 
 ### Use a custom fetch function
@@ -226,7 +227,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -252,14 +253,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `id` |  |
 | `latitude` |  |
 | `location` |  |
-| `location_en` |  |
-| `location_zh` |  |
+| `locationEn` |  |
+| `locationZh` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
+| `nameEn` |  |
+| `nameZh` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 | `schedule` |  |
 
 Operations: List.
@@ -271,19 +272,19 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `district` |  |
 | `id` |  |
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
-| `service` |  |
+| `remarks` |  |
+| `services` |  |
 | `telephone` |  |
 
 Operations: List.
@@ -295,8 +296,8 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | Field | Description |
 | --- | --- |
 | `address` |  |
-| `address_en` |  |
-| `address_zh` |  |
+| `addressEn` |  |
+| `addressZh` |  |
 | `availability` |  |
 | `district` |  |
 | `floor` |  |
@@ -304,11 +305,11 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | `latitude` |  |
 | `longitude` |  |
 | `name` |  |
-| `name_en` |  |
-| `name_zh` |  |
-| `operating_hour` |  |
+| `nameEn` |  |
+| `nameZh` |  |
+| `operatingHours` |  |
 | `region` |  |
-| `remark` |  |
+| `remarks` |  |
 
 Operations: List.
 
@@ -337,14 +338,14 @@ Create an instance: `$mobile_registration_point = $client->MobileRegistrationPoi
 | `id` | `string` |  |
 | `latitude` | `float` |  |
 | `location` | `string` |  |
-| `location_en` | `string` |  |
-| `location_zh` | `string` |  |
+| `locationEn` | `string` |  |
+| `locationZh` | `string` |  |
 | `longitude` | `float` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `schedule` | `array` |  |
 
 #### Example: List
@@ -370,19 +371,19 @@ Create an instance: `$registration_service_counter = $client->RegistrationServic
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `district` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
-| `service` | `array` |  |
+| `remarks` | `string` |  |
+| `services` | `array` |  |
 | `telephone` | `string` |  |
 
 #### Example: List
@@ -408,8 +409,8 @@ Create an instance: `$self_registration_kiosk = $client->SelfRegistrationKiosk()
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `availability` | `string` |  |
 | `district` | `string` |  |
 | `floor` | `string` |  |
@@ -417,11 +418,11 @@ Create an instance: `$self_registration_kiosk = $client->SelfRegistrationKiosk()
 | `latitude` | `float` |  |
 | `longitude` | `float` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 
 #### Example: List
 
@@ -507,11 +508,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$mobileregistrationpoint = $client->MobileRegistrationPoint();
-$mobileregistrationpoint->list();
+$selfregistrationkiosk = $client->SelfRegistrationKiosk();
+$selfregistrationkiosk->list();
 
-// $mobileregistrationpoint->data_get() now returns the mobileregistrationpoint data from the last list
-// $mobileregistrationpoint->match_get() returns the last match criteria
+// $selfregistrationkiosk->data_get() now returns the selfregistrationkiosk data from the last list
+// $selfregistrationkiosk->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

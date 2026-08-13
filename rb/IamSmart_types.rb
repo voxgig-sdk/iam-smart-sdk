@@ -22,10 +22,10 @@
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] location_en
+# @!attribute [rw] locationEn
 #   @return [String, nil]
 #
-# @!attribute [rw] location_zh
+# @!attribute [rw] locationZh
 #   @return [String, nil]
 #
 # @!attribute [rw] longitude
@@ -34,16 +34,16 @@
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_en
+# @!attribute [rw] nameEn
 #   @return [String, nil]
 #
-# @!attribute [rw] name_zh
+# @!attribute [rw] nameZh
 #   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] schedule
@@ -53,14 +53,14 @@ MobileRegistrationPoint = Struct.new(
   :id,
   :latitude,
   :location,
-  :location_en,
-  :location_zh,
+  :locationEn,
+  :locationZh,
   :longitude,
   :name,
-  :name_en,
-  :name_zh,
+  :nameEn,
+  :nameZh,
   :region,
-  :remark,
+  :remarks,
   :schedule,
   keyword_init: true
 )
@@ -79,10 +79,10 @@ MobileRegistrationPoint = Struct.new(
 # @!attribute [rw] location
 #   @return [String, nil]
 #
-# @!attribute [rw] location_en
+# @!attribute [rw] locationEn
 #   @return [String, nil]
 #
-# @!attribute [rw] location_zh
+# @!attribute [rw] locationZh
 #   @return [String, nil]
 #
 # @!attribute [rw] longitude
@@ -91,16 +91,16 @@ MobileRegistrationPoint = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_en
+# @!attribute [rw] nameEn
 #   @return [String, nil]
 #
-# @!attribute [rw] name_zh
+# @!attribute [rw] nameZh
 #   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
 # @!attribute [rw] schedule
@@ -110,14 +110,14 @@ MobileRegistrationPointListMatch = Struct.new(
   :id,
   :latitude,
   :location,
-  :location_en,
-  :location_zh,
+  :locationEn,
+  :locationZh,
   :longitude,
   :name,
-  :name_en,
-  :name_zh,
+  :nameEn,
+  :nameZh,
   :region,
-  :remark,
+  :remarks,
   :schedule,
   keyword_init: true
 )
@@ -127,10 +127,10 @@ MobileRegistrationPointListMatch = Struct.new(
 # @!attribute [rw] address
 #   @return [String, nil]
 #
-# @!attribute [rw] address_en
+# @!attribute [rw] addressEn
 #   @return [String, nil]
 #
-# @!attribute [rw] address_zh
+# @!attribute [rw] addressZh
 #   @return [String, nil]
 #
 # @!attribute [rw] district
@@ -148,41 +148,41 @@ MobileRegistrationPointListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_en
+# @!attribute [rw] nameEn
 #   @return [String, nil]
 #
-# @!attribute [rw] name_zh
+# @!attribute [rw] nameZh
 #   @return [String, nil]
 #
-# @!attribute [rw] operating_hour
+# @!attribute [rw] operatingHours
 #   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
-# @!attribute [rw] service
+# @!attribute [rw] services
 #   @return [Array, nil]
 #
 # @!attribute [rw] telephone
 #   @return [String, nil]
 RegistrationServiceCounter = Struct.new(
   :address,
-  :address_en,
-  :address_zh,
+  :addressEn,
+  :addressZh,
   :district,
   :id,
   :latitude,
   :longitude,
   :name,
-  :name_en,
-  :name_zh,
-  :operating_hour,
+  :nameEn,
+  :nameZh,
+  :operatingHours,
   :region,
-  :remark,
-  :service,
+  :remarks,
+  :services,
   :telephone,
   keyword_init: true
 )
@@ -192,10 +192,10 @@ RegistrationServiceCounter = Struct.new(
 # @!attribute [rw] address
 #   @return [String, nil]
 #
-# @!attribute [rw] address_en
+# @!attribute [rw] addressEn
 #   @return [String, nil]
 #
-# @!attribute [rw] address_zh
+# @!attribute [rw] addressZh
 #   @return [String, nil]
 #
 # @!attribute [rw] district
@@ -213,41 +213,41 @@ RegistrationServiceCounter = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_en
+# @!attribute [rw] nameEn
 #   @return [String, nil]
 #
-# @!attribute [rw] name_zh
+# @!attribute [rw] nameZh
 #   @return [String, nil]
 #
-# @!attribute [rw] operating_hour
+# @!attribute [rw] operatingHours
 #   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 #
-# @!attribute [rw] service
+# @!attribute [rw] services
 #   @return [Array, nil]
 #
 # @!attribute [rw] telephone
 #   @return [String, nil]
 RegistrationServiceCounterListMatch = Struct.new(
   :address,
-  :address_en,
-  :address_zh,
+  :addressEn,
+  :addressZh,
   :district,
   :id,
   :latitude,
   :longitude,
   :name,
-  :name_en,
-  :name_zh,
-  :operating_hour,
+  :nameEn,
+  :nameZh,
+  :operatingHours,
   :region,
-  :remark,
-  :service,
+  :remarks,
+  :services,
   :telephone,
   keyword_init: true
 )
@@ -257,10 +257,10 @@ RegistrationServiceCounterListMatch = Struct.new(
 # @!attribute [rw] address
 #   @return [String, nil]
 #
-# @!attribute [rw] address_en
+# @!attribute [rw] addressEn
 #   @return [String, nil]
 #
-# @!attribute [rw] address_zh
+# @!attribute [rw] addressZh
 #   @return [String, nil]
 #
 # @!attribute [rw] availability
@@ -284,24 +284,24 @@ RegistrationServiceCounterListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_en
+# @!attribute [rw] nameEn
 #   @return [String, nil]
 #
-# @!attribute [rw] name_zh
+# @!attribute [rw] nameZh
 #   @return [String, nil]
 #
-# @!attribute [rw] operating_hour
+# @!attribute [rw] operatingHours
 #   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 SelfRegistrationKiosk = Struct.new(
   :address,
-  :address_en,
-  :address_zh,
+  :addressEn,
+  :addressZh,
   :availability,
   :district,
   :floor,
@@ -309,11 +309,11 @@ SelfRegistrationKiosk = Struct.new(
   :latitude,
   :longitude,
   :name,
-  :name_en,
-  :name_zh,
-  :operating_hour,
+  :nameEn,
+  :nameZh,
+  :operatingHours,
   :region,
-  :remark,
+  :remarks,
   keyword_init: true
 )
 
@@ -322,10 +322,10 @@ SelfRegistrationKiosk = Struct.new(
 # @!attribute [rw] address
 #   @return [String, nil]
 #
-# @!attribute [rw] address_en
+# @!attribute [rw] addressEn
 #   @return [String, nil]
 #
-# @!attribute [rw] address_zh
+# @!attribute [rw] addressZh
 #   @return [String, nil]
 #
 # @!attribute [rw] availability
@@ -349,24 +349,24 @@ SelfRegistrationKiosk = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] name_en
+# @!attribute [rw] nameEn
 #   @return [String, nil]
 #
-# @!attribute [rw] name_zh
+# @!attribute [rw] nameZh
 #   @return [String, nil]
 #
-# @!attribute [rw] operating_hour
+# @!attribute [rw] operatingHours
 #   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] remark
+# @!attribute [rw] remarks
 #   @return [String, nil]
 SelfRegistrationKioskListMatch = Struct.new(
   :address,
-  :address_en,
-  :address_zh,
+  :addressEn,
+  :addressZh,
   :availability,
   :district,
   :floor,
@@ -374,11 +374,11 @@ SelfRegistrationKioskListMatch = Struct.new(
   :latitude,
   :longitude,
   :name,
-  :name_en,
-  :name_zh,
-  :operating_hour,
+  :nameEn,
+  :nameZh,
+  :operatingHours,
   :region,
-  :remark,
+  :remarks,
   keyword_init: true
 )
 

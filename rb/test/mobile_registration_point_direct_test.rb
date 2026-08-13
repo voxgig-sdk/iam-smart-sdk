@@ -60,11 +60,11 @@ def mobile_registration_point_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID" => {},
-    "IAMSMART_TEST_LIVE" => "FALSE",
+    "IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID" => {},
+    "IAM_SMART_TEST_LIVE" => "FALSE",
   })
 
-  live = env["IAMSMART_TEST_LIVE"] == "TRUE"
+  live = env["IAM_SMART_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

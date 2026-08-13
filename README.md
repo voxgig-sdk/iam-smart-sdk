@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = IamSmartSDK.test()
-const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
-// mobileregistrationpoints is an array of bare MobileRegistrationPoint records populated with mock data
-console.log(mobileregistrationpoints)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = IamSmartSDK.test({
+  entity: {
+    self_registration_kiosk: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const selfregistrationkiosks = await client.SelfRegistrationKiosk().list()
+// selfregistrationkiosks is an array of SelfRegistrationKiosk entities, populated with mock data
+// — call selfregistrationkiosks[0].data() for the record itself
+console.log(selfregistrationkiosks)
 ```
 
 ### Python
 
 ```python
 client = IamSmartSDK.test()
-mobileregistrationpoints = client.MobileRegistrationPoint().list()
-print(mobileregistrationpoints)
+selfregistrationkiosks = client.SelfRegistrationKiosk().list()
+print(selfregistrationkiosks)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(mobileregistrationpoints)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = IamSmartSDK::test([
-    "entity" => ["mobileregistrationpoint" => ["test01" => []]],
+    "entity" => ["selfregistrationkiosk" => ["test01" => []]],
 ]);
-$mobileregistrationpoints = $client->MobileRegistrationPoint()->list();
+$selfregistrationkiosks = $client->SelfRegistrationKiosk()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.MobileRegistrationPoint(nil).List(
+result, err := client.SelfRegistrationKiosk(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.MobileRegistrationPoint(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = IamSmartSDK.test({
-  "entity" => { "mobileregistrationpoint" => { "test01" => {} } },
+  "entity" => { "selfregistrationkiosk" => { "test01" => {} } },
 })
-mobileregistrationpoints = client.MobileRegistrationPoint.list()
+selfregistrationkiosks = client.SelfRegistrationKiosk.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:MobileRegistrationPoint():list()
+local results, err = client:SelfRegistrationKiosk():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
 
 const client = new IamSmartSDK()
 
-// List all mobileregistrationpoints (returns MobileRegistrationPoint[])
+// List all mobileregistrationpoints (returns MobileRegistrationPointEntity[] — .data() for the record)
 const mobileregistrationpoints = await client.MobileRegistrationPoint().list()
 for (const mobileregistrationpoint of mobileregistrationpoints) {
   console.log(mobileregistrationpoint)
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations](https://data.gov.hk/en-data/dataset/hk-dpo-dpo_hp-iam-smart-registration-locations)
 

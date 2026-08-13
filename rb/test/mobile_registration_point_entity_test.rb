@@ -62,7 +62,7 @@ class MobileRegistrationPointEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -111,22 +111,22 @@ def mobile_registration_point_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID"]
+  entid_env_raw = ENV["IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID" => idmap,
-    "IAMSMART_TEST_LIVE" => "FALSE",
-    "IAMSMART_TEST_EXPLAIN" => "FALSE",
+    "IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID" => idmap,
+    "IAM_SMART_TEST_LIVE" => "FALSE",
+    "IAM_SMART_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["IAMSMART_TEST_MOBILE_REGISTRATION_POINT_ENTID"])
+    env["IAM_SMART_TEST_MOBILE_REGISTRATION_POINT_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["IAMSMART_TEST_LIVE"] == "TRUE"
+  if env["IAM_SMART_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -135,13 +135,13 @@ def mobile_registration_point_basic_setup(extra)
     client = IamSmartSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["IAMSMART_TEST_LIVE"] == "TRUE"
+  live = env["IAM_SMART_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["IAMSMART_TEST_EXPLAIN"] == "TRUE",
+    explain: env["IAM_SMART_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

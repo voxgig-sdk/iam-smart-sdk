@@ -26,12 +26,12 @@ main: kit: entity: mobile_registration_point: {
       type: "`$STRING`"
     }
     {
-      name: "location_en"
+      name: "locationEn"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "location_zh"
+      name: "locationZh"
       req: false
       type: "`$STRING`"
     }
@@ -46,12 +46,12 @@ main: kit: entity: mobile_registration_point: {
       type: "`$STRING`"
     }
     {
-      name: "name_en"
+      name: "nameEn"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "name_zh"
+      name: "nameZh"
       req: false
       type: "`$STRING`"
     }
@@ -61,7 +61,7 @@ main: kit: entity: mobile_registration_point: {
       type: "`$STRING`"
     }
     {
-      name: "remark"
+      name: "remarks"
       req: false
       type: "`$STRING`"
     }

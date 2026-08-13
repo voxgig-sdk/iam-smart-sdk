@@ -104,14 +104,14 @@ $mobile_registration_point = $client->MobileRegistrationPoint();
 | `id` | `string` | No |  |
 | `latitude` | `float` | No |  |
 | `location` | `string` | No |  |
-| `location_en` | `string` | No |  |
-| `location_zh` | `string` | No |  |
+| `locationEn` | `string` | No |  |
+| `locationZh` | `string` | No |  |
 | `longitude` | `float` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 | `schedule` | `array` | No |  |
 
 ### Operations
@@ -165,19 +165,19 @@ $registration_service_counter = $client->RegistrationServiceCounter();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `string` | No |  |
-| `address_en` | `string` | No |  |
-| `address_zh` | `string` | No |  |
+| `addressEn` | `string` | No |  |
+| `addressZh` | `string` | No |  |
 | `district` | `string` | No |  |
 | `id` | `string` | No |  |
 | `latitude` | `float` | No |  |
 | `longitude` | `float` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
-| `operating_hour` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
+| `operatingHours` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
-| `service` | `array` | No |  |
+| `remarks` | `string` | No |  |
+| `services` | `array` | No |  |
 | `telephone` | `string` | No |  |
 
 ### Operations
@@ -231,8 +231,8 @@ $self_registration_kiosk = $client->SelfRegistrationKiosk();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `address` | `string` | No |  |
-| `address_en` | `string` | No |  |
-| `address_zh` | `string` | No |  |
+| `addressEn` | `string` | No |  |
+| `addressZh` | `string` | No |  |
 | `availability` | `string` | No |  |
 | `district` | `string` | No |  |
 | `floor` | `string` | No |  |
@@ -240,11 +240,11 @@ $self_registration_kiosk = $client->SelfRegistrationKiosk();
 | `latitude` | `float` | No |  |
 | `longitude` | `float` | No |  |
 | `name` | `string` | No |  |
-| `name_en` | `string` | No |  |
-| `name_zh` | `string` | No |  |
-| `operating_hour` | `string` | No |  |
+| `nameEn` | `string` | No |  |
+| `nameZh` | `string` | No |  |
+| `operatingHours` | `string` | No |  |
 | `region` | `string` | No |  |
-| `remark` | `string` | No |  |
+| `remarks` | `string` | No |  |
 
 ### Operations
 

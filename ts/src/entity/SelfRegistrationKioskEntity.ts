@@ -37,7 +37,7 @@ class SelfRegistrationKioskEntity extends IamSmartEntityBase<SelfRegistrationKio
 
 
 
-  async list(this: any, reqmatch?: SelfRegistrationKioskListMatch, ctrl?: Control): Promise<SelfRegistrationKiosk[]> {
+  async list(this: any, reqmatch?: SelfRegistrationKioskListMatch, ctrl?: Control): Promise<SelfRegistrationKioskEntity[]> {
 
     const utility = this._utility
 

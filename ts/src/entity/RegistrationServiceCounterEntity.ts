@@ -37,7 +37,7 @@ class RegistrationServiceCounterEntity extends IamSmartEntityBase<RegistrationSe
 
 
 
-  async list(this: any, reqmatch?: RegistrationServiceCounterListMatch, ctrl?: Control): Promise<RegistrationServiceCounter[]> {
+  async list(this: any, reqmatch?: RegistrationServiceCounterListMatch, ctrl?: Control): Promise<RegistrationServiceCounterEntity[]> {
 
     const utility = this._utility
 

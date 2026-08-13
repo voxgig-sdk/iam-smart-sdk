@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import IamSmartControl
-from core.error import IamSmartError
-from core.result import IamSmartResult
-from core.spec import IamSmartSpec
+from iamsmart_sdk.config import make_config
+from iamsmart_sdk.features import _make_feature
+from iamsmart_sdk.core.control import IamSmartControl
+from iamsmart_sdk.core.error import IamSmartError
+from iamsmart_sdk.core.result import IamSmartResult
+from iamsmart_sdk.core.spec import IamSmartSpec
 
 
 # True when this SDK was generated with the named feature.

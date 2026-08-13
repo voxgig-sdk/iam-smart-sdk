@@ -68,12 +68,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-mobileregistrationpoints, err := client.MobileRegistrationPoint(nil).List(nil, nil)
+selfregistrationkiosks, err := client.SelfRegistrationKiosk(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = mobileregistrationpoints
+_ = selfregistrationkiosks
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-mobileRegistrationPoint, err := client.MobileRegistrationPoint(nil).List(
+selfRegistrationKiosk, err := client.SelfRegistrationKiosk(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(mobileRegistrationPoint) // the returned mock data
+fmt.Println(selfRegistrationKiosk) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -266,14 +266,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"id"` |  |
 | `"latitude"` |  |
 | `"location"` |  |
-| `"location_en"` |  |
-| `"location_zh"` |  |
+| `"locationEn"` |  |
+| `"locationZh"` |  |
 | `"longitude"` |  |
 | `"name"` |  |
-| `"name_en"` |  |
-| `"name_zh"` |  |
+| `"nameEn"` |  |
+| `"nameZh"` |  |
 | `"region"` |  |
-| `"remark"` |  |
+| `"remarks"` |  |
 | `"schedule"` |  |
 
 Operations: List.
@@ -285,19 +285,19 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 | Field | Description |
 | --- | --- |
 | `"address"` |  |
-| `"address_en"` |  |
-| `"address_zh"` |  |
+| `"addressEn"` |  |
+| `"addressZh"` |  |
 | `"district"` |  |
 | `"id"` |  |
 | `"latitude"` |  |
 | `"longitude"` |  |
 | `"name"` |  |
-| `"name_en"` |  |
-| `"name_zh"` |  |
-| `"operating_hour"` |  |
+| `"nameEn"` |  |
+| `"nameZh"` |  |
+| `"operatingHours"` |  |
 | `"region"` |  |
-| `"remark"` |  |
-| `"service"` |  |
+| `"remarks"` |  |
+| `"services"` |  |
 | `"telephone"` |  |
 
 Operations: List.
@@ -309,8 +309,8 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | Field | Description |
 | --- | --- |
 | `"address"` |  |
-| `"address_en"` |  |
-| `"address_zh"` |  |
+| `"addressEn"` |  |
+| `"addressZh"` |  |
 | `"availability"` |  |
 | `"district"` |  |
 | `"floor"` |  |
@@ -318,11 +318,11 @@ API path: `/open_data/iam_smart/registration-service-counters`
 | `"latitude"` |  |
 | `"longitude"` |  |
 | `"name"` |  |
-| `"name_en"` |  |
-| `"name_zh"` |  |
-| `"operating_hour"` |  |
+| `"nameEn"` |  |
+| `"nameZh"` |  |
+| `"operatingHours"` |  |
 | `"region"` |  |
-| `"remark"` |  |
+| `"remarks"` |  |
 
 Operations: List.
 
@@ -351,14 +351,14 @@ Create an instance: `mobileRegistrationPoint := client.MobileRegistrationPoint(n
 | `id` | `string` |  |
 | `latitude` | `float64` |  |
 | `location` | `string` |  |
-| `location_en` | `string` |  |
-| `location_zh` | `string` |  |
+| `locationEn` | `string` |  |
+| `locationZh` | `string` |  |
 | `longitude` | `float64` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 | `schedule` | `[]any` |  |
 
 #### Example: List
@@ -387,19 +387,19 @@ Create an instance: `registrationServiceCounter := client.RegistrationServiceCou
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `district` | `string` |  |
 | `id` | `string` |  |
 | `latitude` | `float64` |  |
 | `longitude` | `float64` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
-| `service` | `[]any` |  |
+| `remarks` | `string` |  |
+| `services` | `[]any` |  |
 | `telephone` | `string` |  |
 
 #### Example: List
@@ -428,8 +428,8 @@ Create an instance: `selfRegistrationKiosk := client.SelfRegistrationKiosk(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `address` | `string` |  |
-| `address_en` | `string` |  |
-| `address_zh` | `string` |  |
+| `addressEn` | `string` |  |
+| `addressZh` | `string` |  |
 | `availability` | `string` |  |
 | `district` | `string` |  |
 | `floor` | `string` |  |
@@ -437,11 +437,11 @@ Create an instance: `selfRegistrationKiosk := client.SelfRegistrationKiosk(nil)`
 | `latitude` | `float64` |  |
 | `longitude` | `float64` |  |
 | `name` | `string` |  |
-| `name_en` | `string` |  |
-| `name_zh` | `string` |  |
-| `operating_hour` | `string` |  |
+| `nameEn` | `string` |  |
+| `nameZh` | `string` |  |
+| `operatingHours` | `string` |  |
 | `region` | `string` |  |
-| `remark` | `string` |  |
+| `remarks` | `string` |  |
 
 #### Example: List
 
@@ -527,11 +527,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-mobileregistrationpoint := client.MobileRegistrationPoint(nil)
-mobileregistrationpoint.List(nil, nil)
+selfregistrationkiosk := client.SelfRegistrationKiosk(nil)
+selfregistrationkiosk.List(nil, nil)
 
-// mobileregistrationpoint.Data() now returns the mobileregistrationpoint data from the last list
-// mobileregistrationpoint.Match() returns the last match criteria
+// selfregistrationkiosk.Data() now returns the selfregistrationkiosk data from the last list
+// selfregistrationkiosk.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration
