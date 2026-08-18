@@ -40,7 +40,7 @@ class IamSmartSDK
         $utility = new IamSmartUtility();
         $this->_utility = $utility;
 
-        $config = IamSmartConfig::make_config();
+        $config = IamSmartConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

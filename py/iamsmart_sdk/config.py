@@ -1,7 +1,30 @@
 # IamSmart SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "IamSmart",
@@ -28,95 +51,56 @@ def make_config():
       "mobile_registration_point": {
         "fields": [
           {
-            "active": True,
             "name": "district",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "latitude",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "location",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "locationEn",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "locationZh",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "longitude",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "nameEn",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "nameZh",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "region",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "remarks",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "schedule",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 12,
           },
         ],
         "name": "mobile_registration_point",
@@ -126,7 +110,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -141,10 +124,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -154,109 +135,64 @@ def make_config():
       "registration_service_counter": {
         "fields": [
           {
-            "active": True,
             "name": "address",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "addressEn",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "addressZh",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "district",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "latitude",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "longitude",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "nameEn",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "nameZh",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "operatingHours",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "region",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "remarks",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "services",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "telephone",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
         ],
         "name": "registration_service_counter",
@@ -266,7 +202,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -281,10 +216,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {
@@ -294,109 +227,64 @@ def make_config():
       "self_registration_kiosk": {
         "fields": [
           {
-            "active": True,
             "name": "address",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "addressEn",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "addressZh",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "availability",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "district",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "floor",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "latitude",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "longitude",
-            "req": False,
             "type": "`$NUMBER`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "name",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "nameEn",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "nameZh",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "operatingHours",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "region",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "remarks",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
         ],
         "name": "self_registration_kiosk",
@@ -406,7 +294,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -421,10 +308,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {

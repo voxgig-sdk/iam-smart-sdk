@@ -28,7 +28,7 @@ class IamSmartSDK
     utility = IamSmartUtility.new
     @_utility = utility
 
-    config = IamSmartConfig.make_config
+    config = IamSmartConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

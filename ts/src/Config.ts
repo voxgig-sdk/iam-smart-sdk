@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://www.digitalpolicy.gov.hk',
+    base: "https://www.digitalpolicy.gov.hk",
 
     headers: {
       "content-type": "application/json"
@@ -61,95 +61,56 @@ class Config {
     "mobile_registration_point": {
       "fields": [
         {
-          "active": true,
           "name": "district",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "latitude",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 2
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "location",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "locationEn",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "locationZh",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "longitude",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 6
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nameEn",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nameZh",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "region",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "remarks",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "schedule",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 12
+          "type": "`$ARRAY`"
         }
       ],
       "name": "mobile_registration_point",
@@ -159,7 +120,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -173,11 +133,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {
@@ -187,109 +145,64 @@ class Config {
     "registration_service_counter": {
       "fields": [
         {
-          "active": true,
           "name": "address",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "addressEn",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "addressZh",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "district",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "latitude",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 5
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "longitude",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 6
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nameEn",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nameZh",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "operatingHours",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "region",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "remarks",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 12
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "services",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 13
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "telephone",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
+          "type": "`$STRING`"
         }
       ],
       "name": "registration_service_counter",
@@ -299,7 +212,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -313,11 +225,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {
@@ -327,109 +237,64 @@ class Config {
     "self_registration_kiosk": {
       "fields": [
         {
-          "active": true,
           "name": "address",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "addressEn",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "addressZh",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "availability",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "district",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "floor",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "latitude",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 7
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "longitude",
-          "req": false,
-          "type": "`$NUMBER`",
-          "index$": 8
+          "type": "`$NUMBER`"
         },
         {
-          "active": true,
           "name": "name",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nameEn",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "nameZh",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "operatingHours",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 12
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "region",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 13
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "remarks",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
+          "type": "`$STRING`"
         }
       ],
       "name": "self_registration_kiosk",
@@ -439,7 +304,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -453,11 +317,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

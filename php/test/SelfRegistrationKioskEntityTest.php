@@ -40,7 +40,7 @@ class SelfRegistrationKioskEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = IamSmartConfig::make_config();
+        $cfg = IamSmartConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = IamSmartSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

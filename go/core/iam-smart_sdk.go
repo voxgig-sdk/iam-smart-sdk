@@ -23,7 +23,7 @@ func NewIamSmartSDK(options map[string]any) *IamSmartSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

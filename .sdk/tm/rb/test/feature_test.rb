@@ -15,7 +15,7 @@ require_relative "../IamSmart_sdk"
 module IamSmartFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = IamSmartConfig.make_config["feature"]
+    f = IamSmartConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

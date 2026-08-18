@@ -1,6 +1,20 @@
 # IamSmart SDK configuration
 
 module IamSmartConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -28,95 +42,56 @@ module IamSmartConfig
         "mobile_registration_point" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "district",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "latitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "location",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "locationEn",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "locationZh",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "longitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "nameEn",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "nameZh",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "region",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "remarks",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "schedule",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 12,
             },
           ],
           "name" => "mobile_registration_point",
@@ -126,7 +101,6 @@ module IamSmartConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -141,10 +115,8 @@ module IamSmartConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -154,109 +126,64 @@ module IamSmartConfig
         "registration_service_counter" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "address",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "addressEn",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "addressZh",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "district",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "latitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "longitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "nameEn",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "nameZh",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "operatingHours",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "region",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "remarks",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "services",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "telephone",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
           ],
           "name" => "registration_service_counter",
@@ -266,7 +193,6 @@ module IamSmartConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -281,10 +207,8 @@ module IamSmartConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -294,109 +218,64 @@ module IamSmartConfig
         "self_registration_kiosk" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "address",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "addressEn",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "addressZh",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "availability",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "district",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "floor",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "latitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "longitude",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "nameEn",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "nameZh",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "operatingHours",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "region",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "remarks",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
           ],
           "name" => "self_registration_kiosk",
@@ -406,7 +285,6 @@ module IamSmartConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -421,10 +299,8 @@ module IamSmartConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

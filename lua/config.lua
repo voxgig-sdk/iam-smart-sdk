@@ -1,5 +1,8 @@
 -- IamSmart SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -27,95 +30,56 @@ local function make_config()
       ["mobile_registration_point"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "district",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "id",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "latitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "location",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "locationEn",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "locationZh",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "longitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "name",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "nameEn",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "nameZh",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 9,
           },
           {
-            ["active"] = true,
             ["name"] = "region",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 10,
           },
           {
-            ["active"] = true,
             ["name"] = "remarks",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 11,
           },
           {
-            ["active"] = true,
             ["name"] = "schedule",
-            ["req"] = false,
             ["type"] = "`$ARRAY`",
-            ["index$"] = 12,
           },
         },
         ["name"] = "mobile_registration_point",
@@ -125,7 +89,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -140,10 +103,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {
@@ -153,109 +114,64 @@ local function make_config()
       ["registration_service_counter"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "address",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "addressEn",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "addressZh",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "district",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "id",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "latitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "longitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "name",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "nameEn",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "nameZh",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 9,
           },
           {
-            ["active"] = true,
             ["name"] = "operatingHours",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 10,
           },
           {
-            ["active"] = true,
             ["name"] = "region",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 11,
           },
           {
-            ["active"] = true,
             ["name"] = "remarks",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 12,
           },
           {
-            ["active"] = true,
             ["name"] = "services",
-            ["req"] = false,
             ["type"] = "`$ARRAY`",
-            ["index$"] = 13,
           },
           {
-            ["active"] = true,
             ["name"] = "telephone",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 14,
           },
         },
         ["name"] = "registration_service_counter",
@@ -265,7 +181,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -280,10 +195,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {
@@ -293,109 +206,64 @@ local function make_config()
       ["self_registration_kiosk"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "address",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "addressEn",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "addressZh",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
           {
-            ["active"] = true,
             ["name"] = "availability",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
           },
           {
-            ["active"] = true,
             ["name"] = "district",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
           },
           {
-            ["active"] = true,
             ["name"] = "floor",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 5,
           },
           {
-            ["active"] = true,
             ["name"] = "id",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 6,
           },
           {
-            ["active"] = true,
             ["name"] = "latitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 7,
           },
           {
-            ["active"] = true,
             ["name"] = "longitude",
-            ["req"] = false,
             ["type"] = "`$NUMBER`",
-            ["index$"] = 8,
           },
           {
-            ["active"] = true,
             ["name"] = "name",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 9,
           },
           {
-            ["active"] = true,
             ["name"] = "nameEn",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 10,
           },
           {
-            ["active"] = true,
             ["name"] = "nameZh",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 11,
           },
           {
-            ["active"] = true,
             ["name"] = "operatingHours",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 12,
           },
           {
-            ["active"] = true,
             ["name"] = "region",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 13,
           },
           {
-            ["active"] = true,
             ["name"] = "remarks",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 14,
           },
         },
         ["name"] = "self_registration_kiosk",
@@ -405,7 +273,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
@@ -420,10 +287,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "list",
           },
         },
         ["relations"] = {
