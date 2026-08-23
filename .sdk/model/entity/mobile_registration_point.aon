@@ -1,84 +1,87 @@
-# Entity: registration_service_counter
+# Entity: mobile_registration_point
 
-main: kit: entity: registration_service_counter: {
+main: kit: entity: mobile_registration_point: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "address"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "addressEn"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "addressZh"
-      req: false
-      type: "`$STRING`"
-    }
-    {
       name: "district"
       req: false
+      short: "District where the mobile point operates"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the mobile registration point"
       type: "`$STRING`"
     }
     {
       name: "latitude"
       req: false
+      short: "Latitude coordinate"
       type: "`$NUMBER`"
+    }
+    {
+      name: "location"
+      req: false
+      short: "Location description of the mobile point"
+      type: "`$STRING`"
+    }
+    {
+      name: "locationEn"
+      req: false
+      short: "English location description"
+      type: "`$STRING`"
+    }
+    {
+      name: "locationZh"
+      req: false
+      short: "Chinese location description"
+      type: "`$STRING`"
     }
     {
       name: "longitude"
       req: false
+      short: "Longitude coordinate"
       type: "`$NUMBER`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the mobile registration point location"
       type: "`$STRING`"
     }
     {
       name: "nameEn"
       req: false
+      short: "English name of the mobile registration point"
       type: "`$STRING`"
     }
     {
       name: "nameZh"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "operatingHours"
-      req: false
+      short: "Chinese name of the mobile registration point"
       type: "`$STRING`"
     }
     {
       name: "region"
       req: false
+      short: "Region (Hong Kong Island, Kowloon, New Territories)"
       type: "`$STRING`"
     }
     {
       name: "remarks"
       req: false
+      short: "Additional remarks or notes"
       type: "`$STRING`"
     }
     {
-      name: "services"
+      name: "schedule"
       req: false
+      short: "Schedule of mobile registration point visits"
       type: "`$ARRAY`"
-    }
-    {
-      name: "telephone"
-      req: false
-      type: "`$STRING`"
     }
   ]
 
@@ -87,18 +90,18 @@ main: kit: entity: registration_service_counter: {
     name: "id"
   }
 
-  name: "registration_service_counter"
+  name: "mobile_registration_point"
   op: {
     list: {
       name: "list"
       points: [
         {
           method: "GET"
-          orig: "/open_data/iam_smart/registration-service-counters"
+          orig: "/open_data/iam_smart/mobile-registration-points"
           parts: [
             "open_data"
             "iam_smart"
-            "registration-service-counters"
+            "mobile-registration-points"
           ]
           transform: {
             req: "`reqdata`"

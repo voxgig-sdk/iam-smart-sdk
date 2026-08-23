@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "IamSmart",
+			"slug": "iam-smart",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,54 +38,67 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "district",
+						"short": "District where the mobile point operates",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the mobile registration point",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "location",
+						"short": "Location description of the mobile point",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "locationEn",
+						"short": "English location description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "locationZh",
+						"short": "Chinese location description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the mobile registration point location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameEn",
+						"short": "English name of the mobile registration point",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameZh",
+						"short": "Chinese name of the mobile registration point",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "region",
+						"short": "Region (Hong Kong Island, Kowloon, New Territories)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remarks",
+						"short": "Additional remarks or notes",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "schedule",
+						"short": "Schedule of mobile registration point visits",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -119,62 +135,77 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "address",
+						"short": "Full address of the service counter",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "addressEn",
+						"short": "English address of the service counter",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "addressZh",
+						"short": "Chinese address of the service counter",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "district",
+						"short": "District where the service counter is located",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the service counter",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the service counter location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameEn",
+						"short": "English name of the service counter location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameZh",
+						"short": "Chinese name of the service counter location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "operatingHours",
+						"short": "Operating hours of the service counter",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "region",
+						"short": "Region (Hong Kong Island, Kowloon, New Territories)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remarks",
+						"short": "Additional remarks or notes",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "services",
+						"short": "List of services available at this counter",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "telephone",
+						"short": "Contact telephone number",
 						"type": "`$STRING`",
 					},
 				},
@@ -211,62 +242,77 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "address",
+						"short": "Full address of the kiosk",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "addressEn",
+						"short": "English address of the kiosk",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "addressZh",
+						"short": "Chinese address of the kiosk",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "availability",
+						"short": "Availability status of the kiosk",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "district",
+						"short": "District where the kiosk is located",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "floor",
+						"short": "Floor level where kiosk is located",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the kiosk",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the kiosk location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameEn",
+						"short": "English name of the kiosk location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nameZh",
+						"short": "Chinese name of the kiosk location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "operatingHours",
+						"short": "Operating hours of the kiosk",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "region",
+						"short": "Region (Hong Kong Island, Kowloon, New Territories)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "remarks",
+						"short": "Additional remarks or notes",
 						"type": "`$STRING`",
 					},
 				},

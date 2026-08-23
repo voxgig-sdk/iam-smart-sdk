@@ -1,0 +1,129 @@
+# Entity: registration_service_counter
+
+main: kit: entity: registration_service_counter: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "address"
+      req: false
+      short: "Full address of the service counter"
+      type: "`$STRING`"
+    }
+    {
+      name: "addressEn"
+      req: false
+      short: "English address of the service counter"
+      type: "`$STRING`"
+    }
+    {
+      name: "addressZh"
+      req: false
+      short: "Chinese address of the service counter"
+      type: "`$STRING`"
+    }
+    {
+      name: "district"
+      req: false
+      short: "District where the service counter is located"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "Unique identifier for the service counter"
+      type: "`$STRING`"
+    }
+    {
+      name: "latitude"
+      req: false
+      short: "Latitude coordinate"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "longitude"
+      req: false
+      short: "Longitude coordinate"
+      type: "`$NUMBER`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "Name of the service counter location"
+      type: "`$STRING`"
+    }
+    {
+      name: "nameEn"
+      req: false
+      short: "English name of the service counter location"
+      type: "`$STRING`"
+    }
+    {
+      name: "nameZh"
+      req: false
+      short: "Chinese name of the service counter location"
+      type: "`$STRING`"
+    }
+    {
+      name: "operatingHours"
+      req: false
+      short: "Operating hours of the service counter"
+      type: "`$STRING`"
+    }
+    {
+      name: "region"
+      req: false
+      short: "Region (Hong Kong Island, Kowloon, New Territories)"
+      type: "`$STRING`"
+    }
+    {
+      name: "remarks"
+      req: false
+      short: "Additional remarks or notes"
+      type: "`$STRING`"
+    }
+    {
+      name: "services"
+      req: false
+      short: "List of services available at this counter"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "telephone"
+      req: false
+      short: "Contact telephone number"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "registration_service_counter"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/open_data/iam_smart/registration-service-counters"
+          parts: [
+            "open_data"
+            "iam_smart"
+            "registration-service-counters"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

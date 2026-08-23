@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -289,19 +289,19 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `district` |  |
-| `id` |  |
-| `latitude` |  |
-| `location` |  |
-| `locationEn` |  |
-| `locationZh` |  |
-| `longitude` |  |
-| `name` |  |
-| `nameEn` |  |
-| `nameZh` |  |
-| `region` |  |
-| `remarks` |  |
-| `schedule` |  |
+| `district` | District where the mobile point operates |
+| `id` | Unique identifier for the mobile registration point |
+| `latitude` | Latitude coordinate |
+| `location` | Location description of the mobile point |
+| `locationEn` | English location description |
+| `locationZh` | Chinese location description |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the mobile registration point location |
+| `nameEn` | English name of the mobile registration point |
+| `nameZh` | Chinese name of the mobile registration point |
+| `region` | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | Additional remarks or notes |
+| `schedule` | Schedule of mobile registration point visits |
 
 Operations: list.
 
@@ -311,21 +311,21 @@ API path: `/open_data/iam_smart/mobile-registration-points`
 
 | Field | Description |
 | --- | --- |
-| `address` |  |
-| `addressEn` |  |
-| `addressZh` |  |
-| `district` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `nameEn` |  |
-| `nameZh` |  |
-| `operatingHours` |  |
-| `region` |  |
-| `remarks` |  |
-| `services` |  |
-| `telephone` |  |
+| `address` | Full address of the service counter |
+| `addressEn` | English address of the service counter |
+| `addressZh` | Chinese address of the service counter |
+| `district` | District where the service counter is located |
+| `id` | Unique identifier for the service counter |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the service counter location |
+| `nameEn` | English name of the service counter location |
+| `nameZh` | Chinese name of the service counter location |
+| `operatingHours` | Operating hours of the service counter |
+| `region` | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | Additional remarks or notes |
+| `services` | List of services available at this counter |
+| `telephone` | Contact telephone number |
 
 Operations: list.
 
@@ -335,21 +335,21 @@ API path: `/open_data/iam_smart/registration-service-counters`
 
 | Field | Description |
 | --- | --- |
-| `address` |  |
-| `addressEn` |  |
-| `addressZh` |  |
-| `availability` |  |
-| `district` |  |
-| `floor` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `nameEn` |  |
-| `nameZh` |  |
-| `operatingHours` |  |
-| `region` |  |
-| `remarks` |  |
+| `address` | Full address of the kiosk |
+| `addressEn` | English address of the kiosk |
+| `addressZh` | Chinese address of the kiosk |
+| `availability` | Availability status of the kiosk |
+| `district` | District where the kiosk is located |
+| `floor` | Floor level where kiosk is located |
+| `id` | Unique identifier for the kiosk |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the kiosk location |
+| `nameEn` | English name of the kiosk location |
+| `nameZh` | Chinese name of the kiosk location |
+| `operatingHours` | Operating hours of the kiosk |
+| `region` | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | Additional remarks or notes |
 
 Operations: list.
 
@@ -374,19 +374,19 @@ Create an instance: `const mobile_registration_point = client.MobileRegistration
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `district` | `string` |  |
-| `id` | `string` |  |
-| `latitude` | `number` |  |
-| `location` | `string` |  |
-| `locationEn` | `string` |  |
-| `locationZh` | `string` |  |
-| `longitude` | `number` |  |
-| `name` | `string` |  |
-| `nameEn` | `string` |  |
-| `nameZh` | `string` |  |
-| `region` | `string` |  |
-| `remarks` | `string` |  |
-| `schedule` | `any[]` |  |
+| `district` | `string` | District where the mobile point operates |
+| `id` | `string` | Unique identifier for the mobile registration point |
+| `latitude` | `number` | Latitude coordinate |
+| `location` | `string` | Location description of the mobile point |
+| `locationEn` | `string` | English location description |
+| `locationZh` | `string` | Chinese location description |
+| `longitude` | `number` | Longitude coordinate |
+| `name` | `string` | Name of the mobile registration point location |
+| `nameEn` | `string` | English name of the mobile registration point |
+| `nameZh` | `string` | Chinese name of the mobile registration point |
+| `region` | `string` | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `string` | Additional remarks or notes |
+| `schedule` | `any[]` | Schedule of mobile registration point visits |
 
 #### Example: List
 
@@ -409,21 +409,21 @@ Create an instance: `const registration_service_counter = client.RegistrationSer
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address` | `string` |  |
-| `addressEn` | `string` |  |
-| `addressZh` | `string` |  |
-| `district` | `string` |  |
-| `id` | `string` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `name` | `string` |  |
-| `nameEn` | `string` |  |
-| `nameZh` | `string` |  |
-| `operatingHours` | `string` |  |
-| `region` | `string` |  |
-| `remarks` | `string` |  |
-| `services` | `any[]` |  |
-| `telephone` | `string` |  |
+| `address` | `string` | Full address of the service counter |
+| `addressEn` | `string` | English address of the service counter |
+| `addressZh` | `string` | Chinese address of the service counter |
+| `district` | `string` | District where the service counter is located |
+| `id` | `string` | Unique identifier for the service counter |
+| `latitude` | `number` | Latitude coordinate |
+| `longitude` | `number` | Longitude coordinate |
+| `name` | `string` | Name of the service counter location |
+| `nameEn` | `string` | English name of the service counter location |
+| `nameZh` | `string` | Chinese name of the service counter location |
+| `operatingHours` | `string` | Operating hours of the service counter |
+| `region` | `string` | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `string` | Additional remarks or notes |
+| `services` | `any[]` | List of services available at this counter |
+| `telephone` | `string` | Contact telephone number |
 
 #### Example: List
 
@@ -446,21 +446,21 @@ Create an instance: `const self_registration_kiosk = client.SelfRegistrationKios
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address` | `string` |  |
-| `addressEn` | `string` |  |
-| `addressZh` | `string` |  |
-| `availability` | `string` |  |
-| `district` | `string` |  |
-| `floor` | `string` |  |
-| `id` | `string` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `name` | `string` |  |
-| `nameEn` | `string` |  |
-| `nameZh` | `string` |  |
-| `operatingHours` | `string` |  |
-| `region` | `string` |  |
-| `remarks` | `string` |  |
+| `address` | `string` | Full address of the kiosk |
+| `addressEn` | `string` | English address of the kiosk |
+| `addressZh` | `string` | Chinese address of the kiosk |
+| `availability` | `string` | Availability status of the kiosk |
+| `district` | `string` | District where the kiosk is located |
+| `floor` | `string` | Floor level where kiosk is located |
+| `id` | `string` | Unique identifier for the kiosk |
+| `latitude` | `number` | Latitude coordinate |
+| `longitude` | `number` | Longitude coordinate |
+| `name` | `string` | Name of the kiosk location |
+| `nameEn` | `string` | English name of the kiosk location |
+| `nameZh` | `string` | Chinese name of the kiosk location |
+| `operatingHours` | `string` | Operating hours of the kiosk |
+| `region` | `string` | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `string` | Additional remarks or notes |
 
 #### Example: List
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "IamSmart",
+            "slug": "iam-smart",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -52,54 +55,67 @@ def make_config():
         "fields": [
           {
             "name": "district",
+            "short": "District where the mobile point operates",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique identifier for the mobile registration point",
             "type": "`$STRING`",
           },
           {
             "name": "latitude",
+            "short": "Latitude coordinate",
             "type": "`$NUMBER`",
           },
           {
             "name": "location",
+            "short": "Location description of the mobile point",
             "type": "`$STRING`",
           },
           {
             "name": "locationEn",
+            "short": "English location description",
             "type": "`$STRING`",
           },
           {
             "name": "locationZh",
+            "short": "Chinese location description",
             "type": "`$STRING`",
           },
           {
             "name": "longitude",
+            "short": "Longitude coordinate",
             "type": "`$NUMBER`",
           },
           {
             "name": "name",
+            "short": "Name of the mobile registration point location",
             "type": "`$STRING`",
           },
           {
             "name": "nameEn",
+            "short": "English name of the mobile registration point",
             "type": "`$STRING`",
           },
           {
             "name": "nameZh",
+            "short": "Chinese name of the mobile registration point",
             "type": "`$STRING`",
           },
           {
             "name": "region",
+            "short": "Region (Hong Kong Island, Kowloon, New Territories)",
             "type": "`$STRING`",
           },
           {
             "name": "remarks",
+            "short": "Additional remarks or notes",
             "type": "`$STRING`",
           },
           {
             "name": "schedule",
+            "short": "Schedule of mobile registration point visits",
             "type": "`$ARRAY`",
           },
         ],
@@ -136,62 +152,77 @@ def make_config():
         "fields": [
           {
             "name": "address",
+            "short": "Full address of the service counter",
             "type": "`$STRING`",
           },
           {
             "name": "addressEn",
+            "short": "English address of the service counter",
             "type": "`$STRING`",
           },
           {
             "name": "addressZh",
+            "short": "Chinese address of the service counter",
             "type": "`$STRING`",
           },
           {
             "name": "district",
+            "short": "District where the service counter is located",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique identifier for the service counter",
             "type": "`$STRING`",
           },
           {
             "name": "latitude",
+            "short": "Latitude coordinate",
             "type": "`$NUMBER`",
           },
           {
             "name": "longitude",
+            "short": "Longitude coordinate",
             "type": "`$NUMBER`",
           },
           {
             "name": "name",
+            "short": "Name of the service counter location",
             "type": "`$STRING`",
           },
           {
             "name": "nameEn",
+            "short": "English name of the service counter location",
             "type": "`$STRING`",
           },
           {
             "name": "nameZh",
+            "short": "Chinese name of the service counter location",
             "type": "`$STRING`",
           },
           {
             "name": "operatingHours",
+            "short": "Operating hours of the service counter",
             "type": "`$STRING`",
           },
           {
             "name": "region",
+            "short": "Region (Hong Kong Island, Kowloon, New Territories)",
             "type": "`$STRING`",
           },
           {
             "name": "remarks",
+            "short": "Additional remarks or notes",
             "type": "`$STRING`",
           },
           {
             "name": "services",
+            "short": "List of services available at this counter",
             "type": "`$ARRAY`",
           },
           {
             "name": "telephone",
+            "short": "Contact telephone number",
             "type": "`$STRING`",
           },
         ],
@@ -228,62 +259,77 @@ def make_config():
         "fields": [
           {
             "name": "address",
+            "short": "Full address of the kiosk",
             "type": "`$STRING`",
           },
           {
             "name": "addressEn",
+            "short": "English address of the kiosk",
             "type": "`$STRING`",
           },
           {
             "name": "addressZh",
+            "short": "Chinese address of the kiosk",
             "type": "`$STRING`",
           },
           {
             "name": "availability",
+            "short": "Availability status of the kiosk",
             "type": "`$STRING`",
           },
           {
             "name": "district",
+            "short": "District where the kiosk is located",
             "type": "`$STRING`",
           },
           {
             "name": "floor",
+            "short": "Floor level where kiosk is located",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique identifier for the kiosk",
             "type": "`$STRING`",
           },
           {
             "name": "latitude",
+            "short": "Latitude coordinate",
             "type": "`$NUMBER`",
           },
           {
             "name": "longitude",
+            "short": "Longitude coordinate",
             "type": "`$NUMBER`",
           },
           {
             "name": "name",
+            "short": "Name of the kiosk location",
             "type": "`$STRING`",
           },
           {
             "name": "nameEn",
+            "short": "English name of the kiosk location",
             "type": "`$STRING`",
           },
           {
             "name": "nameZh",
+            "short": "Chinese name of the kiosk location",
             "type": "`$STRING`",
           },
           {
             "name": "operatingHours",
+            "short": "Operating hours of the kiosk",
             "type": "`$STRING`",
           },
           {
             "name": "region",
+            "short": "Region (Hong Kong Island, Kowloon, New Territories)",
             "type": "`$STRING`",
           },
           {
             "name": "remarks",
+            "short": "Additional remarks or notes",
             "type": "`$STRING`",
           },
         ],

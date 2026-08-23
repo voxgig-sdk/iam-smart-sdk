@@ -8,76 +8,91 @@ main: kit: entity: self_registration_kiosk: {
     {
       name: "address"
       req: false
+      short: "Full address of the kiosk"
       type: "`$STRING`"
     }
     {
       name: "addressEn"
       req: false
+      short: "English address of the kiosk"
       type: "`$STRING`"
     }
     {
       name: "addressZh"
       req: false
+      short: "Chinese address of the kiosk"
       type: "`$STRING`"
     }
     {
       name: "availability"
       req: false
+      short: "Availability status of the kiosk"
       type: "`$STRING`"
     }
     {
       name: "district"
       req: false
+      short: "District where the kiosk is located"
       type: "`$STRING`"
     }
     {
       name: "floor"
       req: false
+      short: "Floor level where kiosk is located"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the kiosk"
       type: "`$STRING`"
     }
     {
       name: "latitude"
       req: false
+      short: "Latitude coordinate"
       type: "`$NUMBER`"
     }
     {
       name: "longitude"
       req: false
+      short: "Longitude coordinate"
       type: "`$NUMBER`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the kiosk location"
       type: "`$STRING`"
     }
     {
       name: "nameEn"
       req: false
+      short: "English name of the kiosk location"
       type: "`$STRING`"
     }
     {
       name: "nameZh"
       req: false
+      short: "Chinese name of the kiosk location"
       type: "`$STRING`"
     }
     {
       name: "operatingHours"
       req: false
+      short: "Operating hours of the kiosk"
       type: "`$STRING`"
     }
     {
       name: "region"
       req: false
+      short: "Region (Hong Kong Island, Kowloon, New Territories)"
       type: "`$STRING`"
     }
     {
       name: "remarks"
       req: false
+      short: "Additional remarks or notes"
       type: "`$STRING`"
     }
   ]

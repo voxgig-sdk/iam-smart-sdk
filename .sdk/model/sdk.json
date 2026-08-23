@@ -36,78 +36,91 @@
               "active": true,
               "name": "district",
               "req": false,
+              "short": "District where the mobile point operates",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the mobile registration point",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "location",
               "req": false,
+              "short": "Location description of the mobile point",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "locationEn",
               "req": false,
+              "short": "English location description",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "locationZh",
               "req": false,
+              "short": "Chinese location description",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the mobile registration point location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameEn",
               "req": false,
+              "short": "English name of the mobile registration point",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameZh",
               "req": false,
+              "short": "Chinese name of the mobile registration point",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "region",
               "req": false,
+              "short": "Region (Hong Kong Island, Kowloon, New Territories)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remarks",
               "req": false,
+              "short": "Additional remarks or notes",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "schedule",
               "req": false,
+              "short": "Schedule of mobile registration point visits",
               "type": "`$ARRAY`"
             }
           ],
@@ -155,90 +168,105 @@
               "active": true,
               "name": "address",
               "req": false,
+              "short": "Full address of the service counter",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "addressEn",
               "req": false,
+              "short": "English address of the service counter",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "addressZh",
               "req": false,
+              "short": "Chinese address of the service counter",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "district",
               "req": false,
+              "short": "District where the service counter is located",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the service counter",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the service counter location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameEn",
               "req": false,
+              "short": "English name of the service counter location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameZh",
               "req": false,
+              "short": "Chinese name of the service counter location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "operatingHours",
               "req": false,
+              "short": "Operating hours of the service counter",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "region",
               "req": false,
+              "short": "Region (Hong Kong Island, Kowloon, New Territories)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remarks",
               "req": false,
+              "short": "Additional remarks or notes",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "services",
               "req": false,
+              "short": "List of services available at this counter",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "telephone",
               "req": false,
+              "short": "Contact telephone number",
               "type": "`$STRING`"
             }
           ],
@@ -286,90 +314,105 @@
               "active": true,
               "name": "address",
               "req": false,
+              "short": "Full address of the kiosk",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "addressEn",
               "req": false,
+              "short": "English address of the kiosk",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "addressZh",
               "req": false,
+              "short": "Chinese address of the kiosk",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "availability",
               "req": false,
+              "short": "Availability status of the kiosk",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "district",
               "req": false,
+              "short": "District where the kiosk is located",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "floor",
               "req": false,
+              "short": "Floor level where kiosk is located",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the kiosk",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the kiosk location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameEn",
               "req": false,
+              "short": "English name of the kiosk location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "nameZh",
               "req": false,
+              "short": "Chinese name of the kiosk location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "operatingHours",
               "req": false,
+              "short": "Operating hours of the kiosk",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "region",
               "req": false,
+              "short": "Region (Hong Kong Island, Kowloon, New Territories)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "remarks",
               "req": false,
+              "short": "Additional remarks or notes",
               "type": "`$STRING`"
             }
           ],

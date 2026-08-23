@@ -106,19 +106,19 @@ fmt.Println(mobileRegistrationPoint.GetName()) // "mobile_registration_point"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `district` | `string` | No |  |
-| `id` | `string` | No |  |
-| `latitude` | `float64` | No |  |
-| `location` | `string` | No |  |
-| `locationEn` | `string` | No |  |
-| `locationZh` | `string` | No |  |
-| `longitude` | `float64` | No |  |
-| `name` | `string` | No |  |
-| `nameEn` | `string` | No |  |
-| `nameZh` | `string` | No |  |
-| `region` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `schedule` | `[]any` | No |  |
+| `district` | `string` | No | District where the mobile point operates |
+| `id` | `string` | No | Unique identifier for the mobile registration point |
+| `latitude` | `float64` | No | Latitude coordinate |
+| `location` | `string` | No | Location description of the mobile point |
+| `locationEn` | `string` | No | English location description |
+| `locationZh` | `string` | No | Chinese location description |
+| `longitude` | `float64` | No | Longitude coordinate |
+| `name` | `string` | No | Name of the mobile registration point location |
+| `nameEn` | `string` | No | English name of the mobile registration point |
+| `nameZh` | `string` | No | Chinese name of the mobile registration point |
+| `region` | `string` | No | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `string` | No | Additional remarks or notes |
+| `schedule` | `[]any` | No | Schedule of mobile registration point visits |
 
 ### Operations
 
@@ -169,21 +169,21 @@ fmt.Println(registrationServiceCounter.GetName()) // "registration_service_count
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `string` | No |  |
-| `addressEn` | `string` | No |  |
-| `addressZh` | `string` | No |  |
-| `district` | `string` | No |  |
-| `id` | `string` | No |  |
-| `latitude` | `float64` | No |  |
-| `longitude` | `float64` | No |  |
-| `name` | `string` | No |  |
-| `nameEn` | `string` | No |  |
-| `nameZh` | `string` | No |  |
-| `operatingHours` | `string` | No |  |
-| `region` | `string` | No |  |
-| `remarks` | `string` | No |  |
-| `services` | `[]any` | No |  |
-| `telephone` | `string` | No |  |
+| `address` | `string` | No | Full address of the service counter |
+| `addressEn` | `string` | No | English address of the service counter |
+| `addressZh` | `string` | No | Chinese address of the service counter |
+| `district` | `string` | No | District where the service counter is located |
+| `id` | `string` | No | Unique identifier for the service counter |
+| `latitude` | `float64` | No | Latitude coordinate |
+| `longitude` | `float64` | No | Longitude coordinate |
+| `name` | `string` | No | Name of the service counter location |
+| `nameEn` | `string` | No | English name of the service counter location |
+| `nameZh` | `string` | No | Chinese name of the service counter location |
+| `operatingHours` | `string` | No | Operating hours of the service counter |
+| `region` | `string` | No | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `string` | No | Additional remarks or notes |
+| `services` | `[]any` | No | List of services available at this counter |
+| `telephone` | `string` | No | Contact telephone number |
 
 ### Operations
 
@@ -234,21 +234,21 @@ fmt.Println(selfRegistrationKiosk.GetName()) // "self_registration_kiosk"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `string` | No |  |
-| `addressEn` | `string` | No |  |
-| `addressZh` | `string` | No |  |
-| `availability` | `string` | No |  |
-| `district` | `string` | No |  |
-| `floor` | `string` | No |  |
-| `id` | `string` | No |  |
-| `latitude` | `float64` | No |  |
-| `longitude` | `float64` | No |  |
-| `name` | `string` | No |  |
-| `nameEn` | `string` | No |  |
-| `nameZh` | `string` | No |  |
-| `operatingHours` | `string` | No |  |
-| `region` | `string` | No |  |
-| `remarks` | `string` | No |  |
+| `address` | `string` | No | Full address of the kiosk |
+| `addressEn` | `string` | No | English address of the kiosk |
+| `addressZh` | `string` | No | Chinese address of the kiosk |
+| `availability` | `string` | No | Availability status of the kiosk |
+| `district` | `string` | No | District where the kiosk is located |
+| `floor` | `string` | No | Floor level where kiosk is located |
+| `id` | `string` | No | Unique identifier for the kiosk |
+| `latitude` | `float64` | No | Latitude coordinate |
+| `longitude` | `float64` | No | Longitude coordinate |
+| `name` | `string` | No | Name of the kiosk location |
+| `nameEn` | `string` | No | English name of the kiosk location |
+| `nameZh` | `string` | No | Chinese name of the kiosk location |
+| `operatingHours` | `string` | No | Operating hours of the kiosk |
+| `region` | `string` | No | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `string` | No | Additional remarks or notes |
 
 ### Operations
 

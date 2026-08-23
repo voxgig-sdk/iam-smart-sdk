@@ -95,19 +95,19 @@ mobile_registration_point = client.MobileRegistrationPoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `district` | `str` | No |  |
-| `id` | `str` | No |  |
-| `latitude` | `float` | No |  |
-| `location` | `str` | No |  |
-| `locationEn` | `str` | No |  |
-| `locationZh` | `str` | No |  |
-| `longitude` | `float` | No |  |
-| `name` | `str` | No |  |
-| `nameEn` | `str` | No |  |
-| `nameZh` | `str` | No |  |
-| `region` | `str` | No |  |
-| `remarks` | `str` | No |  |
-| `schedule` | `list` | No |  |
+| `district` | `str` | No | District where the mobile point operates |
+| `id` | `str` | No | Unique identifier for the mobile registration point |
+| `latitude` | `float` | No | Latitude coordinate |
+| `location` | `str` | No | Location description of the mobile point |
+| `locationEn` | `str` | No | English location description |
+| `locationZh` | `str` | No | Chinese location description |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `str` | No | Name of the mobile registration point location |
+| `nameEn` | `str` | No | English name of the mobile registration point |
+| `nameZh` | `str` | No | Chinese name of the mobile registration point |
+| `region` | `str` | No | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `str` | No | Additional remarks or notes |
+| `schedule` | `list` | No | Schedule of mobile registration point visits |
 
 ### Operations
 
@@ -160,21 +160,21 @@ registration_service_counter = client.RegistrationServiceCounter()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `str` | No |  |
-| `addressEn` | `str` | No |  |
-| `addressZh` | `str` | No |  |
-| `district` | `str` | No |  |
-| `id` | `str` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `name` | `str` | No |  |
-| `nameEn` | `str` | No |  |
-| `nameZh` | `str` | No |  |
-| `operatingHours` | `str` | No |  |
-| `region` | `str` | No |  |
-| `remarks` | `str` | No |  |
-| `services` | `list` | No |  |
-| `telephone` | `str` | No |  |
+| `address` | `str` | No | Full address of the service counter |
+| `addressEn` | `str` | No | English address of the service counter |
+| `addressZh` | `str` | No | Chinese address of the service counter |
+| `district` | `str` | No | District where the service counter is located |
+| `id` | `str` | No | Unique identifier for the service counter |
+| `latitude` | `float` | No | Latitude coordinate |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `str` | No | Name of the service counter location |
+| `nameEn` | `str` | No | English name of the service counter location |
+| `nameZh` | `str` | No | Chinese name of the service counter location |
+| `operatingHours` | `str` | No | Operating hours of the service counter |
+| `region` | `str` | No | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `str` | No | Additional remarks or notes |
+| `services` | `list` | No | List of services available at this counter |
+| `telephone` | `str` | No | Contact telephone number |
 
 ### Operations
 
@@ -227,21 +227,21 @@ self_registration_kiosk = client.SelfRegistrationKiosk()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address` | `str` | No |  |
-| `addressEn` | `str` | No |  |
-| `addressZh` | `str` | No |  |
-| `availability` | `str` | No |  |
-| `district` | `str` | No |  |
-| `floor` | `str` | No |  |
-| `id` | `str` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `name` | `str` | No |  |
-| `nameEn` | `str` | No |  |
-| `nameZh` | `str` | No |  |
-| `operatingHours` | `str` | No |  |
-| `region` | `str` | No |  |
-| `remarks` | `str` | No |  |
+| `address` | `str` | No | Full address of the kiosk |
+| `addressEn` | `str` | No | English address of the kiosk |
+| `addressZh` | `str` | No | Chinese address of the kiosk |
+| `availability` | `str` | No | Availability status of the kiosk |
+| `district` | `str` | No | District where the kiosk is located |
+| `floor` | `str` | No | Floor level where kiosk is located |
+| `id` | `str` | No | Unique identifier for the kiosk |
+| `latitude` | `float` | No | Latitude coordinate |
+| `longitude` | `float` | No | Longitude coordinate |
+| `name` | `str` | No | Name of the kiosk location |
+| `nameEn` | `str` | No | English name of the kiosk location |
+| `nameZh` | `str` | No | Chinese name of the kiosk location |
+| `operatingHours` | `str` | No | Operating hours of the kiosk |
+| `region` | `str` | No | Region (Hong Kong Island, Kowloon, New Territories) |
+| `remarks` | `str` | No | Additional remarks or notes |
 
 ### Operations
 
