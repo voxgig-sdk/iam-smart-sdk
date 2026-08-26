@@ -42,6 +42,7 @@ class IamSmartConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
