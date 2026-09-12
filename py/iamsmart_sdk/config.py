@@ -1,6 +1,14 @@
 # IamSmart SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -65,6 +73,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "latitude",
             "short": "Latitude coordinate",
             "type": "`$NUMBER`",
@@ -85,6 +94,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "longitude",
             "short": "Longitude coordinate",
             "type": "`$NUMBER`",
@@ -120,6 +130,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "mobile_registration_point",
         "op": {
           "list": {
@@ -131,16 +145,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/open_data/iam_smart/mobile-registration-points",
-                "parts": [
-                  "open_data",
-                  "iam_smart",
-                  "mobile-registration-points",
+                "segments": [
+                  {
+                    "lit": "open_data",
+                  },
+                  {
+                    "lit": "iam_smart",
+                  },
+                  {
+                    "lit": "mobile-registration-points",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "open_data",
+                  "iam_smart",
+                  "mobile-registration-points",
+                ],
               },
             ],
           },
@@ -177,11 +202,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "latitude",
             "short": "Latitude coordinate",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "longitude",
             "short": "Longitude coordinate",
             "type": "`$NUMBER`",
@@ -227,6 +254,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "registration_service_counter",
         "op": {
           "list": {
@@ -238,16 +269,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/open_data/iam_smart/registration-service-counters",
-                "parts": [
-                  "open_data",
-                  "iam_smart",
-                  "registration-service-counters",
+                "segments": [
+                  {
+                    "lit": "open_data",
+                  },
+                  {
+                    "lit": "iam_smart",
+                  },
+                  {
+                    "lit": "registration-service-counters",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "open_data",
+                  "iam_smart",
+                  "registration-service-counters",
+                ],
               },
             ],
           },
@@ -294,11 +336,13 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "double",
             "name": "latitude",
             "short": "Latitude coordinate",
             "type": "`$NUMBER`",
           },
           {
+            "format": "double",
             "name": "longitude",
             "short": "Longitude coordinate",
             "type": "`$NUMBER`",
@@ -334,6 +378,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "self_registration_kiosk",
         "op": {
           "list": {
@@ -345,16 +393,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/open_data/iam_smart/self-registration-kiosks",
-                "parts": [
-                  "open_data",
-                  "iam_smart",
-                  "self-registration-kiosks",
+                "segments": [
+                  {
+                    "lit": "open_data",
+                  },
+                  {
+                    "lit": "iam_smart",
+                  },
+                  {
+                    "lit": "self-registration-kiosks",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "open_data",
+                  "iam_smart",
+                  "self-registration-kiosks",
+                ],
               },
             ],
           },

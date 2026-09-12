@@ -48,12 +48,14 @@ main: kit: entity: self_registration_kiosk: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "latitude"
       req: false
       short: "Latitude coordinate"
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "longitude"
       req: false
       short: "Longitude coordinate"
@@ -110,10 +112,16 @@ main: kit: entity: self_registration_kiosk: {
         {
           method: "GET"
           orig: "/open_data/iam_smart/self-registration-kiosks"
-          parts: [
-            "open_data"
-            "iam_smart"
-            "self-registration-kiosks"
+          segments: [
+            {
+              lit: "open_data"
+            }
+            {
+              lit: "iam_smart"
+            }
+            {
+              lit: "self-registration-kiosks"
+            }
           ]
           transform: {
             req: "`reqdata`"

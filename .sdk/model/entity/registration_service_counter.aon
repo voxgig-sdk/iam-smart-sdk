@@ -36,12 +36,14 @@ main: kit: entity: registration_service_counter: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "latitude"
       req: false
       short: "Latitude coordinate"
       type: "`$NUMBER`"
     }
     {
+      format: "double"
       name: "longitude"
       req: false
       short: "Longitude coordinate"
@@ -110,10 +112,16 @@ main: kit: entity: registration_service_counter: {
         {
           method: "GET"
           orig: "/open_data/iam_smart/registration-service-counters"
-          parts: [
-            "open_data"
-            "iam_smart"
-            "registration-service-counters"
+          segments: [
+            {
+              lit: "open_data"
+            }
+            {
+              lit: "iam_smart"
+            }
+            {
+              lit: "registration-service-counters"
+            }
           ]
           transform: {
             req: "`reqdata`"

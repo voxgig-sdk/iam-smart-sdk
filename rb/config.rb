@@ -56,6 +56,7 @@ module IamSmartConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "latitude",
               "short" => "Latitude coordinate",
               "type" => "`$NUMBER`",
@@ -76,6 +77,7 @@ module IamSmartConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "longitude",
               "short" => "Longitude coordinate",
               "type" => "`$NUMBER`",
@@ -111,6 +113,10 @@ module IamSmartConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "mobile_registration_point",
           "op" => {
             "list" => {
@@ -122,16 +128,27 @@ module IamSmartConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/open_data/iam_smart/mobile-registration-points",
-                  "parts" => [
-                    "open_data",
-                    "iam_smart",
-                    "mobile-registration-points",
+                  "segments" => [
+                    {
+                      "lit" => "open_data",
+                    },
+                    {
+                      "lit" => "iam_smart",
+                    },
+                    {
+                      "lit" => "mobile-registration-points",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "open_data",
+                    "iam_smart",
+                    "mobile-registration-points",
+                  ],
                 },
               ],
             },
@@ -168,11 +185,13 @@ module IamSmartConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "latitude",
               "short" => "Latitude coordinate",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "double",
               "name" => "longitude",
               "short" => "Longitude coordinate",
               "type" => "`$NUMBER`",
@@ -218,6 +237,10 @@ module IamSmartConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "registration_service_counter",
           "op" => {
             "list" => {
@@ -229,16 +252,27 @@ module IamSmartConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/open_data/iam_smart/registration-service-counters",
-                  "parts" => [
-                    "open_data",
-                    "iam_smart",
-                    "registration-service-counters",
+                  "segments" => [
+                    {
+                      "lit" => "open_data",
+                    },
+                    {
+                      "lit" => "iam_smart",
+                    },
+                    {
+                      "lit" => "registration-service-counters",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "open_data",
+                    "iam_smart",
+                    "registration-service-counters",
+                  ],
                 },
               ],
             },
@@ -285,11 +319,13 @@ module IamSmartConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "double",
               "name" => "latitude",
               "short" => "Latitude coordinate",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "double",
               "name" => "longitude",
               "short" => "Longitude coordinate",
               "type" => "`$NUMBER`",
@@ -325,6 +361,10 @@ module IamSmartConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "self_registration_kiosk",
           "op" => {
             "list" => {
@@ -336,16 +376,27 @@ module IamSmartConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/open_data/iam_smart/self-registration-kiosks",
-                  "parts" => [
-                    "open_data",
-                    "iam_smart",
-                    "self-registration-kiosks",
+                  "segments" => [
+                    {
+                      "lit" => "open_data",
+                    },
+                    {
+                      "lit" => "iam_smart",
+                    },
+                    {
+                      "lit" => "self-registration-kiosks",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "open_data",
+                    "iam_smart",
+                    "self-registration-kiosks",
+                  ],
                 },
               ],
             },

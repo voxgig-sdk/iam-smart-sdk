@@ -18,6 +18,7 @@ main: kit: entity: mobile_registration_point: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "latitude"
       req: false
       short: "Latitude coordinate"
@@ -42,6 +43,7 @@ main: kit: entity: mobile_registration_point: {
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "longitude"
       req: false
       short: "Longitude coordinate"
@@ -98,10 +100,16 @@ main: kit: entity: mobile_registration_point: {
         {
           method: "GET"
           orig: "/open_data/iam_smart/mobile-registration-points"
-          parts: [
-            "open_data"
-            "iam_smart"
-            "mobile-registration-points"
+          segments: [
+            {
+              lit: "open_data"
+            }
+            {
+              lit: "iam_smart"
+            }
+            {
+              lit: "mobile-registration-points"
+            }
           ]
           transform: {
             req: "`reqdata`"

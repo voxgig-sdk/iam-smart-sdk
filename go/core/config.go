@@ -48,6 +48,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "latitude",
 						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
@@ -68,6 +69,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "longitude",
 						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
@@ -103,6 +105,10 @@ func MakeConfig() map[string]any {
 						"type": "`$ARRAY`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "mobile_registration_point",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -114,15 +120,26 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/open_data/iam_smart/mobile-registration-points",
-								"parts": []any{
-									"open_data",
-									"iam_smart",
-									"mobile-registration-points",
+								"segments": []any{
+									map[string]any{
+										"lit": "open_data",
+									},
+									map[string]any{
+										"lit": "iam_smart",
+									},
+									map[string]any{
+										"lit": "mobile-registration-points",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"open_data",
+									"iam_smart",
+									"mobile-registration-points",
 								},
 							},
 						},
@@ -160,11 +177,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "latitude",
 						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "longitude",
 						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
@@ -210,6 +229,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "registration_service_counter",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -221,15 +244,26 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/open_data/iam_smart/registration-service-counters",
-								"parts": []any{
-									"open_data",
-									"iam_smart",
-									"registration-service-counters",
+								"segments": []any{
+									map[string]any{
+										"lit": "open_data",
+									},
+									map[string]any{
+										"lit": "iam_smart",
+									},
+									map[string]any{
+										"lit": "registration-service-counters",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"open_data",
+									"iam_smart",
+									"registration-service-counters",
 								},
 							},
 						},
@@ -277,11 +311,13 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "latitude",
 						"short": "Latitude coordinate",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
+						"format": "double",
 						"name": "longitude",
 						"short": "Longitude coordinate",
 						"type": "`$NUMBER`",
@@ -317,6 +353,10 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "self_registration_kiosk",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -328,15 +368,26 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/open_data/iam_smart/self-registration-kiosks",
-								"parts": []any{
-									"open_data",
-									"iam_smart",
-									"self-registration-kiosks",
+								"segments": []any{
+									map[string]any{
+										"lit": "open_data",
+									},
+									map[string]any{
+										"lit": "iam_smart",
+									},
+									map[string]any{
+										"lit": "self-registration-kiosks",
+									},
 								},
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"open_data",
+									"iam_smart",
+									"self-registration-kiosks",
 								},
 							},
 						},
@@ -348,6 +399,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

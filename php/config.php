@@ -70,6 +70,7 @@ class IamSmartConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'double',
               'name' => 'latitude',
               'short' => 'Latitude coordinate',
               'type' => '`$NUMBER`',
@@ -90,6 +91,7 @@ class IamSmartConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'double',
               'name' => 'longitude',
               'short' => 'Longitude coordinate',
               'type' => '`$NUMBER`',
@@ -125,6 +127,10 @@ class IamSmartConfig
               'type' => '`$ARRAY`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'mobile_registration_point',
           'op' => [
             'list' => [
@@ -136,15 +142,26 @@ class IamSmartConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/open_data/iam_smart/mobile-registration-points',
-                  'parts' => [
-                    'open_data',
-                    'iam_smart',
-                    'mobile-registration-points',
+                  'segments' => [
+                    [
+                      'lit' => 'open_data',
+                    ],
+                    [
+                      'lit' => 'iam_smart',
+                    ],
+                    [
+                      'lit' => 'mobile-registration-points',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'open_data',
+                    'iam_smart',
+                    'mobile-registration-points',
                   ],
                 ],
               ],
@@ -182,11 +199,13 @@ class IamSmartConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'double',
               'name' => 'latitude',
               'short' => 'Latitude coordinate',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'double',
               'name' => 'longitude',
               'short' => 'Longitude coordinate',
               'type' => '`$NUMBER`',
@@ -232,6 +251,10 @@ class IamSmartConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'registration_service_counter',
           'op' => [
             'list' => [
@@ -243,15 +266,26 @@ class IamSmartConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/open_data/iam_smart/registration-service-counters',
-                  'parts' => [
-                    'open_data',
-                    'iam_smart',
-                    'registration-service-counters',
+                  'segments' => [
+                    [
+                      'lit' => 'open_data',
+                    ],
+                    [
+                      'lit' => 'iam_smart',
+                    ],
+                    [
+                      'lit' => 'registration-service-counters',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'open_data',
+                    'iam_smart',
+                    'registration-service-counters',
                   ],
                 ],
               ],
@@ -299,11 +333,13 @@ class IamSmartConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'double',
               'name' => 'latitude',
               'short' => 'Latitude coordinate',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'double',
               'name' => 'longitude',
               'short' => 'Longitude coordinate',
               'type' => '`$NUMBER`',
@@ -339,6 +375,10 @@ class IamSmartConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'self_registration_kiosk',
           'op' => [
             'list' => [
@@ -350,15 +390,26 @@ class IamSmartConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/open_data/iam_smart/self-registration-kiosks',
-                  'parts' => [
-                    'open_data',
-                    'iam_smart',
-                    'self-registration-kiosks',
+                  'segments' => [
+                    [
+                      'lit' => 'open_data',
+                    ],
+                    [
+                      'lit' => 'iam_smart',
+                    ],
+                    [
+                      'lit' => 'self-registration-kiosks',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'open_data',
+                    'iam_smart',
+                    'self-registration-kiosks',
                   ],
                 ],
               ],
