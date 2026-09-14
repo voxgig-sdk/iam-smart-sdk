@@ -105,7 +105,7 @@ local results, err = client:SelfRegistrationKiosk():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
+| TypeScript | `@voxgig-sdk/iam-smart-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
 | Python | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
 | PHP | `voxgig-sdk/iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/iam-smart-sdk/go` | `go get github.com/voxgig-sdk/iam-smart-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:SelfRegistrationKiosk():list()
 ### TypeScript
 
 ```ts
-import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
+import { IamSmartSDK } from '@voxgig-sdk/iam-smart-sdk'
 
 const client = new IamSmartSDK()
 

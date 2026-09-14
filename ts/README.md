@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
+import { IamSmartSDK } from '@voxgig-sdk/iam-smart-sdk'
 
 const client = new IamSmartSDK()
 ```
@@ -551,7 +551,7 @@ iam-smart/
 Import the SDK from the package root:
 
 ```ts
-import { IamSmartSDK } from '@voxgig-sdk/iam-smart'
+import { IamSmartSDK } from '@voxgig-sdk/iam-smart-sdk'
 ```
 
 ### Entity state

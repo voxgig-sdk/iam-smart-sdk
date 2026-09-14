@@ -1240,7 +1240,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/iam-smart-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {
