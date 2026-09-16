@@ -1,12 +1,18 @@
 # IamSmart SDK feature factory
 
 from iamsmart_sdk.feature.base_feature import IamSmartBaseFeature
+from iamsmart_sdk.feature.ratelimit_feature import IamSmartRatelimitFeature
+from iamsmart_sdk.feature.retry_feature import IamSmartRetryFeature
 from iamsmart_sdk.feature.test_feature import IamSmartTestFeature
+from iamsmart_sdk.feature.timeout_feature import IamSmartTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: IamSmartBaseFeature(),
+    "ratelimit": lambda: IamSmartRatelimitFeature(),
+    "retry": lambda: IamSmartRetryFeature(),
     "test": lambda: IamSmartTestFeature(),
+    "timeout": lambda: IamSmartTimeoutFeature(),
 }
 
 

@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { IamSmartSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('SelfRegistrationKioskEntity', async () => {
 
     const live = 'TRUE' === process.env.IAM_SMART_TEST_LIVE
     for (const op of ['list']) {
-      if (maybeSkipControl(t, 'entityOp', 'self_registration_kiosk.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'self_registration_kiosk.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set IAM_SMART_TEST_SELF_REGISTRATION_KIOSK_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"address","req":false,"short":"Full address of the kiosk","type":"`$STRING`","index$":0},{"active":true,"name":"addressEn","req":false,"short":"English address of the kiosk","type":"`$STRING`","index$":1},{"active":true,"name":"addressZh","req":false,"short":"Chinese address of the kiosk","type":"`$STRING`","index$":2},{"active":true,"name":"availability","req":false,"short":"Availability status of the kiosk","type":"`$STRING`","index$":3},{"active":true,"name":"district","req":false,"short":"District where the kiosk is located","type":"`$STRING`","index$":4},{"active":true,"name":"floor","req":false,"short":"Floor level where kiosk is located","type":"`$STRING`","index$":5},{"active":true,"name":"id","req":false,"short":"Unique identifier for the kiosk","type":"`$STRING`","index$":6},{"active":true,"format":"double","name":"latitude","req":false,"short":"Latitude coordinate","type":"`$NUMBER`","index$":7},{"active":true,"format":"double","name":"longitude","req":false,"short":"Longitude coordinate","type":"`$NUMBER`","index$":8},{"active":true,"name":"name","req":false,"short":"Name of the kiosk location","type":"`$STRING`","index$":9},{"active":true,"name":"nameEn","req":false,"short":"English name of the kiosk location","type":"`$STRING`","index$":10},{"active":true,"name":"nameZh","req":false,"short":"Chinese name of the kiosk location","type":"`$STRING`","index$":11},{"active":true,"name":"operatingHours","req":false,"short":"Operating hours of the kiosk","type":"`$STRING`","index$":12},{"active":true,"name":"region","req":false,"short":"Region (Hong Kong Island, Kowloon, New Territories)","type":"`$STRING`","index$":13},{"active":true,"name":"remarks","req":false,"short":"Additional remarks or notes","type":"`$STRING`","index$":14}],"id":{"field":"id","name":"id"},"name":"self_registration_kiosk","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{},"contract":{"id":"GET /open_data/iam_smart/self-registration-kiosks","json":"{\"operationId\":\"getSelfRegistrationKiosks\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"description\":\"Information about a self-registration kiosk location\",\"properties\":{\"address\":{\"description\":\"Full address of the kiosk\",\"type\":\"string\"},\"addressEn\":{\"description\":\"English address of the kiosk\",\"type\":\"string\"},\"addressZh\":{\"description\":\"Chinese address of the kiosk\",\"type\":\"string\"},\"availability\":{\"description\":\"Availability status of the kiosk\",\"enum\":[\"Available\",\"Temporarily Unavailable\",\"Under Maintenance\"],\"type\":\"string\"},\"district\":{\"description\":\"District where the kiosk is located\",\"type\":\"string\"},\"floor\":{\"description\":\"Floor level where kiosk is located\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the kiosk\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"format\":\"double\",\"type\":\"number\"},\"name\":{\"description\":\"Name of the kiosk location\",\"type\":\"string\"},\"nameEn\":{\"description\":\"English name of the kiosk location\",\"type\":\"string\"},\"nameZh\":{\"description\":\"Chinese name of the kiosk location\",\"type\":\"string\"},\"operatingHours\":{\"description\":\"Operating hours of the kiosk\",\"type\":\"string\"},\"region\":{\"description\":\"Region (Hong Kong Island, Kowloon, New Territories)\",\"enum\":[\"Hong Kong Island\",\"Kowloon\",\"New Territories\"],\"type\":\"string\"},\"remarks\":{\"description\":\"Additional remarks or notes\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response containing self-registration kiosk locations\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"description\":\"Error response object\",\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"message\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"}},\"required\":[\"code\",\"message\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/open_data/iam_smart/self-registration-kiosks","segments":[{"lit":"open_data"},{"lit":"iam_smart"},{"lit":"self-registration-kiosks"}],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"self_registration_kiosk","name__orig":"self_registration_kiosk","Name":"SelfRegistrationKiosk","name_":"self_registration_kiosk","name-":"self-registration-kiosk","NAME":"SELF_REGISTRATION_KIOSK","index$":2}, {"active":true,"entity":"self_registration_kiosk","key$":"BasicSelfRegistrationKioskFlow","kind":"basic","name":"BasicSelfRegistrationKioskFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"self_registration_kiosk_ref01"}}],"index$":0}]}, 'SelfRegistrationKiosk')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['IAM_SMART_TEST_SELF_REGISTRATION_KIOSK_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'IAM_SMART_TEST_SELF_REGISTRATION_KIOSK_ENTID': idmap,
     'IAM_SMART_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.IAM_SMART_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['IAM_SMART_TEST_SELF_REGISTRATION_KIOSK_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new IamSmartSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.IAM_SMART_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 
