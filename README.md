@@ -105,12 +105,12 @@ local results, err = client:SelfRegistrationKiosk():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/iam-smart-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
-| Python | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
-| PHP | `voxgig-sdk/iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
+| TypeScript | `@voxgig-sdk/iam-smart-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/tags) |
+| Python | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/tags) |
+| PHP | `voxgig-sdk/iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/iam-smart-sdk/go` | `go get github.com/voxgig-sdk/iam-smart-sdk/go@latest` |
-| Ruby | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
-| Lua | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/releases) |
+| Ruby | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/tags) |
+| Lua | `voxgig-sdk-iam-smart` | publish pending — [install from git tag](https://github.com/voxgig-sdk/iam-smart-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/iam-smart-sdk/go-cli` | `go install github.com/voxgig-sdk/iam-smart-sdk/go-cli/cmd/iam-smart@latest` |
 | Go MCP server | `github.com/voxgig-sdk/iam-smart-sdk/go-mcp` | `go get github.com/voxgig-sdk/iam-smart-sdk/go-mcp@latest` |
 

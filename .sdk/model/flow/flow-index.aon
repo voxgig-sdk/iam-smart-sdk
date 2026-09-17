@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicMobileRegistrationPointFlow.aon"
-@"BasicRegistrationServiceCounterFlow.aon"
-@"BasicSelfRegistrationKioskFlow.aon"
+@"./BasicMobileRegistrationPointFlow.aon"
+@"./BasicRegistrationServiceCounterFlow.aon"
+@"./BasicSelfRegistrationKioskFlow.aon"

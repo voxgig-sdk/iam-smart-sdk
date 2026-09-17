@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      mobile_registration_point: {
-      },
-
-      registration_service_counter: {
-      },
-
-      self_registration_kiosk: {
-      },
-
+        mobile_registration_point: {
+        },
+  
+        registration_service_counter: {
+        },
+  
+        self_registration_kiosk: {
+        },
+  
     }
   }
 

@@ -1,5 +1,5 @@
 # Entity Models
 
-@"mobile_registration_point.aon"
-@"registration_service_counter.aon"
-@"self_registration_kiosk.aon"
+@"./mobile_registration_point.aon"
+@"./registration_service_counter.aon"
+@"./self_registration_kiosk.aon"
